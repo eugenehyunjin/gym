@@ -10,20 +10,16 @@
       #header {
         padding: 5px;
         margin-bottom: 5px;
+        background-color: black;
         border: 0px solid #bcbcbc;
-         background-color: lightgreen;
       }
-     
       #content {
-        width: 1000px;
-        height: 800px
-        padding: 5px;
-        margin-right: 5px;
-        float: left;
+      	position:absolute;
+        padding: 5px;       
         border: 0px solid #bcbcbc;
       }
       #footer {
-        clear: both;
+        clear:both;
         padding: 5px;
         border: 0px solid #bcbcbc;
          background-color: lightblue;
@@ -57,6 +53,7 @@
 		<div id="header">
 			<tiles:insertAttribute name="header"/>
 		</div>
+		<div id="clear"></div>
 		<div id="content">
 			<tiles:insertAttribute name="body"/>
 		</div>
