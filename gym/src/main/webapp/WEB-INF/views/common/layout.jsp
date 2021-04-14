@@ -14,11 +14,12 @@
         border: 0px solid #bcbcbc;
       }
       #content {
-      	position:absolute;
+
         padding: 5px;       
         border: 0px solid #bcbcbc;
       }
       #footer {
+      	display:block;
         clear:both;
         padding: 5px;
         border: 0px solid #bcbcbc;
