@@ -13,7 +13,14 @@
 <head>
   <meta charset="UTF-8">
 <title>헤더</title>
+ <style type="text/css">
+
+ .logo{
+ 	margin-top: -30px;
+ 	margin-left: 20px;
+ }
  
+ </style>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -68,7 +75,7 @@
                 <div class="col-lg-3">
                     <div class="logo">
                         <a href="./main.do">
-                            <img src="resources/img/logo_pg.png" alt=""> </a>
+                            <img src="resources/img/logo2.png" alt=""> </a>
                     </div>
                 </div>
                 <div class="col-lg-6">

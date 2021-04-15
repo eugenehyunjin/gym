@@ -43,7 +43,7 @@
                     <div class="contact-widget">
                         <div class="cw-text">
                             <i class="fa fa-map-marker"></i>
-                            <p>333 Middle Winchendon Rd, Rindge,<br/> NH 03461</p>
+                            <p>경기도 구리시 인창동 670-1 태영빌딩<br/> 4층 409호</p>
                         </div>
                         <div class="cw-text">
                             <i class="fa fa-mobile"></i>
@@ -86,7 +86,7 @@
                 <div class="col-md-4">
                     <div class="gt-text">
                         <i class="fa fa-map-marker"></i>
-                        <p>333 Middle Winchendon Rd, Rindge,<br/> NH 03461</p>
+                        <p>경기도 구리시 인창동 670-1 태영빌딩<br/> 4층 409호</p>
                     </div>
                 </div>
                 <div class="col-md-4">

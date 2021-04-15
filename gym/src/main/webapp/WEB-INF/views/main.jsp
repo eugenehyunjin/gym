@@ -80,7 +80,7 @@
                                     <h5>LOGIN</h5>
                                     <form name="frm">
                                         <input type="text" placeholder="ID" name="id">
-                                        <input type="text" placeholder="PASSWORD" name="pwd">
+                                        <input type="password" placeholder="PASSWORD" name="pwd">
                                         <button type="submit" onclick="checkid()">Submit</button>
                                     </form>
                                 </div>

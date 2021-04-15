@@ -17,10 +17,10 @@
                 <div class="col-lg-4">
                     <div class="fs-about">
                         <div class="fa-logo">
-                            <a href="#"><img src="resources/img/logo_pg.png" alt=""></a>
+                            <a href="#"><img src="resources/img/logo2.png" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore dolore magna aliqua endisse ultrices gravida lorem.</p>
+                        <p>건강과 삶이 어우러지는 복합 문화 공간을 만들기 위해 
+                        하루하루 더 나아지는 프라이빗 짐이 되겠습니다.</p>
                         <div class="fa-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
