@@ -32,23 +32,27 @@
         </div>
         <nav class="canvas-menu mobile-menu">
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./classes.html">Classes</a></li>
-                <li><a href="./services.html">Services</a></li>
-                <li><a href="./team.html">Our Team</a></li>
+                <li><a href="./index.jsp">Home</a></li>
+                <li><a href="./about-us.jsp">About Us</a></li>
+                <li><a href="./classes.jsp">Classes</a></li>
+                <li><a href="./services.jsp">Services</a></li>
+                <li><a href="./team.jsp">Our Team</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="dropdown">
-                        <li><a href="./about-us.html">About us</a></li>
-                        <li><a href="./class-timetable.html">Classes timetable</a></li>
-                        <li><a href="./bmi-calculator.html">Bmi calculate</a></li>
-                        <li><a href="./team.html">Our team</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./blog.html">Our blog</a></li>
-                        <li><a href="./404.html">404</a></li>
+                        <li><a href="./about-us.jsp">About us</a></li>
+                        <li><a href="./class-timetable.jsp">Classes timetable</a></li>
+                        <li><a href="./bmi-calculator.jsp">Bmi calculate</a></li>
+                        <li><a href="./team.jsp">Our team</a></li>
+                        <li><a href="./gallery.jsp">Gallery</a></li>
+                        <li><a href="./blog.jsp">Our blog</a></li>
+                        <li><a href="./404.jsp">404</a></li>
                     </ul>
                 </li>
+<<<<<<< HEAD
+                <li><a href="./contact.jsp">Contact</a></li>
+=======
                 <li><a href="${contextPath }/contact.do">Contact</a></li>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -60,38 +64,47 @@
         </div>
     </div>
     <!-- Offcanvas Menu Section End -->
-
+                        
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
+<<<<<<< HEAD
+                        <a href="./index.jsp">
+                            <img src="resources/img/logo_pg.png" alt="">
+=======
                         <a href="./main.do">
                             <img src="resources/img/logo.png" alt="">
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
-                            <li><a href="./class-details.html">Classes</a></li>
-                            <li><a href="./services.html">Services</a></li>
-                            <li><a href="./team.html">Our Team</a></li>
+                            <li class="active"><a href="./index.jsp">Home</a></li>
+                            <li><a href="./about-us.jsp">About Us</a></li>
+                            <li><a href="./class-details.jsp">Classes</a></li>
+                            <li><a href="./services.jsp">Services</a></li>
+                            <li><a href="./team.jsp">Our Team</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about-us.html">About us</a></li>
-                                    <li><a href="./class-timetable.html">Classes timetable</a></li>
-                                    <li><a href="./bmi-calculator.html">Bmi calculate</a></li>
-                                    <li><a href="./team.html">Our team</a></li>
-                                    <li><a href="./gallery.html">Gallery</a></li>
-                                    <li><a href="./blog.html">Our blog</a></li>
-                                    <li><a href="./404.html">404</a></li>
+                                    <li><a href="./about-us.jsp">About us</a></li>
+                                    <li><a href="./class-timetable.jsp">Classes timetable</a></li>
+                                    <li><a href="./bmi-calculator.jsp">Bmi calculate</a></li>
+                                    <li><a href="./team.jsp">Our team</a></li>
+                                    <li><a href="./gallery.jsp">Gallery</a></li>
+                                    <li><a href="./blog.jsp">Our blog</a></li>
+                                    <li><a href="./404.jsp">404</a></li>
                                 </ul>
                             </li>
+<<<<<<< HEAD
+                            <li><a href="./contact.jsp">Contact</a></li>
+=======
                             <li><a href="${contextPath }/contact.do">Contact</a></li>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                         </ul>
                     </nav>
                 </div>

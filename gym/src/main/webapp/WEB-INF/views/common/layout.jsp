@@ -14,8 +14,12 @@
         border: 0px solid #bcbcbc;
       }
       #content {
+<<<<<<< HEAD
+        padding: 5px;       
+=======
 
                
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
         border: 0px solid #bcbcbc;
       }
       #footer {
@@ -23,7 +27,6 @@
         clear:both;
         
         border: 0px solid #bcbcbc;
-         background-color: lightblue;
       }
       
     </style>
