@@ -13,12 +13,17 @@
 <script type="text/javascript">
 	
 	function checkid(){
-		let id = document.getElementById("id");
-		let pwd = document.getElementById("pwd");
-		if(id == null){
+		let id = document.getElementsByName("id")[0].value;
+		let pwd = document.getElementsByName("pwd")[0].value;
+		var frm = document.frm;
+		
+		
+		if(id==null || id == ''){
 			alert('아이디를 입력해주세요');
-		}else if(pwd==''){
+			document.getElementsByName('id')[0].focus();
+		}else if(pwd==null || pwd == ''){
 			alert('비밀번호를 입력해주세요');
+			document.getElementsByName('pwd')[0].focus();
 		}else{
 			frm.method = 'get';
 			frm.action = '/#';
@@ -81,7 +86,11 @@
                                     <form name="frm">
                                         <input type="text" placeholder="ID" name="id">
                                         <input type="password" placeholder="PASSWORD" name="pwd">
+<<<<<<< HEAD
                                         <button type="submit" onclick="checkid()">Submit</button>
+=======
+                                        <button type="button" onclick="checkid()">Submit</button>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                     </form>
                                 </div>
                             </div>
