@@ -1,26 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-    <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
 <head>
   <style>
       #header {
-        padding: 5px;
-        margin-bottom: 5px;
+        
+       
         background-color: black;
         border: 0px solid #bcbcbc;
       }
       #content {
+<<<<<<< HEAD
         padding: 5px;       
+=======
+
+               
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
         border: 0px solid #bcbcbc;
       }
       #footer {
       	display:block;
         clear:both;
-        padding: 5px;
+        
         border: 0px solid #bcbcbc;
       }
       

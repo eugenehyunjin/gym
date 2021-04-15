@@ -48,7 +48,11 @@
                         <li><a href="./404.jsp">404</a></li>
                     </ul>
                 </li>
+<<<<<<< HEAD
                 <li><a href="./contact.jsp">Contact</a></li>
+=======
+                <li><a href="${contextPath }/contact.do">Contact</a></li>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -67,8 +71,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
+<<<<<<< HEAD
                         <a href="./index.jsp">
                             <img src="resources/img/logo_pg.png" alt="">
+=======
+                        <a href="./main.do">
+                            <img src="resources/img/logo.png" alt="">
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                         </a>
                     </div>
                 </div>
@@ -91,7 +100,11 @@
                                     <li><a href="./404.jsp">404</a></li>
                                 </ul>
                             </li>
+<<<<<<< HEAD
                             <li><a href="./contact.jsp">Contact</a></li>
+=======
+                            <li><a href="${contextPath }/contact.do">Contact</a></li>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                         </ul>
                     </nav>
                 </div>
