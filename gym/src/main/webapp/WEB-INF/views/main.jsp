@@ -13,12 +13,17 @@
 <script type="text/javascript">
 	
 	function checkid(){
-		let id = document.getElementById("id");
-		let pwd = document.getElementById("pwd");
-		if(id == null){
+		let id = document.getElementsByName("id")[0].value;
+		let pwd = document.getElementsByName("pwd")[0].value;
+		var frm = document.frm;
+		
+		
+		if(id==null || id == ''){
 			alert('아이디를 입력해주세요');
-		}else if(pwd==''){
+			document.getElementsByName('id')[0].focus();
+		}else if(pwd==null || pwd == ''){
 			alert('비밀번호를 입력해주세요');
+			document.getElementsByName('pwd')[0].focus();
 		}else{
 			frm.method = 'get';
 			frm.action = '/#';
@@ -80,8 +85,8 @@
                                     <h5>LOGIN</h5>
                                     <form name="frm">
                                         <input type="text" placeholder="ID" name="id">
-                                        <input type="text" placeholder="PASSWORD" name="pwd">
-                                        <button type="submit" onclick="checkid()">Submit</button>
+                                        <input type="password" placeholder="PASSWORD" name="pwd">
+                                        <button type="button" onclick="checkid()">Submit</button>
                                     </form>
                                 </div>
                             </div>
