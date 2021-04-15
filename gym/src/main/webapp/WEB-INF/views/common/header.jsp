@@ -13,14 +13,7 @@
 <head>
   <meta charset="UTF-8">
 <title>헤더</title>
- <style type="text/css">
-
- .logo{
- 	margin-top: -30px;
- 	margin-left: 20px;
- }
  
- </style>
 </head>
 <body>
 <!-- Page Preloder -->

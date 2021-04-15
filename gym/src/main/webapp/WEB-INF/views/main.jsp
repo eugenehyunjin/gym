@@ -86,11 +86,8 @@
                                     <form name="frm">
                                         <input type="text" placeholder="ID" name="id">
                                         <input type="password" placeholder="PASSWORD" name="pwd">
-<<<<<<< HEAD
-                                        <button type="submit" onclick="checkid()">Submit</button>
-=======
+                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
                                         <button type="button" onclick="checkid()">Submit</button>
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                     </form>
                                 </div>
                             </div>
