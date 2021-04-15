@@ -14,7 +14,6 @@
         border: 0px solid #bcbcbc;
       }
       #content {
-
         padding: 5px;       
         border: 0px solid #bcbcbc;
       }
@@ -23,7 +22,6 @@
         clear:both;
         padding: 5px;
         border: 0px solid #bcbcbc;
-         background-color: lightblue;
       }
       
     </style>

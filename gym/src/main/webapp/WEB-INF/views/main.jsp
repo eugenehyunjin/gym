@@ -43,7 +43,6 @@
                             <div class="hi-text">
                                 <span>Shape your body</span>
                                 <h1>Be <strong>strong</strong> training hard</h1>
-                                <a href="#" class="primary-btn">LOGIN</a>
                             </div>
                         </div>
                     </div>

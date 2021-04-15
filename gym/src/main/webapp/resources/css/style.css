@@ -332,6 +332,11 @@ ol {
 	z-index: 99;
 }
 
+.logo img{
+	width: 250px;
+	height: 100px;
+}
+
 .logo a {
 	display: inline-block;
 }
@@ -1170,6 +1175,11 @@ ol {
 
 .fs-about .fa-logo {
 	margin-bottom: 30px;
+}
+
+.fa-logo {
+	width: 330px;
+	height: 200px;
 }
 
 .fs-about .fa-logo a {

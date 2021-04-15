@@ -17,7 +17,7 @@
                 <div class="col-lg-4">
                     <div class="fs-about">
                         <div class="fa-logo">
-                            <a href="#"><img src="resources/img/logo.png" alt=""></a>
+                            <a href="#"><img src="resources/img/logo_pg.png" alt=""></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore dolore magna aliqua endisse ultrices gravida lorem.</p>
