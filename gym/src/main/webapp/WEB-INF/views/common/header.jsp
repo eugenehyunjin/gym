@@ -48,7 +48,7 @@
                         <li><a href="./404.html">404</a></li>
                     </ul>
                 </li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="${contextPath }/contact.do">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="./main.do">
                             <img src="resources/img/logo.png" alt="">
                         </a>
                     </div>
@@ -91,7 +91,7 @@
                                     <li><a href="./404.html">404</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="${contextPath }/contact.do">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

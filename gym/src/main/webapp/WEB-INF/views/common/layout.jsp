@@ -8,20 +8,20 @@
 <head>
   <style>
       #header {
-        padding: 5px;
-        margin-bottom: 5px;
+        
+       
         background-color: black;
         border: 0px solid #bcbcbc;
       }
       #content {
 
-        padding: 5px;       
+               
         border: 0px solid #bcbcbc;
       }
       #footer {
       	display:block;
         clear:both;
-        padding: 5px;
+        
         border: 0px solid #bcbcbc;
          background-color: lightblue;
       }

@@ -27,4 +27,8 @@ public class HomeController {
 		return "main";
 	}
 	
+	@RequestMapping(value = "/contact.do", method = RequestMethod.GET)
+	public String contact(Locale locale, Model model) {
+		return "contact";
+	}
 }

@@ -15,12 +15,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/main.jsp"></put-attribute>
 	</definition>
 	
-	<!-- <definition name="/project/listMembers" extends="baseLayout">
-		<put-attribute name="title" value="회원목록창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>
+	<definition name="contact" extends="baseLayout">
+		<put-attribute name="title" value="연락처"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/contact.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="/project/loginForm" extends="baseLayout">
+	<!-- <definition name="/project/loginForm" extends="baseLayout">
 		<put-attribute name="title" value="로그인창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/project/loginForm.jsp"></put-attribute>
 	</definition>
