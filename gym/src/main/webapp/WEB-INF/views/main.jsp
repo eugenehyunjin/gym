@@ -13,32 +13,23 @@
 <script type="text/javascript">
 	
 	function checkid(){
-		var id = document.getElementById("id");
-		var pwd = document.getElementById("pwd");
-		var frm = document.frm;
-		if(id==null){
+		let id = document.getElementById("id");
+		let pwd = document.getElementById("pwd");
+		if(id == null){
 			alert('아이디를 입력해주세요');
-		}else if(pwd==null){
+		}else if(pwd==''){
 			alert('비밀번호를 입력해주세요');
 		}else{
 			frm.method = 'get';
-			frm.action = '/home.do';
+			frm.action = '/#';
 			frm.submit();
 		}
 	}
 
 </script>
-<style type="text/css">
-.primary-btn {
-	margin-top: 20px;	
-}
-
-</style>
-
 </head>
 <body>
 <!-- Hero Section Begin -->
-<form name="frm">
     <section class="hero-section">
         <div class="hs-slider owl-carousel">
             <div class="hs-item set-bg" data-setbg="resources/img/hero/hero1.jpg">
@@ -48,8 +39,8 @@
                             <div class="hi-text">
                                 <span>Shape your body</span>
                                 <h1>Be <strong>strong</strong> training hard</h1>
-                                
-                                <div class="hi-login">
+                                <a href="${contextPath }/contact.do" class="primary-btn">contact</a>
+                               <!-- <div class="hi-login">
 	                                <h3>ID</h3>
 	                                	<input type="text"  name="id"/>
 	                                <h3>PW</h3>
@@ -57,7 +48,7 @@
                                 	<div>
                                 		<input type="button" class="primary-btn" value="LOGIN" onclick="checkid()">
                                 	</div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -78,7 +69,79 @@
             </div>
         </div>
     </section>
-     </form>
+    
+    <section class="blog-details-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 p-0 m-auto">
+                    <div class="blog-details-text">
+						<div class="row">
+						  <div class="col-lg-6">
+                                <div class="leave-comment">
+                                    <h5>LOGIN</h5>
+                                    <form name="frm">
+                                        <input type="text" placeholder="ID" name="id">
+                                        <input type="text" placeholder="PASSWORD" name="pwd">
+                                        <button type="submit" onclick="checkid()">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="comment-option">
+                                    <h5 class="co-title">Comment</h5>
+                                    <div class="co-item">
+                                        <div class="co-widget">
+                                            <a href="#"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#"><i class="fa fa-share-square-o"></i></a>
+                                        </div>
+                                        <div class="co-pic">
+                                            <img src="resources/img/blog/details/comment-1.jpg" alt="">
+                                            <h5>Brandon Kelley</h5>
+                                        </div>
+                                        <div class="co-text">
+                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
+                                                adipisci velit dolore.</p>
+                                        </div>
+                                    </div>
+                                    <div class="co-item reply-comment">
+                                        <div class="co-widget">
+                                            <a href="#"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#"><i class="fa fa-share-square-o"></i></a>
+                                        </div>
+                                        <div class="co-pic">
+                                            <img src="resources/img/blog/details/comment-2.jpg" alt="">
+                                            <h5>Brandon Kelley</h5>
+                                        </div>
+                                        <div class="co-text">
+                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
+                                                adipisci velit dolore.</p>
+                                        </div>
+                                    </div>
+                                    <div class="co-item">
+                                        <div class="co-widget">
+                                            <a href="#"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#"><i class="fa fa-share-square-o"></i></a>
+                                        </div>
+                                        <div class="co-pic">
+                                            <img src="resources/img/blog/details/comment-3.jpg" alt="">
+                                            <h5>Brandon Kelley</h5>
+                                        </div>
+                                        <div class="co-text">
+                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
+                                                adipisci velit dolore.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                       </div>
+                      </div>
+                    </div>
+                 </div>
+          </section> 
+                        
+                        
     <!-- Hero Section End -->
 
 </body>
