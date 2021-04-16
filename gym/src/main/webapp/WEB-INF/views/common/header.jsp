@@ -13,7 +13,14 @@
 <head>
   <meta charset="UTF-8">
 <title>헤더</title>
- 
+ <style type="text/css">
+ .login{ color: white;}
+ .login:hover { color: orange;}
+ .nav-menu ul li a{
+ 	font-family: "Godic";
+ 	font-size: 20px;
+ }
+ </style>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -36,7 +43,7 @@
                 <li><a href="./about-us.jsp">About Us</a></li>
                 <li><a href="./classes.jsp">Classes</a></li>
                 <li><a href="./services.jsp">Services</a></li>
-                <li><a href="./team.jsp">Our Team</a></li>
+                <li><a href="${contextPath }/team.do">Our Team</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="dropdown">
                         <li><a href="./about-us.jsp">About us</a></li>
@@ -74,30 +81,29 @@
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li class="active"><a href="${contextPath }/main.do">Home</a></li>
-                            <li><a href="./about-us.jsp">About Us</a></li>
-                            <li><a href="./class-details.jsp">Classes</a></li>
-                            <li><a href="./services.jsp">Services</a></li>
-                            <li><a href="./team.jsp">Our Team</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about-us.jsp">About us</a></li>
-                                    <li><a href="./class-timetable.jsp">Classes timetable</a></li>
-                                    <li><a href="./bmi-calculator.jsp">Bmi calculate</a></li>
-                                    <li><a href="./team.jsp">Our team</a></li>
-                                    <li><a href="./gallery.jsp">Gallery</a></li>
-                                    <li><a href="./blog.jsp">Our blog</a></li>
-                                    <li><a href="./404.jsp">404</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="${contextPath }/contact.do">Contact</a></li>
+                            <li class="active"><a href="${contextPath }/main.do">홈</a></li>
+                            <li><a href="./about-us.jsp">커리큘럼</a></li>
+                            <li><a href="./class-details.jsp">트레이너</a></li>
+                            <li><a href="./services.jsp">예약페이지</a></li>
+                            <li><a href="${contextPath }/team.do">팀</a></li>
+                            <li><a href="${contextPath }/blog.do">공지사항</a></li>
+							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="top-option">
                         <div class="to-search search-switch">
-                            <i class="fa fa-search"></i>
+                          <c:choose>
+                            	<c:when test="${id != null}">
+                            		 <span style="color: white;">${id }님</span>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/myPage.do">MYPAGE</a>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
+                          		</c:when>
+                          		<c:otherwise>
+                          			 <a class="login" href="${contextPath }/memberForm.do">JOIN</a>
+                          		</c:otherwise>
+                            </c:choose>
                         </div>
                         <div class="to-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
