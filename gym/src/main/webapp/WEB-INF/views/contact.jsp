@@ -4,6 +4,7 @@
 <%
   request.setCharacterEncoding("UTF-8");
 %>    
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
                     <div class="breadcrumb-text">
                         <h2>Contact Us</h2>
                         <div class="bt-option">
-                            <a href="./index.html">Home</a>
+                            <a href="${contextPath }/main.do">Home</a>
                             <a href="#">Pages</a>
                             <span>Contact us</span>
                         </div>

@@ -4,11 +4,19 @@
 <%
   request.setCharacterEncoding("UTF-8");
 %>    
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
+<style type="text/css">
+.ment{
+	font-size: 25px; 
+	color: white;
+}
+</style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	
@@ -26,11 +34,14 @@
 			document.getElementsByName('pwd')[0].focus();
 		}else{
 			frm.method = 'get';
-			frm.action = '/#';
+			frm.action = '${contextPath}/checklogin.do';
 			frm.submit();
 		}
 	}
 
+	function memberForm(){
+		location.href='${contextPath}/memberForm.do';	
+	}
 </script>
 </head>
 <body>
@@ -81,19 +92,37 @@
                     <div class="blog-details-text">
 						<div class="row">
 						  <div class="col-lg-6">
-                                <div class="leave-comment">
-                                    <h5>LOGIN</h5>
-                                    <form name="frm">
-                                        <input type="text" placeholder="ID" name="id">
-                                        <input type="password" placeholder="PASSWORD" name="pwd">
-                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
-                                        <button type="button" onclick="checkid()">Submit</button>
-                                    </form>
-                                </div>
+						  	<c:choose>
+                            	<c:when test="${id != null}">
+                            	   	<div class="leave-comment">
+							  			<h5>welcome!</h5>
+							  			<form name="frm">
+								  			<p class="ment">${id }님을 환영합니다.</p>
+								  			<p class="ment">저희 프라이빗 짐에서 더욱 건강하고 아름다운 자신을 찾아 보세요!</p>
+								  			<button type="button" onclick="location.href='${contextPath }/mypage.do'">마이페이지</button>
+		                                        <p></p>
+		                                    <button type="button" onclick="location.href='${contextPath }/logout.do'">로그아웃</button>
+	                                    </form>
+						  			</div>
+                          		</c:when>
+                          		<c:otherwise>
+	                          		<div class="leave-comment">
+	                                    <h5>LOGIN</h5>
+	                                    <form name="frm">
+	                                        <input type="text" placeholder="ID" name="id">
+	                                        <input type="password" placeholder="PASSWORD" name="pwd">
+	                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
+	                                        <button type="button" onclick="checkid()">로그인</button>
+	                                        <p></p>
+	                                        <button type="button" onclick="memberForm()">회원가입</button>
+	                                    </form>
+	                                </div>
+                          		</c:otherwise>
+                            </c:choose>
                             </div>
                             <div class="col-lg-6">
                                 <div class="comment-option">
-                                    <h5 class="co-title">Comment</h5>
+                                    <h5 class="co-title">This Month Events</h5>
                                     <div class="co-item">
                                         <div class="co-widget">
                                             <a href="#"><i class="fa fa-heart-o"></i></a>
@@ -101,11 +130,10 @@
                                         </div>
                                         <div class="co-pic">
                                             <img src="resources/img/blog/details/comment-1.jpg" alt="">
-                                            <h5>Brandon Kelley</h5>
+                                            <h5>학생 할인</h5>
                                         </div>
                                         <div class="co-text">
-                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
-                                                adipisci velit dolore.</p>
+                                            <p>이번달 학생들을 위한 이벤트! 학생증 지참시 20% 할인과 동시에 이벤트 경품 증정!</p>
                                         </div>
                                     </div>
                                     <div class="co-item reply-comment">
@@ -115,11 +143,10 @@
                                         </div>
                                         <div class="co-pic">
                                             <img src="resources/img/blog/details/comment-2.jpg" alt="">
-                                            <h5>Brandon Kelley</h5>
+                                            <h5>추첨 이벤트</h5>
                                         </div>
                                         <div class="co-text">
-                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
-                                                adipisci velit dolore.</p>
+                                            <p>출석율 80% 달성시 추첨을 통해 홈트 기구 세트를 증정해 드립니다!</p>
                                         </div>
                                     </div>
                                     <div class="co-item">
@@ -129,11 +156,10 @@
                                         </div>
                                         <div class="co-pic">
                                             <img src="resources/img/blog/details/comment-3.jpg" alt="">
-                                            <h5>Brandon Kelley</h5>
+                                            <h5>단백질 pro500s 이벤트</h5>
                                         </div>
                                         <div class="co-text">
-                                            <p>Neque porro quisquam est, qui dolorem ipsum dolor sit amet, consectetur,
-                                                adipisci velit dolore.</p>
+                                            <p>저희 헬스장에서 단백질 pro500s 구매하신 모든 회원님들에게 추가로 10% 할인해 드립니다.</p>
                                         </div>
                                     </div>
                                 </div>

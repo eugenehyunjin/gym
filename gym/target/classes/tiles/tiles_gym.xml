@@ -20,6 +20,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/contact.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="memberForm" extends="baseLayout">
+		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
+	</definition>
+	
 	<!-- <definition name="/project/listMembers" extends="baseLayout">
 		<put-attribute name="title" value="회원목록창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>
