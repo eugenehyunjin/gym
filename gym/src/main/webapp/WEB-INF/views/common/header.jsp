@@ -16,6 +16,10 @@
  <style type="text/css">
  .login{ color: white;}
  .login:hover { color: orange;}
+ .nav-menu ul li a{
+ 	font-family: "Godic";
+ 	font-size: 20px;
+ }
  </style>
 </head>
 <body>
@@ -39,7 +43,7 @@
                 <li><a href="./about-us.jsp">About Us</a></li>
                 <li><a href="./classes.jsp">Classes</a></li>
                 <li><a href="./services.jsp">Services</a></li>
-                <li><a href="./team.jsp">Our Team</a></li>
+                <li><a href="${contextPath }/team.do">Our Team</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="dropdown">
                         <li><a href="./about-us.jsp">About us</a></li>
@@ -82,7 +86,7 @@
                             <li><a href="./class-details.jsp">트레이너</a></li>
                             <li><a href="./services.jsp">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
-                            <li><a href="./blog.jsp">공지사항</a></li>
+                            <li><a href="${contextPath }/blog.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
                         </ul>
                     </nav>
@@ -93,7 +97,7 @@
                           <c:choose>
                             	<c:when test="${id != null}">
                             		 <span style="color: white;">${id }님</span>&nbsp;&nbsp;
-                            	     <a class="login" href="${contextPath }/mypage.do">MYPAGE</a>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/myPage.do">MYPAGE</a>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                           		<c:otherwise>

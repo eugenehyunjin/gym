@@ -33,4 +33,25 @@ public class HomeController {
 		return "contact";
 	}
 	
+	@RequestMapping(value = "/blog.do", method = RequestMethod.GET)
+	public ModelAndView blog(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("blog");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/team.do", method = RequestMethod.GET)
+	public ModelAndView team(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("team");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
+	public ModelAndView myPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("myPage");
+		return mav;
+	}
+	
 }

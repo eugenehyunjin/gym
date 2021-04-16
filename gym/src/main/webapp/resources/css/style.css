@@ -24,6 +24,7 @@
 8.  Trainer Section
 9.  Contact
 10.  Footer Style
+11.  My Info Section
 
 -------------------------------------------------------------------*/
 
@@ -1013,7 +1014,6 @@ ol {
 .primary-btn.appoinment-btn {
 	background: transparent;
 	border: 2px solid #f36100;
-	float: right;
 	margin-top: 10px;
 }
 
@@ -3293,4 +3293,85 @@ ol {
 	.search-model-form input {
 		font-size: 28px;
 	}
+	
+	/*---------------------
+  My Info Section
+-----------------------*/
+.myPage-table{width:100%;}
+.myPage-table-line {border-right: 1px solid #c4c4c4; width:65%; padding: 0px 30px;}
+.myPage-table td {padding: 0px 30px;}
+
+.myPage-myInfo input[type='text'], .myPage-myInfo input[type='password']{
+   font-size: 13px;
+   /*color: #c4c4c4;**/
+   color: black;
+   width: 100%;
+   height: 46px;
+   border: 1px solid #363636;
+   padding-left: 20px;
+   padding-right: 5px;
+   background: rgba(255,255,255,0.95);
+   margin-bottom: 20px;
+   font-weight: bold;
+   
+}
+
+.myPage-myInfo h3 {color:white; margin: 5px;}
+
+.myPage-myInfo form input::-webkit-input-placeholder {
+   color: #c4c4c4;
+}
+
+.myPage-myInfo form input::-moz-placeholder {
+   color: #c4c4c4;
+}
+
+.myPage-myInfo form input:-ms-input-placeholder {
+   color: #c4c4c4;
+}
+
+.myPage-myInfo form input::-ms-input-placeholder {
+   color: #c4c4c4;
+}
+
+.myPage-myInfo form input::placeholder {
+   color: #c4c4c4;
+}
+
+.myPage-myInfo select{
+   background-color: white;
+}
+
+.myPage-myInfo input[type ='button'] {
+   font-size: 14px;
+   width: 100%;
+   color: #ffffff;
+   border: 1px solid #363636; 
+   background: transparent;
+}
+
+/* h5 title**/
+.myPage-table-title h5 {color: white; padding-bottom: 10px;}
+
+/* myPage-myClass*/
+.myPage-myClass-box{border-bottom: 20px solid lightGray;color:white; text-align:center;padding-bottom: 20px;}
+.myPage-myClass-bookNull{
+   height: 200px;
+   border: 3px solid #c4c4c4;
+   font-size: 13px;
+   text-align: center;
+   background:white;
+   color:black;
+}
+.myPage-myClass-exist{
+   margin:0px 0px;
+   color: black;
+   height: 200px;
+   border: 3px solid #c4c4c4;
+   font-size: 12px;
+   text-align: left;
+   background-color: white;
+}
+#delOutline{outline: none;border:none;background:none;}
+	
 }

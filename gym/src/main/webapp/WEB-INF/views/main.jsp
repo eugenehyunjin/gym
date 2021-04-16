@@ -99,7 +99,7 @@
 							  			<form name="frm">
 								  			<p class="ment">${id }님을 환영합니다.</p>
 								  			<p class="ment">저희 프라이빗 짐에서 더욱 건강하고 아름다운 자신을 찾아 보세요!</p>
-								  			<button type="button" onclick="location.href='${contextPath }/mypage.do'">마이페이지</button>
+								  			<button type="button" onclick="location.href='${contextPath }/myPage.do'">마이페이지</button>
 		                                        <p></p>
 		                                    <button type="button" onclick="location.href='${contextPath }/logout.do'">로그아웃</button>
 	                                    </form>

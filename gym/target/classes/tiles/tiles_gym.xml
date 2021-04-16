@@ -25,6 +25,21 @@
 		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="blog" extends="baseLayout">
+		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="team" extends="baseLayout">
+		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="myPage" extends="baseLayout">
+		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/myPage.jsp"></put-attribute>
+	</definition>
+	
 	<!-- <definition name="/project/listMembers" extends="baseLayout">
 		<put-attribute name="title" value="회원목록창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>
