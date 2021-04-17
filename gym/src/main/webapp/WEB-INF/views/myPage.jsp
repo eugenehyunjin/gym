@@ -19,7 +19,7 @@
 .myPage-table td {padding: 0px 30px;}
 
 .myPage-myInfo input[type='text'], .myPage-myInfo input[type='password']{
-   font-size: 13px;
+   font-size: 15px;
    /*color: #c4c4c4;**/
    color: black;
    width: 100%;
@@ -90,6 +90,11 @@
    background-color: white;
 }
 #delOutline{outline: none;border:none;background:none;}
+#warnnigMsg{font-size: 12px; color:red; font-style: italic; opacity: 0.7;font-weight: bold;text-align: right;line-height: 60%;}
+#disabledId{background:#c4c4c4;}
+.myPage-birth_m-d{width: 100%; text-align: center;}
+.myPage-birth_m-d select{margin-right: 60px; padding: 7px 20px; border-radius: 4px; background-color: rgba(255,255,255,0.95);}
+#genderSelect{ padding: 7px 20px; border-radius: 4px; background-color: rgba(255,255,255,0.95);}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
@@ -101,29 +106,78 @@
 		
 		if(confirm('수정하시겠습니까?')) {
 			/*document.getElementsByName('id')[0].removeAttribute("disabled");**/
+			//document.getElementsByName('id')[0].removeAttribute('type');
+			document.getElementsByName('id')[0].setAttribute('id', 'disabledId');
+			
 			document.getElementsByTagName('h5')[0].innerHTML = 'MY INFO > 수정';
+			
+			document.getElementById('mod1').removeAttribute('hidden');
+			console.log(document.getElementById('mod1'));
+			document.getElementById('mod2').innerHTML = "수정";
+			console.log(document.getElementById('mod2'));
+			
+			document.getElementsByTagName('p')[0].innerHTML = "*아이디는 수정이 불가능합니다";
+			
 			document.getElementsByName('pw')[0].removeAttribute("disabled");
+			document.getElementsByName('pw')[0].removeAttribute("type");
+			document.getElementsByName('pw')[0].setAttribute('type', 'password');
 			document.getElementsByName('pw')[0].focus();
+			
 			document.getElementsByName('pwChkTxt')[0].removeAttribute('type');
 			document.getElementsByName('pwChk')[0].removeAttribute('type');
 			document.getElementsByName('pwChk')[0].setAttribute('type', 'password');
+			
 			document.getElementsByName('name')[0].removeAttribute("disabled");
-			document.getElementsByName('birth_y')[0].removeAttribute("disabled");
-			document.getElementsByName('birth_mm')[0].removeAttribute("disabled");
-			document.getElementsByName('birth_d')[0].removeAttribute("disabled");
+			document.getElementsByName('myPage-birth_y')[0].removeAttribute("disabled");
+			document.getElementsByName('myPage-birth_m')[0].removeAttribute("disabled");
+			document.getElementsByName('myPage-birth_d')[0].removeAttribute("disabled");
 			document.getElementsByName('gender')[0].removeAttribute("disabled");
 			document.getElementsByName('tel')[0].removeAttribute("disabled");
 			document.getElementsByName('email')[0].removeAttribute("disabled");
 			
-			var modBtn = document.getElementsById('modBtn')[0];
-			console.log(modBtn.innerHTML);
-			modBtn.innerHTML == "저장";
+			var modBtn = document.getElementById('modBtn');
+			console.log(modBtn.value);
+			modBtn.value = "저장";
+			modBtn.removeAttribute("onClick");
+			modBtn.setAttribute("onClick", "saveBtn()");
 			
 			
 		}else{
 			location.replace('${contextPath}/myPage.do');
 			alert('수정이 취소되었습니다');
 		}
+		
+	}
+	
+	function saveBtn() {
+		
+		for(var i=0;i<12;i++) {
+			var inputVal = document.getElementsByTagName('input')[i].value;
+			
+			console.log("input : "+i);
+			
+			if(inputVal ==null || inputVal == ''){
+				alert('입력을 완료해주십시오');
+				document.getElementsByTagName('input')[i].focus();
+				break;
+			}else{
+				if(inputVal == 10) {
+					if(document.getElementsByTagName('select')[0].value == '선택안함'){
+						alert('성별을 입력해주세요');
+					}
+				}
+			}
+		}
+		frm.method = 'post';
+		frm.action = '${contextPath}/join.do';
+		frm.submit();
+		
+	}
+	
+	function newBirth() {
+		var newMonth = document.getElementsByName('myPage-birth_m')[0].value;
+		console.log(newMonth);
+		var changeDate;
 		
 	}
 
@@ -139,9 +193,10 @@
                     <div class="breadcrumb-text">
                         <h2>MY PAGE</h2>
                         <div class="bt-option">
-                            <a href="${contextPath }/main.do">Home</a>
-                            <a href="#">Pages</a>
-                            <span>MY PAGE</span>
+                            <a href="${contextPath }/main.do" class = "fontA">Home</a>
+                            <a href="#" class = "fontA">Pages</a>
+                            <a hidden="hidden" href = "${contextPath }/myPage.do" id = "mod1" class = "fontA">MY PAGE</a>
+                            <span id="mod2">MY PAGE</span>
                         </div>
                     </div>
                 </div>
@@ -168,32 +223,37 @@
                                     <form name="frm">
                                        <h3>아이디</h3>
                                 	<input type="text" name="id" disabled="disabled" value = "test"/>
+                                	<p id="warnnigMsg"></p>
                                 	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="password" name="pw" disabled="disabled" value = "test" />
-                                <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"></h3>
+                                	<input type="text" name="pw" disabled="disabled" value = "test" />
+                                <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
                                 	<input type="hidden" name="pwChk" disabled="disabled" value = "test"/>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.pw}"/>-->
                                 <h3>이름</h3>
                                 	<input type="text" name="name" disabled="disabled" value = ""/>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.name}"/>-->
                                 <h3>생년월일</h3>
-                                	<div class="birth">
-                                		<div class="birth_yy">
-                                			<input type="text" name="birth_y" disabled="disabled"/>
-                                			<!-- <input type="text" name="birth_y" disabled="disabled" value = "${member.birth_y} 년"/> -->
-                                		</div>
-                                		<div class="birth_mm">
-                                			<input type = "text" name = "birth_mm" disabled="disabled"/>
-                                			<!-- <input type = "text" name = "birth_mm" disabled="disabled" value = "${member.birth_mm}"/> -->
-                                		</div>
-                                		<div class="birth_dd">
-                                			<input type="text" placeholder="일" name="birth_d" disabled="disabled"/>
-                                			<!-- <input type="text" placeholder="일" name="birth_d" disabled="disabled" value = "${member.birth_d}"/> -->
-                                		</div>
-                                	</div>
+                                		<div class="myPage-birth_yy">
+                                			<input type="text" name="myPage-birth_y" disabled="disabled"/>
+                                			</div>
+	                                		<div class="myPage-birth_m-d">
+	                                			<select name="myPage-birth_m" disabled="disabled" onchange="newBirth()">
+	                                				<option value=selected>&nbsp;&nbsp; 월</option>
+	                                				<c:forEach var="i" begin="1" end="12">
+		                                				<option>${i }월</option>
+	                                				</c:forEach>
+	                                			</select>
+	                                			<select name="myPage-birth_d" disabled="disabled">
+	                                				<option value=selected>&nbsp;&nbsp; 일</option>
+	                                			<c:if test=""></c:if>
+	                                				<c:forEach var="i" begin="1" end="${changeDate }">
+		                                				<option>${i }일</option>
+	                                				</c:forEach>
+	                                			</select>
+	                                		</div>
                                 <h3>성별</h3>
-                                	<select name="gender" disabled="disabled">
+                                	<select name="gender" disabled="disabled" id = "genderSelect">
 <c:choose>                                	
                                 			
  <c:when test="${member.gender eq '남자' }">                                			
