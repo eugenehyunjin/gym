@@ -89,7 +89,9 @@
 
 
 			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
-
+		<br>
+		<br>
+		<br>
 		</div>
 	</section>
 </body>

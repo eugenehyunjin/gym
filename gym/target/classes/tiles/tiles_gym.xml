@@ -26,20 +26,17 @@
 	</definition>
 	
 	<definition name="blog" extends="baseLayout">
-
-		<put-attribute name="title" value="블로그"></put-attribute>
-
 		<put-attribute name="title" value="공지사항"></put-attribute>
-
 		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="addBoard" extends="baseLayout">
+		<put-attribute name="title" value="공지사항"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="team" extends="baseLayout">
-
-		<put-attribute name="title" value="코치"></put-attribute>
-
 		<put-attribute name="title" value="team"></put-attribute>
-
 		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
 	</definition>
 	
@@ -48,14 +45,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/myPage.jsp"></put-attribute>
 	</definition>
 	
-
-	<definition name="addBoard" extends="baseLayout">
-		<put-attribute name="title" value="공지사항 작성"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
-	</definition>
-	
-	
-
 	<definition name="yoga" extends="baseLayout">
 		<put-attribute name="title" value="요가"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/yoga.jsp"></put-attribute>
@@ -75,7 +64,6 @@
 		<put-attribute name="title" value="필라테스"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/pt.jsp"></put-attribute>
 	</definition>
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 	<!-- <definition name="/project/listMembers" extends="baseLayout">
 		<put-attribute name="title" value="회원목록창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>

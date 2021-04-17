@@ -13,26 +13,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	
-	function fnempty(){
-		let title = document.getElementsByName("title")[0].value;
-		let content = document.getElementsByName("content")[0].value;
-		
-		var frm = document.frm;
-		
-		
-		if(title == null || title == ''){
-			alert('제목을 입력해주세요');
-			document.getElementsByName('title')[0].focus();
-		} else if(content == null || content == '')
-			alert('내용을 입력해주세요');
-			document.getElementsByName('content')[0].focus();
-			
-		}else{
-			frm.method = 'post';
-			frm.action = '${contextPath}/addNewBoard.do';
-			frm.submit();
-		}
-	}
+
 	
 	function fncancle(){
 		location.href='${contextPath}/blog.do';
@@ -57,6 +38,10 @@
 		margin-top: 30px;
 	}
 		
+	#content{
+	font-size: 20px;
+		color: white;
+	}
 	
 	.col-lg-12 .leave-comment input, select, option {
 		font-size: 20px;
@@ -67,12 +52,12 @@
 		clear:both;
 		width:100%;
 		display: inline-flex;
-		padding:50px;
+	
 		text-align:center;
 	}
 	
 	.btn input {
-		margin: 50px;
+		margin: 20px;
 		padding: 10px; 
 	}
 </style>
@@ -91,12 +76,12 @@
 						<div class="bt-option">
 							<a href="./main.do">Home</a>
 							<a href="#">Pages</a>
-							<span>board</span>
+							<span>Board</span>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+	    	</div>
+        </div>
     </section>
     <!-- Breadcrumb Section End -->
     
@@ -111,16 +96,18 @@
 								<div class="leave-comment">
 									<h2 style="color: #f36100;">공지사항 작성</h2>
 									
-									<form name="frm" class="frm">
-										<h4>제목</h4>
-                                			<input type="text" name="title" id="title" placeholder="제목입력"/>
+									<form name="frm" class="frm" method="post" action="${contextPath}/addNewBoard.do">
+										<h3>제목</h3>
+                                			<input type="text" name="title" id="title" placeholder="제목입력" required="required"/>
 										
                                 			<h3>내용</h3>
-                                				<textarea style="width 2000px; height: 300px;" name="content" id="content"/>
+                                				<textarea style="width 200px; height: 500px;" name="content" id="content" placeholder="내용입력" required="required"></textarea>
                                		
+                               		
+                               			
                                				<div class="btn">
-                               					<input style="background: #f36100;" type="button" class="primary-btn" value="작성하기 " onclick="fnempty()">
-                               					<input style="background: #f36100;" type="button" class="primary-btn" value="취소" onclick="fncancle()">
+                               					<input style="background: #f36100;" type="submit"  value="작성하기 "/>
+                               					<input style="background: #f36100;" type="button"  value="취소" onclick="fncancle()"/>
                                				</div>
 									</form>
 								</div>
