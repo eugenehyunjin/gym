@@ -26,19 +26,25 @@
 	</definition>
 	
 	<definition name="blog" extends="baseLayout">
-		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="title" value="블로그"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="team" extends="baseLayout">
-		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="title" value="코치"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="myPage" extends="baseLayout">
-		<put-attribute name="title" value="회원가입창"></put-attribute>
+		<put-attribute name="title" value="마이페이지"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/myPage.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="addBoard" extends="baseLayout">
+		<put-attribute name="title" value="공지사항 작성"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
+	</definition>
+	
 	
 	<!-- <definition name="/project/listMembers" extends="baseLayout">
 		<put-attribute name="title" value="회원목록창"></put-attribute>

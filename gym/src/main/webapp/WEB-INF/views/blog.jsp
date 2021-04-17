@@ -12,18 +12,18 @@
 <c:set  var="pageNum"  value="${articlesMap.pageNum}" />
 
 </head>
-<body class="class-timetable-section spad">
+<body class="class-timetable-section">
  <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb-text">
-                        <h2>Contact Us</h2>
+                        <h2>공지사항</h2>
                         <div class="bt-option">
                             <a href="${contextPath }/main.do">Home</a>
                             <a href="#">Pages</a>
-                            <span>Contact us</span>
+                            <span>공지사항</span>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
 		<div class="col-lg-12" style="text-align: center;">
 
 
-			<a href="#" class="primary-btn">공지사항 작성하기</a>
+			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
 
 		</div>
 	</section>
