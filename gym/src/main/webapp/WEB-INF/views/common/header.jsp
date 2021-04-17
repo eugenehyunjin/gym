@@ -17,8 +17,8 @@
  .login{ color: white;}
  .login:hover { color: orange;}
  .nav-menu ul li a{
- 	font-family: "Godic";
- 	font-size: 20px;
+ 	font-family: "Gothic","고딕";
+ 	font-size: 15px;
  }
  </style>
 </head>
@@ -82,7 +82,14 @@
                     <nav class="nav-menu">
                         <ul>
                             <li class="active"><a href="${contextPath }/main.do">홈</a></li>
-                            <li><a href="./about-us.jsp">커리큘럼</a></li>
+                            <li><a href="./about-us.jsp">클래스</a>
+                              <ul class="dropdown">
+                                    <li><a href="${contextPath }/body.do">보디빌딩</a></li>
+                                    <li><a href="${contextPath }/yoga.do">요가</a></li>
+                                    <li><a href="${contextPath }/pilates.do">필라테스</a></li>
+                                    <li><a href="${contextPath }/pt.do">퍼스널 트레이닝</a></li>
+                                </ul>
+                                </li>
                             <li><a href="./class-details.jsp">트레이너</a></li>
                             <li><a href="./services.jsp">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
