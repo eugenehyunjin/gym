@@ -91,8 +91,8 @@ public class memberControllerImpl implements memberController {
 		if(result==0) {
 			responseheader.add("Content-Type","text/html; charset=utf-8");
 			message="<script>";
-			message+="alert('아이디와 비밀번호가 틀립니다. 다시 시도해 주세요.');";
-			message+="location.href='"+request.getContextPath()+"/main.do';";
+			message+="alert('회원가입에 실패하였습니다. 다시 시도해주세요.');";
+			message+="location.href='"+request.getContextPath()+"/memberForm.do';";
 			message+="</script>";
 			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
 		}else if(result==1) {

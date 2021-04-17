@@ -35,7 +35,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="team" extends="baseLayout">
+	<definition name="/team" extends="baseLayout">
 		<put-attribute name="title" value="team"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
 	</definition>

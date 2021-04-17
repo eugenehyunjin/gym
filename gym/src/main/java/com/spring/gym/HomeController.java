@@ -43,7 +43,7 @@ public class HomeController {
 	@RequestMapping(value = "/team.do", method = RequestMethod.GET)
 	public ModelAndView team(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("team");
+		mav.setViewName("/team");
 		return mav;
 	}
 	

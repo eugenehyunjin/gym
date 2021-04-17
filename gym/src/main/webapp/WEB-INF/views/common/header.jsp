@@ -107,11 +107,11 @@
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                             	<c:when test="${id != null}">
-                            		 <span style="color: white;">${id }님</span>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/myPage.do">MYPAGE</a>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                           		<c:otherwise>
+                          			 <a class="login" href="${contextPath }/main.do">LOGIN</a>&nbsp;&nbsp;
                           			 <a class="login" href="${contextPath }/memberForm.do">JOIN</a>
                           		</c:otherwise>
                             </c:choose>
