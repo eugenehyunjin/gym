@@ -8,24 +8,15 @@
 <head>
   <style>
       #header {
-        
-       
         background-color: black;
         border: 0px solid #bcbcbc;
       }
-      #content {
-<<<<<<< HEAD
-        padding: 5px;       
-=======
-
-               
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
+      #content {       
         border: 0px solid #bcbcbc;
       }
       #footer {
       	display:block;
-        clear:both;
-        
+        clear:both;  
         border: 0px solid #bcbcbc;
       }
       

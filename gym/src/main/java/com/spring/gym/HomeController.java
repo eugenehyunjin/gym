@@ -79,5 +79,11 @@ public class HomeController {
 		mav.setViewName("pt");
 		return mav;
 	}
+	@RequestMapping(value = "/class.do", method = RequestMethod.GET)
+	   public ModelAndView classes(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("class");
+	      return mav;
+	   }
 	
 }

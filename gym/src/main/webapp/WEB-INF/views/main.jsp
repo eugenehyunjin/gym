@@ -136,7 +136,7 @@
                                             <p>이번달 학생들을 위한 이벤트! 학생증 지참시 20% 할인과 동시에 이벤트 경품 증정!</p>
                                         </div>
                                     </div>
-                                    <div class="co-item reply-comment">
+                                    <div class="co-item">
                                         <div class="co-widget">
                                             <a href="#"><i class="fa fa-heart-o"></i></a>
                                             <a href="#"><i class="fa fa-share-square-o"></i></a>
@@ -146,7 +146,7 @@
                                             <h5>추첨 이벤트</h5>
                                         </div>
                                         <div class="co-text">
-                                            <p>출석율 80% 달성시 추첨을 통해 홈트 기구 세트를 증정해 드립니다!</p>
+                                            <p>출석율 80% 달성시 추첨을매 통해 홈트 기구 세트를 증정해 드립니다!</p>
                                         </div>
                                     </div>
                                     <div class="co-item">

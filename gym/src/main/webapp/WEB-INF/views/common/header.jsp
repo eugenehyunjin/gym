@@ -81,7 +81,7 @@
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li class="active"><a href="${contextPath }/main.do">홈</a></li>
+                            <li><a href="${contextPath }/main.do">홈</a></li>
                             <li><a href="./about-us.jsp">클래스</a>
                               <ul class="dropdown">
                                     <li><a href="${contextPath }/body.do">보디빌딩</a></li>
