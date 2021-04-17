@@ -43,21 +43,21 @@ public class HomeController {
 	@RequestMapping(value = "/team.do", method = RequestMethod.GET)
 	public ModelAndView team(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("team");
+		mav.setViewName("/team");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public ModelAndView myPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("myPage");
+		mav.setViewName("/myPage");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/addBoard", method = RequestMethod.GET)
 	public ModelAndView addBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("addBoard");
+		mav.setViewName("/addBoard");
 		return mav;
 	}
 	
