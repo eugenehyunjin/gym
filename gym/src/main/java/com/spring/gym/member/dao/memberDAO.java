@@ -6,4 +6,8 @@ public interface memberDAO {
 
 	public int checklogin(memberVO memberVO);
 
+	public int insertMember(memberVO memberVO);
+
+
+
 }

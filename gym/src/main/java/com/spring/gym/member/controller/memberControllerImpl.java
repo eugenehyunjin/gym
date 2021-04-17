@@ -33,8 +33,6 @@ public class memberControllerImpl implements memberController {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		System.out.println(memberVO.getId());
-		System.out.println(memberVO.getPwd());
 		int result = memSV.checklogin(memberVO);
 		System.out.println(result);
 		ResponseEntity resEnt = null;
@@ -50,7 +48,7 @@ public class memberControllerImpl implements memberController {
 		}else if(result==1) {
 			responseheader.add("Content-Type","text/html; charset=utf-8");
 			message="<script>";
-			message+="alert('로그인 성공.');";
+			message+="alert('로그인 성공!');";
 			message+="location.href='"+request.getContextPath()+"/main.do';";
 			message+="</script>";
 			HttpSession session = request.getSession();
@@ -80,14 +78,35 @@ public class memberControllerImpl implements memberController {
 	}
 
 	@Override
-	@RequestMapping(value="join.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public ResponseEntity join(memberVO memberVO, HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(value="/join.do", method= {RequestMethod.GET,RequestMethod.POST})
+	public ResponseEntity join(@ModelAttribute("memberVO") memberVO memberVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		request.setCharacterEncoding("utf-8");
+		int result = memSV.insertMember(memberVO);
+		System.out.println(result);
+		ResponseEntity resEnt = null;
+		String message;
+		HttpHeaders responseheader = new HttpHeaders();
+		if(result==0) {
+			responseheader.add("Content-Type","text/html; charset=utf-8");
+			message="<script>";
+			message+="alert('아이디와 비밀번호가 틀립니다. 다시 시도해 주세요.');";
+			message+="location.href='"+request.getContextPath()+"/main.do';";
+			message+="</script>";
+			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
+		}else if(result==1) {
+			responseheader.add("Content-Type","text/html; charset=utf-8");
+			message="<script>";
+			message+="alert('회원가입 되었습니다! 로그인을 해주세요.');";
+			message+="location.href='"+request.getContextPath()+"/main.do';";
+			message+="</script>";
+			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
+		}
+		return resEnt;
 	}
 	
-
+	
 	
 
 

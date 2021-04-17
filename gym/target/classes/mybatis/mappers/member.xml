@@ -13,8 +13,19 @@
   	
   	<select id="checklogin" resultType="int" parameterType="memberVO">
   	<![CDATA[
-  		select count(*) from login where id=#{id} and pwd=#{pwd}
+  		select count(*) from gym_member where id=#{id} and pwd=#{pwd}
   	]]>
   	</select>
   	
+  	<insert id="insertMember" parameterType="memberVO">
+  	<![CDATA[
+  		insert into gym_member values(#{id},#{pwd},#{name},#{birth_y},#{birth_m},#{birth_d},#{gender},#{tel},#{email},sysdate)
+  	]]>
+  	</insert>
+  	
+  	<select id="checkid" resultType="int" parameterType="String">
+  	<![CDATA[
+  		select count(*) from gym_member where id=#{id}
+  	]]>
+  	</select>
  </mapper>

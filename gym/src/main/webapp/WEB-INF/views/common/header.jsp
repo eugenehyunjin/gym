@@ -102,6 +102,10 @@
                     <div class="top-option">
                         <div class="to-search search-switch">
                           <c:choose>
+                          		<c:when test="${id == 'admin'}">
+                            	     <a class="login" href="${contextPath }/myPage.do">ADMINPAGE</a>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
+                          		</c:when>
                             	<c:when test="${id != null}">
                             		 <span style="color: white;">${id }님</span>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/myPage.do">MYPAGE</a>&nbsp;&nbsp;

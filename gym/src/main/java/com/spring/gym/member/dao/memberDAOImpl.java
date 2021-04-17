@@ -18,4 +18,10 @@ public class memberDAOImpl implements memberDAO{
 		return result;
 	}
 
+	public int insertMember(memberVO memberVO) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.insert("mapper.member.insertMember", memberVO);
+		return result;
+	}
+
 }

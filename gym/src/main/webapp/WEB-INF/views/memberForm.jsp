@@ -15,7 +15,8 @@
 	
 	function fnempty(){
 		let id = document.getElementsByName("id")[0].value;
-		let pw1 = document.getElementsByName("pw1")[0].value;
+		let pwd = document.getElementsByName("pwd")[0].value;
+		let pw2 = document.getElementsByName("pw2")[0].value;
 		let name = document.getElementsByName("name")[0].value;
 		let birth_y = document.getElementsByName("birth_y")[0].value;
 		let birth_m = document.getElementsByName("birth_m")[0].value;
@@ -29,9 +30,12 @@
 		if(id==null || id == ''){
 			alert('아이디를 입력해주세요');
 			document.getElementsByName('id')[0].focus();
-		}else if(pw1==null || pw1 == ''){
+		}else if(pwd==null || pwd == ''){
 			alert('비밀번호를 입력해주세요');
-			document.getElementsByName('pw1')[0].focus();
+			document.getElementsByName('pwd')[0].focus();
+		}else if(pw2==''){
+			alert('비밀번호 재확인에 입력해주세요.');
+			document.getElementsByName('pw2')[0].focus();
 		}else if(name==null || name == ''){
 			alert('이름을 입력해주세요');
 			document.getElementsByName('name')[0].focus();
@@ -63,6 +67,21 @@
 	function fncancle(){
 		location.href='${contextPath }/main.do';
 	} 
+	
+	function checkpw(){
+		let pw1 = document.getElementsByName("pwd")[0].value;	
+		let pw2 = document.getElementsByName("pw2")[0].value;
+		if(pw1==pw2){
+			alert('비밀번호가 일치합니다.')
+			document.getElementsByName('name')[0].focus();
+		}else{
+			alert('비밀번호가 일치 하지 않습니다.다시 입력해주세요.')
+			document.getElementsByName("pwd")[0].value='';
+			document.getElementsByName("pw2")[0].value='';
+			document.getElementsByName('pwd')[0].focus();
+		}
+	}
+	
 </script>
 <style>
 	.blog-details-section {
@@ -160,9 +179,9 @@
 										<h3>아이디</h3>
                                 			<input type="text" name="id"/>
 										<h3>비밀번호</h3>
-                                			<input type="password" name="pw1" />
+                                			<input type="password" name="pwd" />
 										<h3>비밀번호 재확인</h3>
-                                			<input type="password" name="pw2" />
+                                			<input type="password" name="pw2" onchange="checkpw()" />
 										<h3>이름</h3>
                                 			<input type="text" name="name"/>
 										<h3>생년월일</h3>

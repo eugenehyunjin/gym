@@ -109,8 +109,8 @@
 	                          		<div class="leave-comment">
 	                                    <h5>LOGIN</h5>
 	                                    <form name="frm">
-	                                        <input type="text" placeholder="ID" name="id">
-	                                        <input type="password" placeholder="PASSWORD" name="pwd">
+	                                        <input type="text" placeholder="ID" name="id" >
+	                                        <input type="password" placeholder="PASSWORD" name="pwd" >
 	                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
 	                                        <button type="button" onclick="checkid()">로그인</button>
 	                                        <p></p>
