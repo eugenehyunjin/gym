@@ -54,4 +54,30 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/yoga.do", method = RequestMethod.GET)
+	public ModelAndView yoga(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("yoga");
+		return mav;
+	}
+	@RequestMapping(value = "/body.do", method = RequestMethod.GET)
+	public ModelAndView body(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("body");
+		return mav;
+	}
+	@RequestMapping(value = "/pilates.do", method = RequestMethod.GET)
+	public ModelAndView pilates(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("pilates");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/pt.do", method = RequestMethod.GET)
+	public ModelAndView pt(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("pt");
+		return mav;
+	}
+	
 }
