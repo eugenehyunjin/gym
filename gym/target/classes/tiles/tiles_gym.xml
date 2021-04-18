@@ -25,9 +25,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="blog" extends="baseLayout">
+	<definition name="board" extends="baseLayout">
 		<put-attribute name="title" value="공지사항"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/board.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="addBoard" extends="baseLayout">

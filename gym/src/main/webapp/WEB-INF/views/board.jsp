@@ -5,11 +5,11 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 	%>
+	
+
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
-<c:set  var="articlesList"  value="${articlesMap.articlesList}" />
-<c:set  var="totArticles"  value="${articlesMap.totArticles}" />
-<c:set  var="section"  value="${articlesMap.section}" />
-<c:set  var="pageNum"  value="${articlesMap.pageNum}" />
+
+
 
 </head>
 <body class="class-timetable-section">
@@ -58,7 +58,7 @@
 					
 					<tbody style="padding: 10%;">
 					<c:choose>
-  						<c:when test="${articlesList ==null }" >
+  						<c:when test="${boardList == null }" >
 						<tr>
 							<td><span></span></td>
 							<td><span>등록된 글이 없습니다.</span></td>
@@ -66,13 +66,13 @@
 							<td><span></span></td>
 						</tr>
 					 </c:when>
-					  <c:when test="${articlesList !=null }" >
-					  <c:forEach  var="article" items="${articlesList }" varStatus="articleNum" >
+					  <c:when test="${boardList !=null }" >
+					  <c:forEach  var="article" items="${boardList }" varStatus="boardNum" >
 						<tr>
-							<td><span>${articleNum.count}</span></td>
-							<td><span>${article.title} </span></td>	
-							<td><span>${article.id }</span></td>
-							<td><span><fmt:formatDate value="${article.writeDate}" />  </span></td>
+							<td><span>${boardNum.count}</span></td>
+							<td><span>${boardList.title} </span></td>	
+							<td><span>${boardList.id }</span></td>
+							<td><span>${boardList.date} </span></td>
 						</tr>
 				   </c:forEach>
      				</c:when>
@@ -85,14 +85,16 @@
 		</div>
 		<br>
 		<br>
-		<div class="col-lg-12" style="text-align: center;">
-
-
+		
+		<c:if test="${id == 'admin'}">
+		<div class="col-lg-12" id="add" style="text-align: center; display: block;">
+			
 			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
-		<br>
-		<br>
-		<br>
 		</div>
+		</c:if>
+		<br>
+		<br>
+		<br>
 	</section>
 </body>
 

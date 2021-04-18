@@ -93,7 +93,7 @@
                             <li><a href="./class-details.jsp">트레이너</a></li>
                             <li><a href="./services.jsp">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
-                            <li><a href="${contextPath }/blog.do">공지사항</a></li>
+                            <li><a href="${contextPath }/board.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
                         </ul>
                     </nav>
