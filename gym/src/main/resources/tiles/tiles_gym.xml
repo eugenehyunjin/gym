@@ -70,28 +70,14 @@
       <put-attribute name="body" value="/WEB-INF/views/class.jsp"></put-attribute>
    </definition>
    
-	<!-- <definition name="/project/listMembers" extends="baseLayout">
-		<put-attribute name="title" value="회원목록창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="/project/loginForm" extends="baseLayout">
-		<put-attribute name="title" value="로그인창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/loginForm.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="/project/memberForm" extends="baseLayout">
-		<put-attribute name="title" value="등록창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/memberForm.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="/project/view" extends="baseLayout">
-		<put-attribute name="title" value="상세 정보"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/view.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="/project/mod" extends="baseLayout">
-		<put-attribute name="title" value="수정창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/project/mod.jsp"></put-attribute>
-	</definition> -->
+   <definition name="/about" extends="baseLayout">
+      <put-attribute name="title" value="class"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/views/course/about.jsp"></put-attribute>
+   </definition>
+   
+    <definition name="masterForm" extends="baseLayout">
+      <put-attribute name="title" value="class"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/views/masterForm.jsp"></put-attribute>
+   </definition>
+   
 </tiles-definitions>

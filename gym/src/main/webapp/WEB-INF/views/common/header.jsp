@@ -82,7 +82,7 @@
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="${contextPath }/main.do">홈</a></li>
-                            <li><a href="./about-us.jsp">클래스</a>
+                            <li><a href="${contextPath }/about.do">클래스</a>
                               <ul class="dropdown">
                                     <li><a href="${contextPath }/body.do">보디빌딩</a></li>
                                     <li><a href="${contextPath }/yoga.do">요가</a></li>
@@ -91,7 +91,7 @@
                                 </ul>
                                 </li>
                             <li><a href="./class-details.jsp">트레이너</a></li>
-                            <li><a href="./services.jsp">예약페이지</a></li>
+                            <li><a href="${contextPath }/masterForm.do">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
                             <li><a href="${contextPath }/blog.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
@@ -111,7 +111,7 @@
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                           		<c:otherwise>
-                          			 <a class="login" href="${contextPath }/main.do">LOGIN</a>&nbsp;&nbsp;
+                          			 <a class="login" href="${contextPath }/main.do/">LOGIN</a>&nbsp;&nbsp;
                           			 <a class="login" href="${contextPath }/memberForm.do">JOIN</a>
                           		</c:otherwise>
                             </c:choose>

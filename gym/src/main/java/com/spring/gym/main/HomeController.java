@@ -1,7 +1,6 @@
-package com.spring.gym;
+package com.spring.gym.main;
 
-import java.text.DateFormat;
-import java.util.Date;
+
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,6 +89,20 @@ public class HomeController {
 	   public ModelAndView classes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
 	      mav.setViewName("class");
+	      return mav;
+	   }
+	
+	@RequestMapping(value = "/about.do", method = RequestMethod.GET)
+	   public ModelAndView about(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("/about");
+	      return mav;
+	   }
+	
+	@RequestMapping(value = "/masterForm.do", method = RequestMethod.GET)
+	   public ModelAndView masterForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("masterForm");
 	      return mav;
 	   }
 	
