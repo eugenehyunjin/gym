@@ -22,7 +22,7 @@
                     <div class="breadcrumb-text">
                         <h2>Classes detail</h2>
                         <div class="bt-option">
-                            <a href="./index.html">클래스</a>
+                            <a href="${contextPath }/about.do">클래스</a>
                             <span>필라테스</span>
                         </div>
                     </div>

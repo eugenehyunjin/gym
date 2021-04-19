@@ -22,7 +22,7 @@
                     <div class="breadcrumb-text">
                         <h2>About Us</h2>
                         <div class="bt-option">
-                            <a href="./index.html">Home</a>
+                            <a href="${contextPath }/main.do">Home</a>
                             <span>About Us</span>
                         </div>
                     </div>
