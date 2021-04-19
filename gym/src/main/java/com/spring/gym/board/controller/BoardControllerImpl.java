@@ -33,9 +33,14 @@ public class BoardControllerImpl implements BoardController {
 		List boardList = boardService.selectAllBoard();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("boardList", boardList);
-
 		return mav;
-
+	}
+	
+	@RequestMapping(value = "/addBoard.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView addBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+		return mav;
 	}
 
 	@Override

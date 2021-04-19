@@ -34,7 +34,7 @@ public class CommonController {
 	@RequestMapping(value = "/class.do", method = RequestMethod.GET)
 	   public ModelAndView classes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
-	      mav.setViewName("class");
+	      mav.setViewName("/class");
 	      return mav;
 	   }
 }

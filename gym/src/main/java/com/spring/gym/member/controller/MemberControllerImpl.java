@@ -71,7 +71,7 @@ public class MemberControllerImpl implements MemberController {
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("memberForm");
+		mav.setViewName("/memberForm");
 		return mav;
 	}
 

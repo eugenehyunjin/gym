@@ -21,7 +21,7 @@ public class AboutController {
 	@RequestMapping(value = "/about.do", method = RequestMethod.GET)
 	   public ModelAndView about(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
-	      mav.setViewName("about");
+	      mav.setViewName("aboutus");
 	      return mav;
 	   }
 	
