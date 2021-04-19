@@ -111,7 +111,7 @@
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                           		<c:otherwise>
-                          			 <a class="login" href="${contextPath }/main.do/">LOGIN</a>&nbsp;&nbsp;
+                          			 <a class="login" href="${contextPath }/main.do/">HOME</a>&nbsp;&nbsp;
                           			 <a class="login" href="${contextPath }/memberForm.do">JOIN</a>
                           		</c:otherwise>
                             </c:choose>

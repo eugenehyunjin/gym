@@ -31,7 +31,7 @@
 	</definition>
 	
 	
-   <definition name="/about" extends="baseLayout">
+   <definition name="about" extends="baseLayout">
       <put-attribute name="title" value="class"></put-attribute>
       <put-attribute name="body" value="/WEB-INF/views/course/about.jsp"></put-attribute>
    </definition>

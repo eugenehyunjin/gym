@@ -5,12 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.gym.main.MainController;
 
+@Controller("blogController")
 public class BlogController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
@@ -20,8 +22,6 @@ public class BlogController {
 		mav.setViewName("blog");
 		return mav;
 	}
-	
-	
 	
 	@RequestMapping(value = "/addBoard", method = RequestMethod.GET)
 	public ModelAndView addBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {

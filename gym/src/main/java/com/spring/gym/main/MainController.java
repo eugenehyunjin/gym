@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
-@Controller
+@Controller("mainController")
 public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);

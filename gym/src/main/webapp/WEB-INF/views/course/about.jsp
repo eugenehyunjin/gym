@@ -15,7 +15,7 @@
 </head>
 <body>
  <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-3 order-lg-1 col-md-6 p-0">
                     <div class="ss-pic">
-                        <img src="img/services/services-1.jpg" alt="">
+                        <img src="resources/img/services/services-1.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-2 col-md-6 p-0">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-lg-3 order-lg-3 col-md-6 p-0">
                     <div class="ss-pic">
-                        <img src="img/services/services-2.jpg" alt="">
+                        <img src="resources/img/services/services-2.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-4 col-md-6 p-0">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-lg-3 order-lg-8 col-md-6 p-0">
                     <div class="ss-pic">
-                        <img src="img/services/services-4.jpg" alt="">
+                        <img src="resources/img/services/services-4.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-7 col-md-6 p-0">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-lg-3 order-lg-6 col-md-6 p-0">
                     <div class="ss-pic">
-                        <img src="img/services/services-3.jpg" alt="">
+                        <img src="resources/img/services/services-3.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-5 col-md-6 p-0">

@@ -9,11 +9,10 @@
 		<put-attribute name="body" value=""></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"></put-attribute>
 	</definition>
-	
-	<definition name="/memberForm" extends="baseLayout">
-		<put-attribute name="title" value="회원가입창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
-	</definition>
-	
+		
+    <definition name="masterForm" extends="baseLayout">
+      <put-attribute name="title" value="class"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/views/masterForm.jsp"></put-attribute>
+   </definition>
 	
 	</tiles-definitions>
