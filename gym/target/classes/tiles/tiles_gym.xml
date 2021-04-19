@@ -24,16 +24,12 @@
 		<put-attribute name="title" value="회원가입창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
 	</definition>
-<!-- 	
-	<definition name="blog" extends="baseLayout">
-		<put-attribute name="title" value="공지사항"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
-	</definition>
+	
 	
 	<definition name="addBoard" extends="baseLayout">
 		<put-attribute name="title" value="공지사항"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
-	</definition> -->
+	</definition> 
 	
 	<definition name="/team" extends="baseLayout">
 		<put-attribute name="title" value="team"></put-attribute>

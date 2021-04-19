@@ -49,7 +49,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/addBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "/addBoard.do", method = RequestMethod.GET)
 	public ModelAndView addBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("addBoard");

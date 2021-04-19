@@ -60,7 +60,7 @@
 					<tbody style="padding: 10%;">
 					<c:choose>
   						<c:when test="${boardList ==null }" >
-						<tr>
+						<tr >
 							<td><span></span></td>
 							<td><span>등록된 글이 없습니다.</span></td>
 							<td><span><span></td>
@@ -69,7 +69,7 @@
 					 </c:when>
 					  <c:when test="${boardList !=null }" >
 					  <c:forEach  var="board" items="${boardList }" varStatus="boardNum" >
-						<tr>
+						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
 							<td><span>${boardNum.count}</span></td>
 							<td><span>${board.title} </span></td>	
 							<td><span>관리자</span></td>

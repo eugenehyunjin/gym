@@ -19,5 +19,11 @@ public class BoardDAOImpl implements BoardDAO{
 		List<BoardVO> boardList = sqlSession.selectList("mapper.board.selectAllBoard");
 		return boardList;
 	}
+	@Override
+	public int insertBoard(BoardVO vo) throws DataAccessException {
+		System.out.println("============="+vo.getTitle()+vo.getContents());
+		int result = sqlSession.insert("mapper.board.insertBoard",vo);
+		return result;
+	}
 
 }

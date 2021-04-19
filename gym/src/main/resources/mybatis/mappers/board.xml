@@ -18,10 +18,11 @@
 			]]>
 	</select>
 
-	<insert id="addBoard" parameterType="java.util.Map">
+	<insert id="insertBoard" parameterType="boardVO">
  
   		<![CDATA[
-  		 INSERT INTO gym_board(brd_no,title,contents) VALUES(brd_no.nextval,#{title},#{contents})
+  		
+  		 insert into gym_board values(BRD_NO.nextval,#{title},#{contents},sysdate)
   		  ]]>
 
 	</insert>

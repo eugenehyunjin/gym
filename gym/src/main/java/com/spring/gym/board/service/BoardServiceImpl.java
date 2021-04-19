@@ -15,12 +15,19 @@ import com.spring.gym.board.vo.BoardVO;
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardDAO boardDAO;
-	
+
 	@Override
 	public List<BoardVO> selectAllBoard() throws Exception {
-		
-		List<BoardVO> boardList =  boardDAO.selectAllBoard();
-        return boardList;
+
+		List<BoardVO> boardList = boardDAO.selectAllBoard();
+		return boardList;
+	}
+
+	@Override
+	public int insertBoard(BoardVO vo) throws Exception {
+
+		return boardDAO.insertBoard(vo);
+
 	}
 
 }
