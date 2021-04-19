@@ -19,22 +19,31 @@ import com.spring.gym.main.MainController;
 public class CommonController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
+	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
+	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
+	}
+	
 	@RequestMapping(value = "/contact.do", method = RequestMethod.GET)
-	public String contact(Locale locale, Model model) {
-		return "contact";
+	public ModelAndView contact(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
 	}
 	
 	@RequestMapping(value = "/team.do", method = RequestMethod.GET)
 	public ModelAndView team(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/team");
-		return mav;
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
 	}
 	
 	@RequestMapping(value = "/class.do", method = RequestMethod.GET)
 	   public ModelAndView classes(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	      ModelAndView mav = new ModelAndView();
-	      mav.setViewName("/class");
-	      return mav;
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
 	   }
 }

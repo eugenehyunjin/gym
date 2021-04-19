@@ -19,8 +19,8 @@ public class MyPageController {
 	
 	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public ModelAndView myPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("myPage");
-		return mav;
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
 	}
 }

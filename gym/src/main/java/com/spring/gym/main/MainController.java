@@ -20,12 +20,7 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("main");
-		return mav;
-	}
+
 	
 
 	

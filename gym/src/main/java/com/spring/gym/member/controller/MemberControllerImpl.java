@@ -70,9 +70,9 @@ public class MemberControllerImpl implements MemberController {
 	@RequestMapping(value="/memberForm.do",method=RequestMethod.GET)
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/memberForm");
-		return mav;
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
 	}
 
 	@Override

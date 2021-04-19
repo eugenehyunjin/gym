@@ -16,10 +16,10 @@ import com.spring.gym.main.MainController;
 public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@RequestMapping(value = "/masterForm.do", method = RequestMethod.GET)
-	   public ModelAndView masterForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	      ModelAndView mav = new ModelAndView();
-	      mav.setViewName("masterForm");
-	      return mav;
-	   }
+	@RequestMapping(value = "/masterForm.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView masterForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+		return mav;
+	}
 }

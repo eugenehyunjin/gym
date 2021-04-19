@@ -4,28 +4,28 @@
 	
 <tiles-definitions>
 	
-	<definition name="yoga" extends="baseLayout">
+	<definition name="/yoga" extends="baseLayout">
 		<put-attribute name="title" value="요가"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/yoga.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="body" extends="baseLayout">
+	<definition name="/body" extends="baseLayout">
 		<put-attribute name="title" value="보디빌딩"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/body.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="pilates" extends="baseLayout">
+	<definition name="/pilates" extends="baseLayout">
 		<put-attribute name="title" value="필라테스"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/pilates.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="pt" extends="baseLayout">
+	<definition name="/pt" extends="baseLayout">
 		<put-attribute name="title" value="퍼스널 트레이닝"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/pt.jsp"></put-attribute>
 	</definition>
 	
 	
-   <definition name="aboutus" extends="baseLayout">
+   <definition name="/about" extends="baseLayout">
       <put-attribute name="title" value="about us"></put-attribute>
       <put-attribute name="body" value="/WEB-INF/views/course/about.jsp"></put-attribute>
    </definition>
