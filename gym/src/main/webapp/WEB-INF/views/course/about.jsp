@@ -39,8 +39,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <span>What we do?</span>
-                        <h2>PUSH YOUR LIMITS FORWARD
-                        	여러분의 한계에 도전하세요!</h2>
+                        <h2>여러분의 한계에 도전하세요!</h2>
                     </div>
                 </div>
             </div>
@@ -99,13 +98,13 @@
     <!-- Services Section End -->
 
     <!-- Banner Section Begin -->
-    <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">
+    <section class="banner-section set-bg" data-setbg="resources/img/banner-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="bs-text service-banner">
                         <h2>Exercise until the body obeys.</h2>
-                        <div class="bt-tips">Where health, beauty and fitness meet.</div>
+                        <div class="bt-tips">지금 프라이빗 짐의 소개 영상을 확인해 보세요!</div>
                         <a href="https://www.youtube.com/watch?v=EzKkl64rRbM" class="play-btn video-popup"><i
                                 class="fa fa-caret-right"></i></a>
                     </div>
@@ -122,7 +121,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <span>Our Plan</span>
-                        <h2>Choose your pricing plan</h2>
+                        <h2>지금 여러분이 필요한 기간을 선택하세요!</h2>
                     </div>
                 </div>
             </div>
@@ -131,18 +130,18 @@
                     <div class="ps-item">
                         <h3>Class drop-in</h3>
                         <div class="pi-price">
-                            <h2>$ 39.0</h2>
-                            <span>SINGLE CLASS</span>
+                            <h2>39.000원</h2>
+                            <span>1개월 코스</span>
                         </div>
                         <ul>
-                            <li>Free riding</li>
-                            <li>Unlimited equipments</li>
+                            <li>Free 단체 riding</li>
+                            <li>모든 최신식 머신 사용</li>
                             <li>Personal trainer</li>
-                            <li>Weight losing classes</li>
+                            <li>다이어트 단체 classes</li>
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -150,18 +149,18 @@
                     <div class="ps-item">
                         <h3>12 Month unlimited</h3>
                         <div class="pi-price">
-                            <h2>$ 99.0</h2>
-                            <span>SINGLE CLASS</span>
+                            <h2>99.000원</h2>
+                            <span>12개월 코스</span>
                         </div>
                         <ul>
-                            <li>Free riding</li>
-                            <li>Unlimited equipments</li>
+                            <li>Free 단체 riding</li>
+                            <li>모든 최신식 머신 사용</li>
                             <li>Personal trainer</li>
-                            <li>Weight losing classes</li>
+                            <li>다이어트 단체 classes</li>
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -169,18 +168,18 @@
                     <div class="ps-item">
                         <h3>6 Month unlimited</h3>
                         <div class="pi-price">
-                            <h2>$ 59.0</h2>
-                            <span>SINGLE CLASS</span>
+                            <h2>59.000원</h2>
+                            <span>6개월 코스</span>
                         </div>
                         <ul>
-                            <li>Free riding</li>
-                            <li>Unlimited equipments</li>
+                         	<li>Free 단체 riding</li>
+                            <li>모든 최신식 머신 사용</li>
                             <li>Personal trainer</li>
-                            <li>Weight losing classes</li>
+                            <li>다이어트 단체 classes</li>
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -188,6 +187,49 @@
         </div>
     </section>
     <!-- Pricing Section End -->
+    
+    <!-- Gallery Section Begin -->
+    <div class="gallery-section gallery-page">
+    		 <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Photo Zone</span>
+                        <h2>최신식 시설을 갖춘 헬스장 갤러리</h2>
+                    </div>
+                </div>
+            </div>
+        <div class="gallery">
+            <div class="grid-sizer"></div>
+            <div class="gs-item grid-wide set-bg" data-setbg="resources/img/gallery/gallery-1.jpg">
+                <a href="resources/img/gallery/gallery-1.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-2.jpg">
+                <a href="resources/img/gallery/gallery-2.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-3.jpg">
+                <a href="resources/img/gallery/gallery-3.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-4.jpg">
+                <a href="resources/img/gallery/gallery-4.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-5.jpg">
+                <a href="resources/img/gallery/gallery-5.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item grid-wide set-bg" data-setbg="resources/img/gallery/gallery-6.jpg">
+                <a href="resources/img/gallery/gallery-6.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item grid-wide set-bg" data-setbg="resources/img/gallery/gallery-7.jpg">
+                <a href="resources/img/gallery/gallery-7.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-8.jpg">
+                <a href="resources/img/gallery/gallery-8.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="resources/img/gallery/gallery-9.jpg">
+                <a href="resources/img/gallery/gallery-9.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Section End -->
 
     <!-- Get In Touch Section Begin -->
     <div class="gettouch-section">
