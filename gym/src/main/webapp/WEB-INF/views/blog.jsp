@@ -6,10 +6,10 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
-<c:set  var="articlesList"  value="${articlesMap.articlesList}" />
-<c:set  var="totArticles"  value="${articlesMap.totArticles}" />
-<c:set  var="section"  value="${articlesMap.section}" />
-<c:set  var="pageNum"  value="${articlesMap.pageNum}" />
+
+
+
+
 
 </head>
 <body class="class-timetable-section">
@@ -38,7 +38,8 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="section-title">
-
+						<br>
+						<br>
 						<h2>공지 사항</h2>
 					</div>
 				</div>
@@ -58,21 +59,21 @@
 					
 					<tbody style="padding: 10%;">
 					<c:choose>
-  						<c:when test="${articlesList ==null }" >
-						<tr>
+  						<c:when test="${boardList ==null }" >
+						<tr >
 							<td><span></span></td>
 							<td><span>등록된 글이 없습니다.</span></td>
 							<td><span><span></td>
 							<td><span></span></td>
 						</tr>
 					 </c:when>
-					  <c:when test="${articlesList !=null }" >
-					  <c:forEach  var="article" items="${articlesList }" varStatus="articleNum" >
-						<tr>
-							<td><span>${articleNum.count}</span></td>
-							<td><span>${article.title} </span></td>	
-							<td><span>${article.id }</span></td>
-							<td><span><fmt:formatDate value="${article.writeDate}" />  </span></td>
+					  <c:when test="${boardList !=null }" >
+					  <c:forEach  var="board" items="${boardList }" varStatus="boardNum" >
+						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
+							<td><span>${boardNum.count}</span></td>
+							<td><span>${board.title} </span></td>	
+							<td><span>관리자</span></td>
+							<td><span><fmt:formatDate value="${board.joindate}" /></span></td>
 						</tr>
 				   </c:forEach>
      				</c:when>
@@ -85,14 +86,17 @@
 		</div>
 		<br>
 		<br>
+	
+		<c:if test="${id eq 'admin'}">
+
 		<div class="col-lg-12" style="text-align: center;">
 
-
 			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
-		<br>
-		<br>
-		<br>
 		</div>
+		</c:if>
+		<br>
+		<br>
+		<br>
 	</section>
 </body>
 

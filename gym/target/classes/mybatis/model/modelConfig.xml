@@ -3,6 +3,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+<<<<<<< HEAD
 		<typeAlias type="com.spring.gym.member.vo.MemberVO" alias="memberVO"/>
+=======
+		<typeAlias type="com.spring.gym.member.vo.memberVO" alias="memberVO"/>
+		<typeAlias type="com.spring.gym.board.vo.BoardVO" alias="boardVO"/>
+		
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 	</typeAliases>
 </configuration>

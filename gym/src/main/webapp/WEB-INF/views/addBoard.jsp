@@ -94,14 +94,17 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="leave-comment">
+									<br>
+									<br>
+									
 									<h2 style="color: #f36100;">공지사항 작성</h2>
 									
-									<form name="frm" class="frm" method="post" action="${contextPath}/addNewBoard.do">
+									<form name="frm" class="frm" method="post" action="${contextPath}/insertBoard.do">
 										<h3>제목</h3>
-                                			<input type="text" name="title" id="title" placeholder="제목입력" required="required"/>
+                                			<input type="text" style="border: 1px solid;" name="title" id="title" placeholder="제목입력" required="required"/>
 										
                                 			<h3>내용</h3>
-                                				<textarea style="width 200px; height: 500px;" name="content" id="content" placeholder="내용입력" required="required"></textarea>
+                                				<textarea style="font-size:large; width 200px; height: 500px; border:1px solid white; border-collapse: collapse;" name="contents" id="contents" placeholder="내용입력" required="required"></textarea>
                                		
                                		
                                			
