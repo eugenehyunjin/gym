@@ -24,18 +24,18 @@
 		<put-attribute name="title" value="회원가입창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
 	</definition>
-	
-	<definition name="board" extends="baseLayout">
+<!-- 	
+	<definition name="blog" extends="baseLayout">
 		<put-attribute name="title" value="공지사항"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/board.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/blog.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="addBoard" extends="baseLayout">
 		<put-attribute name="title" value="공지사항"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
-	</definition>
+	</definition> -->
 	
-	<definition name="team" extends="baseLayout">
+	<definition name="/team" extends="baseLayout">
 		<put-attribute name="title" value="team"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
 	</definition>
@@ -61,9 +61,15 @@
 	</definition>
 	
 	<definition name="pt" extends="baseLayout">
-		<put-attribute name="title" value="필라테스"></put-attribute>
+		<put-attribute name="title" value="퍼스널 트레이닝"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/pt.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="class" extends="baseLayout">
+      <put-attribute name="title" value="class"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/views/class.jsp"></put-attribute>
+   </definition>
+   
 	<!-- <definition name="/project/listMembers" extends="baseLayout">
 		<put-attribute name="title" value="회원목록창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/project/listMembers.jsp"></put-attribute>

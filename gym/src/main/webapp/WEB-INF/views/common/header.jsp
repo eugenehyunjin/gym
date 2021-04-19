@@ -81,7 +81,7 @@
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li class="active"><a href="${contextPath }/main.do">홈</a></li>
+                            <li><a href="${contextPath }/main.do">홈</a></li>
                             <li><a href="./about-us.jsp">클래스</a>
                               <ul class="dropdown">
                                     <li><a href="${contextPath }/body.do">보디빌딩</a></li>
@@ -93,7 +93,7 @@
                             <li><a href="./class-details.jsp">트레이너</a></li>
                             <li><a href="./services.jsp">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
-                            <li><a href="${contextPath }/board.do">공지사항</a></li>
+                            <li><a href="${contextPath }/blog.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
                         </ul>
                     </nav>
@@ -102,12 +102,16 @@
                     <div class="top-option">
                         <div class="to-search search-switch">
                           <c:choose>
+                          		<c:when test="${id == 'admin'}">
+                            	     <a class="login" href="${contextPath }/myPage.do">ADMINPAGE</a>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
+                          		</c:when>
                             	<c:when test="${id != null}">
-                            		 <span style="color: white;">${id }님</span>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/myPage.do">MYPAGE</a>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                           		<c:otherwise>
+                          			 <a class="login" href="${contextPath }/main.do">LOGIN</a>&nbsp;&nbsp;
                           			 <a class="login" href="${contextPath }/memberForm.do">JOIN</a>
                           		</c:otherwise>
                             </c:choose>

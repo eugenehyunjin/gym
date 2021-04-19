@@ -6,4 +6,8 @@ public interface memberService {
 
 	public int checklogin(memberVO memberVO);
 
+	public int insertMember(memberVO memberVO);
+
+
+
 }

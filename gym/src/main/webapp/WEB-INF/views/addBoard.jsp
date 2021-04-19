@@ -98,10 +98,10 @@
 									
 									<form name="frm" class="frm" method="post" action="${contextPath}/addNewBoard.do">
 										<h3>제목</h3>
-                                			<input type="text" name="title" id="title" placeholder="제목입력" required="required"/>
+                                			<input type="text" style="border: 1px solid;" name="title" id="title" placeholder="제목입력" required="required"/>
 										
                                 			<h3>내용</h3>
-                                				<textarea style="width 200px; height: 500px;" name="content" id="content" placeholder="내용입력" required="required"></textarea>
+                                				<textarea style="width 200px; height: 500px; border:1px solid;" name="content" id="content" placeholder="내용입력" required="required"></textarea>
                                		
                                		
                                			

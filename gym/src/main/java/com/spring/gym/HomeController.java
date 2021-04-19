@@ -33,18 +33,12 @@ public class HomeController {
 		return "contact";
 	}
 	
-	/*
-	 * @RequestMapping(value = "/board.do", method =
-	 * {RequestMethod.GET,RequestMethod.POST}) public ModelAndView
-	 * blog(HttpServletRequest request, HttpServletResponse response) throws
-	 * Exception { ModelAndView mav = new ModelAndView(); mav.setViewName("board");
-	 * return mav; }
-	 */
+	
 	
 	@RequestMapping(value = "/team.do", method = RequestMethod.GET)
 	public ModelAndView team(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("team");
+		mav.setViewName("/team");
 		return mav;
 	}
 	
@@ -87,5 +81,11 @@ public class HomeController {
 		mav.setViewName("pt");
 		return mav;
 	}
+	@RequestMapping(value = "/class.do", method = RequestMethod.GET)
+	   public ModelAndView classes(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("class");
+	      return mav;
+	   }
 	
 }

@@ -109,8 +109,8 @@
 	                          		<div class="leave-comment">
 	                                    <h5>LOGIN</h5>
 	                                    <form name="frm">
-	                                        <input type="text" placeholder="ID" name="id">
-	                                        <input type="password" placeholder="PASSWORD" name="pwd">
+	                                        <input type="text" placeholder="ID" name="id" >
+	                                        <input type="password" placeholder="PASSWORD" name="pwd" >
 	                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
 	                                        <button type="button" onclick="checkid()">로그인</button>
 	                                        <p></p>
@@ -136,7 +136,7 @@
                                             <p>이번달 학생들을 위한 이벤트! 학생증 지참시 20% 할인과 동시에 이벤트 경품 증정!</p>
                                         </div>
                                     </div>
-                                    <div class="co-item reply-comment">
+                                    <div class="co-item">
                                         <div class="co-widget">
                                             <a href="#"><i class="fa fa-heart-o"></i></a>
                                             <a href="#"><i class="fa fa-share-square-o"></i></a>

@@ -17,4 +17,10 @@ public class memberServiceImpl implements memberService{
 		return result;
 	}
 
+	public int insertMember(memberVO memberVO) {
+		// TODO Auto-generated method stub
+		int result = memDAO.insertMember(memberVO);
+		return result;
+	}
+
 }
