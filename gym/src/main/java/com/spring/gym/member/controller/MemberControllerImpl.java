@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.gym.member.service.memberService;
-import com.spring.gym.member.vo.memberVO;
+import com.spring.gym.member.service.MemberService;
+import com.spring.gym.member.vo.MemberVO;
 
 @Controller("memberController")
-public class memberControllerImpl implements memberController {
+public class MemberControllerImpl implements MemberController {
 	@Autowired
-	private memberService memSV;
+	private MemberService memSV;
 	
 	@Override
 	@ResponseBody
 	@RequestMapping(value="/checklogin.do", method=RequestMethod.GET)
-	public ResponseEntity checklogin(@ModelAttribute("memberVO") memberVO memberVO,
+	public ResponseEntity checklogin(@ModelAttribute("memberVO") MemberVO memberVO,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
@@ -79,7 +79,7 @@ public class memberControllerImpl implements memberController {
 
 	@Override
 	@RequestMapping(value="/join.do", method= {RequestMethod.GET,RequestMethod.POST})
-	public ResponseEntity join(@ModelAttribute("memberVO") memberVO memberVO, HttpServletRequest request, HttpServletResponse response)
+	public ResponseEntity join(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");

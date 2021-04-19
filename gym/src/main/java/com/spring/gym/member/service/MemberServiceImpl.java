@@ -3,21 +3,21 @@ package com.spring.gym.member.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.gym.member.dao.memberDAO;
-import com.spring.gym.member.vo.memberVO;
+import com.spring.gym.member.dao.MemberDAO;
+import com.spring.gym.member.vo.MemberVO;
 
 @Service("memberService")
-public class memberServiceImpl implements memberService{
+public class MemberServiceImpl implements MemberService{
 	@Autowired
-	private memberDAO memDAO;
+	private MemberDAO memDAO;
 	
-	public int checklogin(memberVO memberVO) {
+	public int checklogin(MemberVO memberVO) {
 		// TODO Auto-generated method stub
 		int result = memDAO.checklogin(memberVO);
 		return result;
 	}
 
-	public int insertMember(memberVO memberVO) {
+	public int insertMember(MemberVO memberVO) {
 		// TODO Auto-generated method stub
 		int result = memDAO.insertMember(memberVO);
 		return result;

@@ -15,15 +15,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/main.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="contact" extends="baseLayout">
-		<put-attribute name="title" value="연락처"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/contact.jsp"></put-attribute>
-	</definition>
 	
-	<definition name="memberForm" extends="baseLayout">
-		<put-attribute name="title" value="회원가입창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/memberForm.jsp"></put-attribute>
-	</definition>
 	
 	<definition name="blog" extends="baseLayout">
 		<put-attribute name="title" value="공지사항"></put-attribute>
@@ -35,45 +27,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="/team" extends="baseLayout">
-		<put-attribute name="title" value="team"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/team.jsp"></put-attribute>
-	</definition>
+	
 	
 	<definition name="myPage" extends="baseLayout">
 		<put-attribute name="title" value="마이페이지"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/myPage.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="yoga" extends="baseLayout">
-		<put-attribute name="title" value="요가"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/course/yoga.jsp"></put-attribute>
-	</definition>
 	
-	<definition name="body" extends="baseLayout">
-		<put-attribute name="title" value="보디빌딩"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/course/body.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="pilates" extends="baseLayout">
-		<put-attribute name="title" value="필라테스"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/course/pilates.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="pt" extends="baseLayout">
-		<put-attribute name="title" value="퍼스널 트레이닝"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/course/pt.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="class" extends="baseLayout">
-      <put-attribute name="title" value="class"></put-attribute>
-      <put-attribute name="body" value="/WEB-INF/views/class.jsp"></put-attribute>
-   </definition>
-   
-   <definition name="/about" extends="baseLayout">
-      <put-attribute name="title" value="class"></put-attribute>
-      <put-attribute name="body" value="/WEB-INF/views/course/about.jsp"></put-attribute>
-   </definition>
    
     <definition name="masterForm" extends="baseLayout">
       <put-attribute name="title" value="class"></put-attribute>

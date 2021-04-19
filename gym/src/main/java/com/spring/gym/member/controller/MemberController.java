@@ -7,11 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.gym.member.vo.memberVO;
+import com.spring.gym.member.vo.MemberVO;
 
-public interface memberController {
+public interface MemberController {
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ResponseEntity checklogin(@ModelAttribute("memberVO") memberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ResponseEntity checklogin(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ResponseEntity join(@ModelAttribute("memberVO") memberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ResponseEntity join(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
