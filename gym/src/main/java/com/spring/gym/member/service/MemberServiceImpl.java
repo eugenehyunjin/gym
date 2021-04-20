@@ -33,5 +33,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberList;
 	}
 
+	public int memberDel(String id) {
+		// TODO Auto-generated method stub
+		int result = memDAO.memberDel(id);
+		return result;
+	}
+
 
 }

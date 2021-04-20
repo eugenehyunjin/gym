@@ -33,5 +33,11 @@ public class MemberDAOImpl implements MemberDAO{
 		return memberList;
 	}
 
+	public int memberDel(String id) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.delete("mapper.member.deleteMember", id);
+		return result;
+	}
+
 
 }

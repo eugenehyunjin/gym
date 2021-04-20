@@ -8,5 +8,6 @@ public interface MemberDAO {
 	public int checklogin(MemberVO memberVO);
 	public int insertMember(MemberVO memberVO);
 	public List<MemberVO> selectAllMember();
+	public int memberDel(String id);
 
 }

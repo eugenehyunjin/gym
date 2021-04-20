@@ -10,6 +10,25 @@
 <head>
 <meta charset="UTF-8">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+
+	function checkDel(url, memberid){
+		var result = confirm('삭제 하시겠습니까?');
+		if(result){
+			var form = document.createElement('form');
+			form.setAttribute('method','post');
+			form.setAttribute('action',url);
+			var input = document.createElement('input');
+			input.setAttribute('type','hidden');
+			input.setAttribute('name','id');
+			input.setAttribute('value',memberid);
+			form.appendChild(input);
+			document.body.appendChild(form);
+			form.submit();
+		}
+	}
+</script>
+
 <style type="text/css">
 .span{
 	color: orange;
@@ -57,7 +76,6 @@
 							<th style="width: 5%;">삭제</th>
 						<tr>
 					</thead>
-					
 					<tbody style="padding: 10%;">
 					<c:choose>
   						<c:when test="${memberList ==null }" >
@@ -81,7 +99,8 @@
 							<td><span>${memberList.tel} </span></td>	
 							<td><span>${memberList.email}</span></td>
 							<td><span>${memberList.joindate}</span></td>
-							<td><a href="#"><span>삭제</span></a></td>
+							<td><input type="button" onclick="checkDel('${contextPath}/memberDel.do','${memberList.id}')" style="background-color: orange;" value="삭제"></td>
+							
 						</tr>
 				   </c:forEach>
      				</c:when>
@@ -94,6 +113,11 @@
 		</div>
 		<br>
 		<br>
+		<br>
+			<div class="col-lg-12" style="text-align: center;">
+
+			<a href="${contextPath}/masterForm.do" class="primary-btn">강사추가하기</a>
+		</div>
 		<br>
 		<br>
 		<br>

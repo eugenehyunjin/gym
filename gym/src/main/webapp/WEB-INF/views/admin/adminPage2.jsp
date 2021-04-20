@@ -94,6 +94,10 @@
 		</div>
 		<br>
 		<br>
+			<div class="col-lg-12" style="text-align: center;">
+
+			<a href="${contextPath}/masterForm.do" class="primary-btn">강사추가하기</a>
+		</div>
 		<br>
 		<br>
 		<br>

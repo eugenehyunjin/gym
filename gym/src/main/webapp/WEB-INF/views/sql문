@@ -1,0 +1,35 @@
+-------  공지사항 -------
+CREATE TABLE gym_board(
+   brd_no int PRIMARY KEY,
+   title VARCHAR2(60) not null,
+   contents VARCHAR2(2000) not null,
+   joindate date default sysdate
+ );
+ 
+CREATE SEQUENCE brd_no
+INCREMENT BY 1  
+START WITH 1    
+MAXVALUE 3000 
+MINVALUE 1 
+NOCYCLE; 
+
+insert into gym_board values(BRD_NO.nextval,'테스트1','내용테스트입니다',sysdate);
+
+
+-------  회원가입 -------
+CREATE TABLE gym_member(
+    id varchar2(30) not null primary key,
+    pwd varchar2(30) not null,
+    name varchar2(20) not null,
+    birth_y varchar2(20),
+    birth_m varchar2(20),
+    birth_d varchar2(20),
+    gender varchar2(10),
+    tel varchar2(20),
+    email varchar2(50),
+    joinDate date default sysdate
+);
+
+insert into gym_member values('admin','1234','이현진','1988','6월','20일','남성','01050001193','eugene@gmail.com',sysdate);
+
+commit;

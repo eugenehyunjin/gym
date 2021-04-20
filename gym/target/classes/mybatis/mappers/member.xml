@@ -41,4 +41,10 @@
   		select count(*) from gym_member where id=#{id}
   	]]>
   	</select>
+  	
+  	<delete id="deleteMember" parameterType="String">
+  	<![CDATA[
+  		delete from gym_member where id=#{id}
+  	]]>
+  	</delete>
  </mapper>

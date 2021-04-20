@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -115,6 +116,16 @@ public class MemberControllerImpl implements MemberController {
 		List memberList = memSV.selectAllMember();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("memberList", memberList);
+		return mav;
+	}
+
+	@Override
+	@RequestMapping(value = "/memberDel.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView memberDel(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		int result = memSV.memberDel(id);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/adminPage1.do");
 		return mav;
 	}
 	
