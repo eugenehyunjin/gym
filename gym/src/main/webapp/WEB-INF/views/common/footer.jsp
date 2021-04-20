@@ -7,7 +7,6 @@
 <head>
   <meta charset="UTF-8">
   <title>하단 부분</title>
-   
 </head>
 <body>
  <!-- Footer Section Begin -->
