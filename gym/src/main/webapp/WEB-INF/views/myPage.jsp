@@ -141,18 +141,7 @@
 	.same{color:rgba(0,255,0,0.6);}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
-	
-	// db 연결 후 지울 것
-	window.onload = function() {
-		var testVal = document.getElementsByClassName('ip');
-		for(var i=3;i<testVal.length;i++) {
-			document.getElementsByClassName("ip")[i].value = "disabled Test";
-		}
-	}
-	
 
-</script>
 </head>
 <body>
 <!-- myPage.do 경로로 접근하는 경우 방지 -->
