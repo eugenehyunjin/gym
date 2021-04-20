@@ -22,4 +22,5 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView(viewName);
 		return mav;
 	}
+	
 }

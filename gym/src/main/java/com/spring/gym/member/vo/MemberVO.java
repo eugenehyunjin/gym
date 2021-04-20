@@ -13,6 +13,7 @@ public class MemberVO {
 	private String gender;
 	private String tel;
 	private String email;
+	private String joindate;
 	public String getId() {
 		return id;
 	}
@@ -67,4 +68,13 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getJoindate() {
+		return joindate;
+	}
+	public void setJoindate(String joindate) {
+		this.joindate = joindate;
+	}
+	
+	
+	
 }

@@ -9,7 +9,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인페이지</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>

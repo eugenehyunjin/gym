@@ -36,6 +36,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 	
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/flaticon.css" type="text/css">

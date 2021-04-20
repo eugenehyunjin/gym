@@ -1,9 +1,12 @@
 package com.spring.gym.member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.gym.board.vo.BoardVO;
 import com.spring.gym.member.vo.MemberVO;
 
 @Repository("memberDAO")
@@ -23,5 +26,12 @@ public class MemberDAOImpl implements MemberDAO{
 		int result = sqlSession.insert("mapper.member.insertMember", memberVO);
 		return result;
 	}
+
+	public List<MemberVO> selectAllMember() {
+		// TODO Auto-generated method stub
+		List<MemberVO> memberList = sqlSession.selectList("mapper.member.selectAllMember");
+		return memberList;
+	}
+
 
 }

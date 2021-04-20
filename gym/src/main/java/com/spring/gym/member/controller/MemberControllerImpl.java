@@ -2,6 +2,8 @@ package com.spring.gym.member.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -103,7 +105,18 @@ public class MemberControllerImpl implements MemberController {
 		}
 		return resEnt;
 	}
-	
+
+	@Override
+	@RequestMapping(value = "/adminPage1.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView selectAllMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		String viewName = (String) request.getAttribute("viewName");
+		System.out.println(viewName);
+		List memberList = memSV.selectAllMember();
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("memberList", memberList);
+		return mav;
+	}
 	
 	
 

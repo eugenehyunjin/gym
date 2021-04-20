@@ -1,8 +1,11 @@
 package com.spring.gym.member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.gym.board.vo.BoardVO;
 import com.spring.gym.member.dao.MemberDAO;
 import com.spring.gym.member.vo.MemberVO;
 
@@ -22,5 +25,13 @@ public class MemberServiceImpl implements MemberService{
 		int result = memDAO.insertMember(memberVO);
 		return result;
 	}
+
+	@Override
+	public List<MemberVO> selectAllMember() {
+		// TODO Auto-generated method stub
+		List<MemberVO> memberList = memDAO.selectAllMember();
+		return memberList;
+	}
+
 
 }
