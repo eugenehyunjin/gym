@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.gym.board.service.BoardService;
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
+import com.spring.gym.board.vo.PageMaker;
 
 @Controller("boardController")
 public class BoardControllerImpl implements BoardController {
@@ -29,11 +31,18 @@ public class BoardControllerImpl implements BoardController {
 
 	@Override
 	@RequestMapping(value = "/blog.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView selectAllBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView selectAllBoard(Criteria cri,HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
+		
 		List boardList = boardService.selectAllBoard();
 		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("boardList", boardList);
+		mav.addObject("boardList", boardService.list(cri));
+	
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(boardService.listCount());
+		
+		mav.addObject("pageMaker",pageMaker);
 		return mav;
 	}
 

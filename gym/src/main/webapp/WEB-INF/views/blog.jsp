@@ -7,9 +7,9 @@
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <style>
-
-
-	  a:link { color:white; font-size:small; text-decoration: none; }
+		ui{text-align: center;}
+		li {list-style: none; float:left; padding: 6px; display: inline-block; }
+	  a:link { color:white; font-size:medium; text-decoration: none; }
  	  a:hover { color:#f36100; text-decoration: underline; }
     
 </style>
@@ -90,12 +90,37 @@
 			</div>
 		</div>
 		</div>
-		</div>
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
+		
+	</div>	
+	
+		
+			
+  		<ul>
+    		<c:if test="${pageMaker.prev}">
+    	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
+   		 </c:if> 
+	
+   		 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+    	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(idx)}">${idx}</a></li>
+  		  </c:forEach>
+
+ 			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+   		 	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
+  	  	</c:if> 
+  		</ul>
+	
+		
+  	
+  	<br>
+  	<br>
+  	<br>
+				
+		
 		<c:if test="${id eq 'admin'}">
 
 		<div class="col-lg-12" style="text-align: center;">
@@ -110,9 +135,8 @@
 		</c:if>
 		
 	</section>
-	<br>
+		<br>
 		<br>
 		<br>
 </body>
-
 </html>

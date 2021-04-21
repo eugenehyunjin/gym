@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
 @Repository("boardDAO")
 public class BoardDAOImpl implements BoardDAO{
 
@@ -46,6 +47,17 @@ public class BoardDAOImpl implements BoardDAO{
 				
 		return result;
 		
+	}
+	@Override
+	public List<BoardVO> list(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mapper.board.listPage", cri);
+		
+	}
+	@Override
+	public int listCount() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("mapper.board.listCount");
 	}
 
 }

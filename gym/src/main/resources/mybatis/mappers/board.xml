@@ -11,6 +11,34 @@
 		<result property="brd_no" column="brd_no" />
 		<result property="joindate" column="joindate" />
 	</resultMap>
+	
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(brd_no) from gym_board where brd_no > 0
+	]]>
+	
+	</select>
+	
+	
+	<select id="listPage" resultType="boardVO" parameterType="com.spring.gym.board.vo.Criteria">
+		 <![CDATA[
+	SELECT brd_no,
+        title,
+        contents,
+        joindate
+	from ( 
+        select brd_no,
+                title,
+                contents,
+                joindate,
+                row_number() over(order by brd_no)as rnum
+                from gym_board
+                )mp
+                where rnum between #{rowStart} and #{rowEnd}
+                order by brd_no desc
+	]]>
+	</select>
+
 
 	<select id="selectAllBoard" resultMap="boardResult">
 		 <![CDATA[

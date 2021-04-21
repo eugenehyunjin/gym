@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
 
 public interface BoardDAO {
 	
@@ -17,4 +18,9 @@ public interface BoardDAO {
 	public void deleteBoard(int brd_no)throws DataAccessException;
 
 	public int modifyBoard(BoardVO vo)throws DataAccessException;
+	
+	public List<BoardVO> list(Criteria cri)throws Exception;
+	
+	public int listCount()throws Exception;
+	
 }
