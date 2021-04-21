@@ -7,8 +7,8 @@
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <style>
-		ui{text-align: center;}
-		li {list-style: none; float:left; padding: 6px; display: inline-block; }
+		ul{text-align: center;}
+		li {list-style: none; padding: 6px; text-align:center; display: initial;}
 	  a:link { color:white; font-size:medium; text-decoration: none; }
  	  a:hover { color:#f36100; text-decoration: underline; }
     
@@ -89,18 +89,19 @@
 				</table>
 			</div>
 		</div>
-		</div>
+		
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
 		
-	</div>	
+	
 	
 		
 			
   		<ul>
+  		
     		<c:if test="${pageMaker.prev}">
     	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
    		 </c:if> 
@@ -110,9 +111,9 @@
   		  </c:forEach>
 
  			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-   		 	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
+   		 <li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
   	  	</c:if> 
-  		</ul>
+  	  </ul>
 	
 		
   	
