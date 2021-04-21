@@ -7,7 +7,12 @@
 <head>
   <meta charset="UTF-8">
   <title>하단 부분</title>
-   
+<style type="text/css">
+.fa-logo{
+	height: 60px;
+}
+
+</style>
 </head>
 <body>
  <!-- Footer Section Begin -->
