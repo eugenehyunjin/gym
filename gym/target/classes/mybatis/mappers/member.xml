@@ -47,4 +47,11 @@
   		delete from gym_member where id=#{id}
   	]]>
   	</delete>
+  	
+  	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(id) from gym_member
+	]]>
+	
+	</select>
  </mapper>

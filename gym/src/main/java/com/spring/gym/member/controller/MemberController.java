@@ -15,6 +15,4 @@ public interface MemberController {
 	public ResponseEntity checklogin(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ResponseEntity join(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView selectAllMember(HttpServletRequest request, HttpServletResponse response) throws Exception;
-	public ModelAndView memberDel(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
