@@ -7,11 +7,18 @@
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <style>
-		ul{text-align: center;}
-		li{list-style: none; float:left; padding: 6px; display: initial; }
+		
+		
+		ul{
+			width: 100%;
+			text-align: center;
+		}
+		li {list-style:none; padding: 6px; text-align:center; display:inline;}
+
 	  a:link { color:white; font-size:medium; text-decoration: none; }
- 	  a:hover { color:#f36100; text-decoration: underline; }
-    
+ 	  a:hover { color:orange; text-decoration: underline; }
+ 	 
+	
 </style>
 
 
@@ -89,30 +96,40 @@
 				</table>
 			</div>
 		</div>
-		</div>
-		<br>
-		<br>
-		<br>
+		
 		<br>
 		<br>
 		
-	</div>	
+		
+	
 	
 		
-			
-  		<ul>
-    		<c:if test="${pageMaker.prev}">
-    	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
-   		 </c:if> 
+		
+	  		<ul>
+	    	<c:if test="${pageMaker.prev}">
+	    		<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">[이전]</a></li>
+	   		</c:if> 
+		
+	   		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+	    						
+	    		<li>
+	    		<c:choose>
+	    		<c:when test="${idx == pageMaker.cri.page}">
+	    			<span style="color: orange; font-size: small;">${idx}</span>
+	    		</c:when>
+	    		<c:otherwise>
+	    		<a style="font-size: large;" href="${contextPath}/blog.do${pageMaker.makeQuery(idx)}">[${idx}]</a>
+	    		</c:otherwise>
+	    		</c:choose>	
+	    		</li>
+	  		
+	  		</c:forEach>
 	
-   		 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-    	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(idx)}">${idx}</a></li>
-  		  </c:forEach>
-
- 			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-   		 	<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
-  	  	</c:if> 
-  		</ul>
+	 		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+	   			 <li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">[다음]</a></li>
+	  	  	</c:if> 
+	  	  </ul>
+  	  
 	
 		
   	

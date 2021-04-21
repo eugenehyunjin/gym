@@ -68,7 +68,7 @@ public class PageMaker {
 						    .queryParam("page", page)
 							.queryParam("perPageNum", cri.getPerPageNum())
 							.build();
-		   
+		  
 		return uriComponents.toUriString();
 	}
 }
