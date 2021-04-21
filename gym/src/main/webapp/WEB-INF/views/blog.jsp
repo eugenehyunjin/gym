@@ -8,7 +8,7 @@
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <style>
 		ul{text-align: center;}
-		li {list-style: none; padding: 6px; text-align:center; display: initial;}
+		li {list-style: none; padding: 6px; text-align:center; display: inline-block;}
 	  a:link { color:white; font-size:medium; text-decoration: none; }
  	  a:hover { color:#f36100; text-decoration: underline; }
     
