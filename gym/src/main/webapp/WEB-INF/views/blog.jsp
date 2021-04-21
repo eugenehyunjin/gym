@@ -6,7 +6,13 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+<style>
 
+
+	  a:link { color:white; font-size:small; text-decoration: none; }
+ 	  a:hover { color:#f36100; text-decoration: underline; }
+    
+</style>
 
 
 
@@ -71,7 +77,8 @@
 					  <c:forEach  var="board" items="${boardList }" varStatus="boardNum" >
 						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
 							<td><span>${boardNum.count}</span></td>
-							<td><span>${board.title} </span></td>	
+							<td><span><a href="${contextPath}/viewBoard.do?brd_no=${board.brd_no}">${board.title}</a></span></td>	
+						
 							<td><span>관리자</span></td>
 							<td><span><fmt:formatDate value="${board.joindate}" /></span></td>
 						</tr>
@@ -86,18 +93,26 @@
 		</div>
 		<br>
 		<br>
-	
+		<br>
+		<br>
+		<br>
 		<c:if test="${id eq 'admin'}">
 
 		<div class="col-lg-12" style="text-align: center;">
 
 			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
+			<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		</div>
 		</c:if>
-		<br>
-		<br>
-		<br>
+		
 	</section>
+	<br>
+		<br>
+		<br>
 </body>
 
 </html>

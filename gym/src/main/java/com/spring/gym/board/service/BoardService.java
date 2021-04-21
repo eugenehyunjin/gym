@@ -10,6 +10,12 @@ public interface BoardService {
 
 	public int insertBoard(BoardVO vo) throws Exception;
 
+	public BoardVO viewBoard(int brd_no) throws Exception;
+
+	public void deleteBoard(int brd_no)throws Exception;
+
+	public int modifyBoard(BoardVO vo)throws Exception;
+
 
 	
 }

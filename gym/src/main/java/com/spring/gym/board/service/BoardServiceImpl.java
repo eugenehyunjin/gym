@@ -30,4 +30,23 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	@Override
+	public BoardVO viewBoard(int brd_no) throws Exception {
+		BoardVO boardVO = boardDAO.selectBoard(brd_no);
+
+		return boardVO;
+	}
+
+	@Override
+	public void deleteBoard(int brd_no) throws Exception {
+		boardDAO.deleteBoard(brd_no);
+
+	}
+
+	@Override
+	public int modifyBoard(BoardVO vo) throws Exception {
+	
+		return boardDAO.modifyBoard(vo);
+	}
+
 }

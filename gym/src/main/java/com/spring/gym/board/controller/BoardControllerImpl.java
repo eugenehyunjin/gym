@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.gym.board.service.BoardService;
@@ -35,7 +36,7 @@ public class BoardControllerImpl implements BoardController {
 		mav.addObject("boardList", boardList);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/addBoard.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView addBoard(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
@@ -54,7 +55,7 @@ public class BoardControllerImpl implements BoardController {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html; charset=euc-kr");
 		ModelAndView mav = new ModelAndView("");
-				
+
 		if (result == 0) {
 			message = "<script>";
 			message += "alert('공지사항 등록 실패!');";
@@ -62,9 +63,9 @@ public class BoardControllerImpl implements BoardController {
 			message += "</script>";
 			out.println(message);
 			return null;
-	
+
 		} else if (result == 1) {
-			
+
 			message = "<script>";
 			message += "alert('공지사항 등록 되었습니다.');";
 			message += "location.href='" + request.getContextPath() + "/blog.do';";
@@ -73,5 +74,36 @@ public class BoardControllerImpl implements BoardController {
 			return null;
 		}
 		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/modifyBoard.do", method =  { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView modifyBoard(BoardVO vo, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		boardService.modifyBoard(vo);
+		ModelAndView mav = new ModelAndView("redirect:/viewBoard.do?brd_no="+vo.getBrd_no());
+		return mav;
+	}
+	@Override
+	@RequestMapping(value = "/viewBoard.do", method = RequestMethod.GET)
+	public ModelAndView viewBoard(@RequestParam("brd_no") int brd_no, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		boardVO = boardService.viewBoard(brd_no);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		mav.addObject("board", boardVO);
+		return mav;
+	}
+
+	@Override
+	@RequestMapping(value = "/deleteBoard.do", method = RequestMethod.GET)
+	public ModelAndView deleteBoard(@RequestParam("brd_no") int brd_no, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+
+		 boardService.deleteBoard(brd_no);
+		 ModelAndView mav = new ModelAndView("redirect:/blog.do");
+		 return mav;
 	}
 }

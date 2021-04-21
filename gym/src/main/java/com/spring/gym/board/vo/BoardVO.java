@@ -10,6 +10,7 @@ public class BoardVO {
 	private String title;
 	private String contents;
 	private Date joindate;
+	
 	public int getBrd_no() {
 		return brd_no;
 	}

@@ -14,19 +14,38 @@
 
 	<select id="selectAllBoard" resultMap="boardResult">
 		 <![CDATA[
-		select * from gym_board order by brd_no asc
+		select * from gym_board order by brd_no desc
 			]]>
 	</select>
+	
+	<select id="selectBoard" resultType="boardVO" parameterType="int">
+		 <![CDATA[
+		select * from gym_board where brd_no = #{brd_no}
+			]]>
+	</select>
+	
 
 	<insert id="insertBoard" parameterType="boardVO">
  
   		<![CDATA[
-  		
-  		 insert into gym_board values(BRD_NO.nextval,#{title},#{contents},sysdate)
+  		 		 insert into gym_board values(BRD_NO.nextval,#{title},#{contents},sysdate)
   		  ]]>
 
 	</insert>
 
+	<delete id="deleteBoard" parameterType="int">
+	<![CDATA[
+			delete from gym_board where brd_no = #{brd_no}
+	 ]]>
+	</delete>
+	
+	<update id="modifyBoard" parameterType="boardVO">
+	
+	<![CDATA[
+		
+		update gym_board set title=#{title},contents=#{contents} where brd_no= #{brd_no}
+	]]>
+	</update>
 
 
 </mapper>

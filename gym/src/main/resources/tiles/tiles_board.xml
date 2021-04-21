@@ -12,4 +12,12 @@
 		<put-attribute name="title" value="글쓰기창" />
 		<put-attribute name="body" value="/WEB-INF/views/addBoard.jsp" />
 	</definition>
+	
+	<definition name="/viewBoard" extends="baseLayout">
+		<put-attribute name="title" value="공지사항 상세창" />
+		<put-attribute name="body" value="/WEB-INF/views/viewBoard.jsp" />
+	</definition>
+	
+	
+	
 </tiles-definitions>
