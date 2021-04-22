@@ -145,7 +145,6 @@
 	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<<<<<<< HEAD
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -208,17 +207,13 @@
 		
 		
 	}
-	
-=======
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
-
+	</script>
+<!-- myPage.do 경로로 접근하는 경우 방지 -->
 </head>
 <body>
-<!-- myPage.do 경로로 접근하는 경우 방지 -->
-<c:if test="${empty id}">
-<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
+<c:if test="${empty id }">
+	<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
 </c:if>
-
 <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb-bg.jpg">
         <div class="container">
@@ -462,7 +457,7 @@
                      	<div id = "ifmaster" hidden = "true">
                      		<table class = "myPage-myClass-table" width="209px;" >
                                 				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
-                                					<td class = "myPage-myClass-td"><h4 style = "color:white;">${myInfo.name }</h4> <h5 style = "color:white;">강사<br>클래스 정보</h5></td>
+                                					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
                                 				</tr>
                                 				<tr class = "myPage-myClass-exist">
                                 					<td style = "width:209px;line-height: 240%;">
@@ -502,14 +497,14 @@
                                 			<div class = "insertBtn">
                                 				<input type = "button" value = "클래스 등록" id = "insertCourse" onClick="addCoursePopUP()"/>
                                 				<script>
-                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=660, height=650, left=550, top=100");}
                                 				</script>
                                 			</div>
                      	</div>
                      	<div id = "ifuser" hidden="true">
                      		<table class = "myPage-myClass-table">
 	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
-	                                	<td class = "myPage-myClass-td"><h5 style = "color:white;">${myInfo.name }님의<br>예약 정보</h5></td>
+	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
 	                                </tr>
 	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">
@@ -523,7 +518,21 @@
 												<li>수업 시간 - 50분</li>
 											
 											</ul>
-											
+											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+                                							<script>
+                                								function delChk() {
+                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
+                                										var c_IdSplit = c_Id.split('- ')[1];
+                                										console.log(c_Id);
+                                										console.log(c_IdSplit);
+                                										
+                                										alert('클래스 취소가 완료되었습니다');
+                                									}else{
+                                										alert('클래스 취소가 취소되었습니다');
+                                									}
+                                								}
+                                							</script>
 										</td>
 									</tr>
 									<tr class = "myPage-myClass-exist" >
@@ -538,7 +547,21 @@
 												<li>수업 시간 - 30분</li>
 											
 											</ul>
-											
+											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+                                							<script>
+                                								function delChk() {
+                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
+                                										var c_IdSplit = c_Id.split('- ')[1];
+                                										console.log(c_Id);
+                                										console.log(c_IdSplit);
+                                										
+                                										alert('클래스 취소가 완료되었습니다');
+                                									}else{
+                                										alert('클래스 취소가 취소되었습니다');
+                                									}
+                                								}
+                                							</script>
 										</td>
 									</tr>
 											
