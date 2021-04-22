@@ -145,6 +145,7 @@
 	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -208,8 +209,9 @@
 		
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 
-</script>
 </head>
 <body>
 <!-- myPage.do 경로로 접근하는 경우 방지 -->

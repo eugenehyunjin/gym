@@ -68,20 +68,6 @@
 		location.href='${contextPath }/main.do';
 	} 
 	
-	function checkpw(){
-		let pw1 = document.getElementsByName("pwd")[0].value;	
-		let pw2 = document.getElementsByName("pw2")[0].value;
-		if(pw1==pw2){
-			alert('비밀번호가 일치합니다.')
-			document.getElementsByName('name')[0].focus();
-		}else{
-			alert('비밀번호가 일치 하지 않습니다.다시 입력해주세요.')
-			document.getElementsByName("pwd")[0].value='';
-			document.getElementsByName("pw2")[0].value='';
-			document.getElementsByName('pwd')[0].focus();
-		}
-	}
-	
 </script>
 <style>
 	.blog-details-section {
@@ -177,11 +163,37 @@
 									
 									<form name="frm" class="frm">
 										<h3>아이디</h3>
-                                			<input type="text" name="id"/>
-										<h3>비밀번호</h3>
-                                			<input type="password" name="pwd" />
-										<h3>비밀번호 재확인</h3>
-                                			<input type="password" name="pw2" onchange="checkpw()" />
+                                			<input type="text" name="id">
+                                		<h3>비밀번호 *</h3>
+                                			<input type="password" name="pwd" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
+										<h3>비밀번호 재확인 *</h3>
+                                			<input type="password" name="pw2" id = "pwChk2" class = "ip1" value = "" onkeyup="pwdChk()"/>
+                                			
+                                			<script>
+	                                				function pwdChk(){
+	                                					console.log('function');
+	                                					var pw1 = document.getElementById('pwChk1').value;
+	                                					var pw2 = document.getElementById('pwChk2').value;
+	                                					
+	                                					var result = document.getElementById('warnPw');
+	                                					
+	                                					if(pw1 == '' && pw2 == ''){
+	                                						result.innerHTML = "";
+	                                					}else{
+	                                						if(pw1 != pw2) {
+		                                						result.innerHTML = "*불일치";
+		                                						result.setAttribute('class', 'notsame');
+		                                						console.log('불일치');
+		                                					}else{
+		                                						result.innerHTML = "*일치";
+		                                						result.setAttribute('class', 'same');
+		                                						console.log('일치');
+		                                					}
+	                                						
+	                                					}
+	                                				}
+	                                			</script>
+	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>	
 										<h3>이름</h3>
                                 			<input type="text" name="name"/>
 										<h3>생년월일</h3>

@@ -107,27 +107,6 @@ public class MemberControllerImpl implements MemberController {
 		return resEnt;
 	}
 
-	@Override
-	@RequestMapping(value = "/adminPage1.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView selectAllMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		String viewName = (String) request.getAttribute("viewName");
-		System.out.println(viewName);
-		List memberList = memSV.selectAllMember();
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("memberList", memberList);
-		return mav;
-	}
-
-	@Override
-	@RequestMapping(value = "/memberDel.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView memberDel(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		int result = memSV.memberDel(id);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/adminPage1.do");
-		return mav;
-	}
 	
 	
 

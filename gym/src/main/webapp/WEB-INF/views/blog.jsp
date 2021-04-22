@@ -6,7 +6,20 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+<style>
+		
+		
+		ul{
+			width: 100%;
+			text-align: center;
+		}
+		li {list-style:none; padding: 6px; text-align:center; display:inline;}
 
+	  a:link { color:white; font-size:medium; text-decoration: none; }
+ 	  a:hover { color:orange; text-decoration: underline; }
+ 	 
+	
+</style>
 
 
 
@@ -71,7 +84,8 @@
 					  <c:forEach  var="board" items="${boardList }" varStatus="boardNum" >
 						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
 							<td><span>${boardNum.count}</span></td>
-							<td><span>${board.title} </span></td>	
+							<td><span><a href="${contextPath}/viewBoard.do?brd_no=${board.brd_no}">${board.title}</a></span></td>	
+						
 							<td><span>관리자</span></td>
 							<td><span><fmt:formatDate value="${board.joindate}" /></span></td>
 						</tr>
@@ -82,22 +96,64 @@
 				</table>
 			</div>
 		</div>
-		</div>
-		</div>
+		
 		<br>
 		<br>
+		
+		
 	
+	
+		
+		
+	  		<ul>
+	    	<c:if test="${pageMaker.prev}">
+	    		<li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">[이전]</a></li>
+	   		</c:if> 
+		
+	   		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+	    						
+	    		<li>
+	    		<c:choose>
+	    		<c:when test="${idx == pageMaker.cri.page}">
+	    			<span style="color: orange; font-size: small;">${idx}</span>
+	    		</c:when>
+	    		<c:otherwise>
+	    		<a style="font-size: large;" href="${contextPath}/blog.do${pageMaker.makeQuery(idx)}">[${idx}]</a>
+	    		</c:otherwise>
+	    		</c:choose>	
+	    		</li>
+	  		
+	  		</c:forEach>
+	
+	 		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+	   			 <li><a href="${contextPath}/blog.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">[다음]</a></li>
+	  	  	</c:if> 
+	  	  </ul>
+  	  
+	
+		
+  	
+  	<br>
+  	<br>
+  	<br>
+				
+		
 		<c:if test="${id eq 'admin'}">
 
 		<div class="col-lg-12" style="text-align: center;">
 
 			<a href="${contextPath}/addBoard.do" class="primary-btn">공지사항 작성하기</a>
+			<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		</div>
 		</c:if>
-		<br>
-		<br>
-		<br>
+		
 	</section>
+		<br>
+		<br>
+		<br>
 </body>
-
 </html>

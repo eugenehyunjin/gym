@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.gym.board.dao.BoardDAO;
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
 
 @Service("boardService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -28,6 +29,38 @@ public class BoardServiceImpl implements BoardService {
 
 		return boardDAO.insertBoard(vo);
 
+	}
+
+	@Override
+	public BoardVO viewBoard(int brd_no) throws Exception {
+		BoardVO boardVO = boardDAO.selectBoard(brd_no);
+
+		return boardVO;
+	}
+
+	@Override
+	public void deleteBoard(int brd_no) throws Exception {
+		boardDAO.deleteBoard(brd_no);
+
+	}
+
+	@Override
+	public int modifyBoard(BoardVO vo) throws Exception {
+	
+		return boardDAO.modifyBoard(vo);
+	}
+
+	@Override
+	public List<BoardVO> list(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.list(cri);
+		
+	}
+
+	@Override
+	public int listCount() throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.listCount();
 	}
 
 }
