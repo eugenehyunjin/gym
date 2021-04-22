@@ -74,7 +74,7 @@
 .myPage-myClass-td{height: 60px; width:100%;backgournd:#f36100;color:white; text-align:center;padding-bottom: 20px;}
 .myPage-myClass-bookNull{
    height: 200px;
-   border: 3px solid #cf651f;;
+   border: 3px solid #cf651f;
    font-size: 13px;
    text-align: center;
    background:white;
@@ -139,16 +139,73 @@
 	.tagForMaster:visited {color:black;}
 	.notsame{color:rgba(255,0,0,0.6);}
 	.same{color:rgba(0,255,0,0.6);}
+	#hoverBox:hover {background-color: white;color:black;border:3px white solid;}
+	.delBtn{width:100%; color:#c4c4c4;border:1px solid #c4c4c4; background-color:transparent;margin-bottom: 10px;text-align:center;}
+	#insertCourse{border:1px solid white;margin:30px 20px 0px 0px;padding:10px 5px;width:100%;font-weight: bold;font-size:14px;border-radius: 20px 20px;}
+	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	
-	// db 연결 후 지울 것
 	window.onload = function() {
-		var testVal = document.getElementsByClassName('ip');
-		for(var i=3;i<testVal.length;i++) {
-			document.getElementsByClassName("ip")[i].value = "disabled Test";
+		
+		//사용자
+		const masterChk = '${id}';
+		
+		if('${id}' == 'admin') {
+			console.log('admin');
+			document.getElementsByTagName('h2')[0].innerHTML = "ADMINPAGE";
+			document.getElementById('mod1').innerHTML = "ADMINPAGE";
+			document.getElementById('mod2').innerHTML = "ADMINPAGE";
+			document.getElementsByTagName('h5')[1].innerHTML = "ADMIN CONTROL";
+		}else if (masterChk.includes('master')){
+			console.log('master');
+				//var masterId = document.getElementsByClassName('myPage-myClass-table')[0];
+				//masterId.removeAttribute('hidden');
+				var ifmaster = document.getElementById('ifmaster');
+				console.log(ifmaster.hidden);
+				document.getElementById('ifmaster').removeAttribute('hidden');
+				console.log(ifmaster.hidden);
+		}else {
+			console.log('user');
+			var ifuser = document.getElementById('ifuser');
+			console.log(ifuser.hidden);
+			document.getElementById('ifuser').removeAttribute('hidden');
+			console.log(ifuser.hidden);
 		}
+		
+		// 성별
+		console.log('${myInfo.gender}');
+		var myGender = '${myInfo.gender}';
+		if(myGender == '남성'){
+			document.getElementsByClassName('genderOption')[1].setAttribute('selected','selected');
+			//document.getElementsByClassName('genderOption')[1].selected = "true";
+		}else if(myGender == '여성'){
+			document.getElementsByClassName('genderOption')[2].setAttribute('selected','selected');
+		}else{}
+		
+		//달, 일
+		console.log('${myInfo.birth_m}');
+		console.log('${myInfo.birth_d}');
+		
+		var myBirth_m = '${myInfo.birth_m}';
+		var myBirth_d = '${myInfo.birth_d}';
+		
+		var optionBirth_m = document.getElementsByClassName('birth_m_Option');
+		var optionBirth_d = document.getElementsByClassName('birth_d_Option');
+		
+		for(var g=0;g<optionBirth_m.length;g++) {
+			if(myBirth_m == optionBirth_m[g].value){
+				optionBirth_m[g].selected = "true";	
+			}	
+		}
+		for(var h=0;g<optionBirth_d.length;h++) {
+			if(myBirth_d == optionBirth_d[h].innerHTML){
+				optionBirth_d[h].selected = "true";	
+			}	
+		}
+		
+		
 	}
 	
 
@@ -201,9 +258,9 @@
                                 	<p id="warnnigMsg"></p>
                                 	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="text" name="pw" disabled="disabled" class = "ip" value = "${pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
+                                	<input type="text" name="pw" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
                                 <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
-                                	<input type="hidden" name="pwChk" class = "ip" value = "${pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
+                                	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
                                 		<script>
 	                                				function pwdChk(){
 	                                					console.log('function');
@@ -231,19 +288,19 @@
 	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.pw}"/>-->
                                 <h3>이름</h3>
-                                	<input type="text" name="name" disabled="disabled" class = "ip"/>
+                                	<input type="text" name="name" disabled="disabled" class = "ip" value = "${myInfo.name }"/>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.name}"/>-->
                                 <h3>생년월일</h3>
                                 		<div class="birth">
                                 			<div class="birth_yy">
-                                			<input type="text" placeholder="년" name="birth_y" disabled="disabled" class = "ip"/>
+                                			<input type="text" placeholder="년" name="birth_y" disabled="disabled" class = "ip" value = "${myInfo.birth_y }"/>
                                 			</div>
                                 			<div class = "birth_m_d">
 	                                		<div class="birth_mm">
 	                                			<select name="birth_m" onchange="dayByMonth()" disabled="disabled" >
 	                                				<option value=selected>&nbsp;&nbsp; 월</option>
 	                                				<c:forEach var="i" begin="1" end="12">
-		                                				<option>${i }월</option>
+		                                				<option class = "birth_m_Option">${i }월</option>
 	                                				</c:forEach>
 	                                			</select>
 	                                		</div>
@@ -251,7 +308,7 @@
 	                                			<select name="birth_d" disabled="disabled">
 	                                				<option value=selected>&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
-		                                				<option id = ${i }>${i }일</option>
+		                                				<option id = ${i } class = "birth_d_Option">${i }일</option>
 	                                				</c:forEach>
 	                                			</select>
 	                                		</div>
@@ -295,28 +352,15 @@
 	                                	</div>
                                 <h3>성별</h3>
                                 	<select name="gender" disabled="disabled" id = "genderSelect">
-<c:choose>                                	
-                                			
- <c:when test="${member.gender eq '남자' }">                                			
-                                <script>
-                                	document.getElementsByTagName('option')[1].selected= true;
-                                </script>						
- </c:when>
- <c:when test="${member.gender eq '여자' }">                                			
-                                <script>
-                                	document.getElementsByTagName('option')[2].selected = true;
-                                </script>			
-</c:when>
-</c:choose>
-											<option >선택 안함</option>
-											<option >남자</option>
-											<option >여자</option>
+											<option class = "genderOption" >선택 안함</option>
+											<option class = "genderOption">남성</option>
+											<option class = "genderOption">여성</option>
 											                               			
                                 	</select>
                                 <h3>휴대전화</h3>
-                                	<input type="text" name="tel" disabled="disabled" class = "ip" />
+                                	<input type="text" name="tel" disabled="disabled" class = "ip" value = "${myInfo.tel }"/>
                                 <h3>이메일</h3>
-                                	<input type="text" name="email" disabled="disabled" class = "ip" />
+                                	<input type="text" name="email" disabled="disabled" class = "ip" value = "${myInfo.email }"/>
                                	<div>
                                		<input type="button" class="primary-btn" value="수정" onclick="modid()" id = "modBtn">
                                		 <!-- <input type="button" class="primary-btn" value="취소" onclick="${contextPath }/main.do"> -->
@@ -404,10 +448,66 @@
                                 </div>
                                 </td>
                                 <td valign="top" class = "myPage-myClass">
-                                
-	                                <table class = "myPage-myClass-table">
+                     <c:choose>
+                     	<c:when test="${id == 'admin' }">
+                     				<a href = "${contextPath }/adminPage1.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
+                     					<div style = "border:3px solid #c4c4c4;margin:30px;padding:15px;font-weight: bold;" id = "hoverBox">
+                     					회원 관리<br>페이지 >
+                     					</div>
+                     				</a>
+                     	</c:when>
+                     </c:choose>
+                     	<div id = "ifmaster" hidden = "true">
+                     		<table class = "myPage-myClass-table" width="209px;" >
+                                				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
+                                					<td class = "myPage-myClass-td"><h4 style = "color:white;">${myInfo.name }</h4> <h5 style = "color:white;">강사<br>클래스 정보</h5></td>
+                                				</tr>
+                                				<tr class = "myPage-myClass-exist">
+                                					<td style = "width:209px;line-height: 240%;">
+                                						<ul>
+                                							<h5 style="text-align:center;padding-bottom: 10px;">
+                                								<a href = "#" class = "tagForBook" title = "커리큘럼 정보">커리큘럼명</a>
+                                							</h5>
+                                							<li class = "course">커리큘럼 ID - ID 테스트 글</li>
+                                							<li class = "course">커리큘럼 종목 - 종목 테스트 글</li>
+                                							<li class = "course">커리큘럼 설명 - <p style = "font-size:11px;">커리큘럼 설명 테스트 글입니다.</p></li>
+                                							<li class = "course">커리큘럼 가격 - 가격 테스트 글</li>
+                                						</ul>
+                                					
+                                						<h7><input type = "button" value = "수강생 정보" onclick="PopUp()" style = "margin:auto;text-align:center; color:black; border: 1px solid black;font-weight: bold;width:100%;margin-bottom: 10px;" id = "colorChange"></h7>
+                                						<script>
+                                							function PopUp(){window.open("${contextPath}/stuInfo_popup.do?name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                						</script>
+                                						<input type = "button" value = "클래스 삭제" onClick="delChk()" class = "delBtn"/>
+                                							<script>
+                                								function delChk() {
+                                									if(confirm('클래스를 삭제하시겠습니까?')){
+                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
+                                										var c_IdSplit = c_Id.split('- ')[1];
+                                										console.log(c_Id);
+                                										console.log(c_IdSplit);
+                                										
+                                										alert('클래스 삭제가 완료되었습니다');
+                                									}else{
+                                										alert('클래스 삭제가 취소되었습니다');
+                                									}
+                                								}
+                                							</script>
+                                					</td>
+                                				</tr>
+                                			</table>
+                                			
+                                			<div class = "insertBtn">
+                                				<input type = "button" value = "클래스 등록" id = "insertCourse" onClick="addCoursePopUP()"/>
+                                				<script>
+                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                				</script>
+                                			</div>
+                     	</div>
+                     	<div id = "ifuser" hidden="true">
+                     		<table class = "myPage-myClass-table">
 	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
-	                                	<td class = "myPage-myClass-td">${id }님의<br>예약 정보</td>
+	                                	<td class = "myPage-myClass-td"><h5 style = "color:white;">${myInfo.name }님의<br>예약 정보</h5></td>
 	                                </tr>
 	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">
@@ -439,24 +539,12 @@
 											
 										</td>
 									</tr>
-<!-- 									
-	                                
-	<c:if test="${empty bookList}">
-										<tr class = "myPage-myClass-bookNull">
-											<td>
-											예약된 클래스가 없습니다</td>
-										</tr> 
-	</c:if>
-	<c:if test="${!empty bookList }">
-	<c:forEach var = "book" items="${bookList }">  -->
-												<!-- css 미완  -->
-		<!-- 						
-	</c:forEach>								 
-	</c:if>
-	 -->
+											
 	
 	                                </table>
-                                
+    
+                     	</div>           
+	                                                            
                                 </td></tr>
 						  		</table>
                             </div>

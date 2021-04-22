@@ -9,4 +9,18 @@
 		<put-attribute name="body" value="/WEB-INF/views/myPage.jsp"></put-attribute>
 	</definition>
 	
+	 <definition name="baseEmpty" template="/WEB-INF/views/stuInfo_popup.jsp">
+    </definition>
+
+	<definition name="/stuInfo_popup" extends="baseEmpty">
+		<put-attribute name="body" value="/WEB-INF/views/stuInfo_popup.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="baseEmpty1" template="/WEB-INF/views/addCourse_popup.jsp">
+    </definition>
+	
+	<definition name="/addCourse_popup" extends="baseEmpty1">
+		<put-attribute name="body" value="/WEB-INF/views/addCourse_popup.jsp"></put-attribute>
+	</definition>
+	
 	</tiles-definitions>

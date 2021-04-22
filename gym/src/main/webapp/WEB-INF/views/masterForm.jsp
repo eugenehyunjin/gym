@@ -13,6 +13,9 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 	
+	window.onload = function(){
+		document.getElementsByName('id')[0].focus();
+	}
 
 	
 	function fncancle(){
@@ -75,8 +78,39 @@
 		margin: 50px;
 		padding: 10px; 
 	}
-	.notsame{color:rgba(255,0,0,0.6);}
-	.same{color:rgba(0,255,0,0.6);}
+	.notsame{color:rgba(255,0,0, 0.6);}
+	.same{color:rgba(0,255,0, 0.6);}
+	
+	#telId, #emailId {
+		width:100%;
+		color:white;
+		font-size: 20px;
+		height:46px;
+		border: 1px solid #363636;
+		padding-left: 20px;
+		padding-right: 5px;
+		background: transparent;
+	}
+	
+	#idIpChk {
+		color:rgba(255,0,0,0.6);
+		font-style:italic;
+		font-size:14px;
+		}
+	#ChkId{
+		border:1px solid #c4c4c4;
+		padding: 0px 10px;
+		background: transparent;
+		font-size:14px;
+		text-align: center;
+		padding; 3px;
+		width: 13%;
+		color:#c4c4c4;
+		font-weight: bold;
+	}
+	#ChkId:hover {color:black;background-color:white;opacity: 0.8;}
+	.trunRed {color:red;}
+	.truenGreen{color:green;}
 </style>
 
 
@@ -117,7 +151,49 @@
 									
 									<form name="frm" class="frm">
 										<h3>강사 아이디 *</h3>
-                                			<input type="text" name="id" class = "ip1"/>
+                                			<input type="text" name="id" class = "ip1" value = "master" id = "userId" placeholder="반드시 'master'가 포함되어야 합니다" onkeyup="masterIdChk()"/>
+                                			<script>
+                                				function masterIdChk(){
+                                					var idChk = document.getElementsByName('id')[0].value;
+                                					
+                                					if(!idChk.includes('master')){
+                                						document.getElementById('idIpChk').innerHTML = "ID에 'master'를 포함하십시오";
+                                					}else {
+                                						document.getElementById('idIpChk').innerHTML = "";
+                                					}
+                                					
+                                				}
+                                				
+                                				function availableChk() {
+                                					var userId = document.getElementById('userId').value;
+                                					$.ajax({
+                                						url : "/idCheck.do",
+                                						type : "get",
+                                						//datatype = "json",
+                                						data : {"userId": userId},
+                                						success : function(data) {
+                                							if(data == 1){
+                                								document.getElementById('alertAvailable').innerHTML = "사용 불가능";
+                                								document.getElementById('alertAvailable').removeAttribute('class');
+                                								document.getElementById('alertAvailable').setAttribute('class', 'trunRed');
+                                							}else if(data == 0){
+                                								document.getElementById('alertAvailable').innerHTML = "사용 가능";
+                                								document.getElementById('alertAvailable').removeAttribute('class');
+                                								document.getElementById('alertAvailable').setAttribute('class', 'trunGreen');
+                                							}
+                                						}
+                                					})
+                                					
+                                				}
+                                			</script>
+                                			<p id = "idIpChk"></p>
+                                			<div>
+                                				<input type = "button" onclick = "availableChk()" value = "ID 중복체크" id = "ChkId" >
+                                				<span id = "alertAvilable" style = "font-size:14.5px;font-style:italic;font-weight: bold;color:white;padding-left:20px;">
+                                					
+                                				</span>
+                                			</div>
+                                			
 										<h3>강사 비밀번호 *</h3>
                                 			<input type="password" name="pw1" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
 										<h3>강사 비밀번호 재확인 *</h3>
@@ -147,7 +223,7 @@
 	                                					}
 	                                				}
 	                                			</script>
-	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>
+	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;"></p>
 										<h3>강사 생년월일</h3>
                                 		<div class="birth">
                                 			<div class="birth_yy">
@@ -161,14 +237,17 @@
 		                                				<option>${i }월</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" id = "Hidddenbirth_m">
 	                                		</div>
+	                                		
 	                                		<div class="birth_dd">
-	                                			<select name="birth_d" class = "selectChk" >
+	                                			<select name="birth_d" class = "selectChk" onchange="newDay()" >
 	                                				<option value=selected >&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
 		                                				<option id = ${i }>${i }일</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" id = "Hidddenbirth_d">
 	                                		</div>
 	                                		</div>
 	                                		<Script>
@@ -203,7 +282,24 @@
 	                                				document.getElementById('31').removeAttribute("disabled");
 	                                				
 	                                			}
+	                                			if(newMonthSplit != ''){
+	                                				document.getElementById('Hiddenbirth_m').value = newMonthSplit;	
+	                                			}
 	                                			
+	                                		}
+	                                		
+	                                		function newDay() {
+	                                			var newDay = document.getElementsByName('birth_d')[0].value;
+	                                			console.log(newDay);
+	                                			
+	                                			var newDaySplit = newDay.split('일')[0];
+	                                			console.log(newMonthSplit);
+	                                			
+	                                			if(newDaySplit != ''){
+	                                				document.getElementById('Hiddenbirth_d').value = newDaySplit;
+	                                			}else{
+	                                			}
+	                                			  console.log(document.getElementById('Hiddenbirth_d').value;);
 	                                		}
 
 	                                		</Script>
@@ -216,11 +312,10 @@
 	                                				<option>선택 안함</option>
 	                                			</select>
 										</div>
-                                			
                                 			<h3>강사 휴대전화 *</h3>
-                                				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1"/>
+                                				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1" id = "telId"/>
                                 			<h3>강사 이메일 *</h3>
-                                				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1"/>
+                                				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1" id = "emailId"/>
                                		
                                				<div class="btn">
                                					<input style="background: #f36100;" type="button" class="primary-btn" value="강사등록" onclick="checkNull()">
