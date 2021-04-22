@@ -52,6 +52,36 @@
 	<![CDATA[
 		select count(id) from gym_member
 	]]>
+	</select>
 	
+	<select id="listPage" resultType="memberVO" parameterType="com.spring.gym.board.vo.Criteria">
+		 <![CDATA[
+	SELECT id,
+	        pwd,
+	        name,
+	        birth_y,
+	        birth_m,
+	        birth_d,
+	        gender,
+	        tel,
+	        email,
+	        joindate
+	from ( 
+        	select id,
+		        pwd,
+		        name,
+		        birth_y,
+		        birth_m,
+		        birth_d,
+		        gender,
+		        tel,
+		        email,
+		        joindate,
+                row_number() over(order by joindate desc)as rnum
+                from gym_member
+                )mp
+                where rnum between #{rowStart} and #{rowEnd}
+                order by joindate desc
+	]]>
 	</select>
  </mapper>

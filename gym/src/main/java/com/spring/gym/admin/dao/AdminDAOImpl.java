@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
 import com.spring.gym.member.vo.MemberVO;
 
 @Repository("adminDAO")
@@ -32,6 +33,11 @@ public class AdminDAOImpl implements AdminDAO{
 		int result =  sqlSession.selectOne("mapper.member.listCount");
 		System.out.println(result);
 		return result;
+	}
+
+	public List<MemberVO> list(Criteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mapper.member.listPage", cri);
 	}
 
 

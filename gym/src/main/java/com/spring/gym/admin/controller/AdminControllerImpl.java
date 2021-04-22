@@ -21,7 +21,6 @@ import com.spring.gym.main.MainController;
 
 @Controller("adminController")
 public class AdminControllerImpl implements AdminController{
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	AdminService adminSV;
@@ -41,7 +40,7 @@ public class AdminControllerImpl implements AdminController{
 		System.out.println(viewName);
 		List memberList = adminSV.selectAllMember();
 		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("memberList", memberList);
+		mav.addObject("memberList", adminSV.list(cri));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);

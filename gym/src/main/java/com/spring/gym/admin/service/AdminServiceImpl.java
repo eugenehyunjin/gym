@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.gym.admin.dao.AdminDAO;
 import com.spring.gym.board.vo.BoardVO;
+import com.spring.gym.board.vo.Criteria;
 import com.spring.gym.member.dao.MemberDAO;
 import com.spring.gym.member.vo.MemberVO;
 
@@ -32,6 +33,12 @@ public class AdminServiceImpl implements AdminService{
 	public int listCount() throws Exception {
 		// TODO Auto-generated method stub
 		return adminDAO.listCount();
+	}
+
+	@Override
+	public List<MemberVO> list(Criteria cri) {
+		// TODO Auto-generated method stub
+		return adminDAO.list(cri);
 	}
 
 

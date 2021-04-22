@@ -86,13 +86,12 @@
   						<c:when test="${memberList ==null }" >
 						<tr >
 							<td><span></span></td>
-							<td><span>등록된 회원이 없습니다.</span></td>
-							<td><span><span></td>
-							<td><span></span></td>
+							<td colspan="10"><span>등록된 회원이 없습니다.</span></td>
+							
 						</tr>
 					 </c:when>
 					  <c:when test="${memberList !=null }" >
-					  <c:forEach  var="memberList" items="${memberList }" >
+					  <c:forEach  var="memberList" items="${memberList }">
 						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
 							<td><span>${memberList.id}</span></td>
 							<td><span>${memberList.pwd} </span></td>
@@ -119,20 +118,34 @@
 		<br>
 		<br>
 			
-  		<ul>
   		
-    		<c:if test="${pageMaker.prev}">
-    	<li><a href="${contextPath}/adminPage1.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
-   		 </c:if> 
+		
+		
+	  		<ul>
+	    	<c:if test="${pageMaker.prev}">
+	    		<li><a href="${contextPath}/adminPage1.do${pageMaker.makeQuery(pageMaker.startPage - 1)}">[이전]</a></li>
+	   		</c:if> 
+		
+	   		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+	    						
+	    		<li>
+	    		<c:choose>
+	    		<c:when test="${idx == pageMaker.cri.page}">
+	    			<span style="color: orange; font-size: small;">${idx}</span>
+	    		</c:when>
+	    		<c:otherwise>
+	    		<a style="font-size: large;" href="${contextPath}/adminPage1.do${pageMaker.makeQuery(idx)}">[${idx}]</a>
+	    		</c:otherwise>
+	    		</c:choose>	
+	    		</li>
+	  		
+	  		</c:forEach>
 	
-   		 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-    	<li><a href="${contextPath}/adminPage1.do${pageMaker.makeQuery(idx)}">${idx}</a></li>
-  		  </c:forEach>
-
- 			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-   		 <li><a href="${contextPath}/adminPage1.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
-  	  	</c:if> 
-  	  </ul>
+	 		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+	   			 <li><a href="${contextPath}/adminPage1.do${pageMaker.makeQuery(pageMaker.endPage + 1)}">[다음]</a></li>
+	  	  	</c:if> 
+	  	  </ul>
+  	  
 		
 		
 		
