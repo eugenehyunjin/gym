@@ -48,13 +48,13 @@
   	]]>
   	</delete>
   	
-<<<<<<< HEAD
+
   	<select id="myInfoVO" parameterType="String" resultMap="memberResult">
   		<![CDATA[
   			select * from gym_member where id = #{id}
   		]]>
   	</select>
-=======
+
   	<select id="listCount" resultType="int">
 	<![CDATA[
 		select count(id) from gym_member
@@ -91,5 +91,4 @@
                 order by joindate desc
 	]]>
 	</select>
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
  </mapper>

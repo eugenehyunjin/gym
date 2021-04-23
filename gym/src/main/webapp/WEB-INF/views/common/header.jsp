@@ -90,8 +90,7 @@
                                     <li><a href="${contextPath }/pt.do">퍼스널 트레이닝</a></li>
                                 </ul>
                                 </li>
-                            <li><a href="${contextPath }/adminPage1.do">트레이너</a></li>
-                            <li><a href="${contextPath }/masterForm.do">예약페이지</a></li>
+                            <li><a href="${contextPath }/book.do">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
                             <li><a href="${contextPath }/blog.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
@@ -103,7 +102,7 @@
                         <div class="to-search search-switch">
                           <c:choose>
                           		<c:when test="${id == 'admin'}">
-                            	     <a class="login" href="${contextPath }/myPage.do">ADMINPAGE</a>&nbsp;&nbsp;
+                            	     <a class="login" href="${contextPath }/adminPage1.do">ADMINPAGE</a>&nbsp;&nbsp;
                             	     <a class="login" href="${contextPath }/logout.do">LOGOUT</a>
                           		</c:when>
                             	<c:when test="${id != null}">
