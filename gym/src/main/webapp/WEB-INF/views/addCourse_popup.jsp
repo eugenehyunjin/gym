@@ -55,7 +55,7 @@
 		
 		//frm.action('${contextPath}/courseJoin.do');
 		if(confirm('커리큘럼 신청을 진행하시겠습니까?')){
-			alert('커리큘럼 신청이 완료되었습니다','아아');	
+			alert('커리큘럼 신청이 완료되었습니다');	
 		}else{
 			alert('커리큘럼 신청이 취소되었습니다')
 		}
@@ -64,8 +64,8 @@
 	} 
 </script>
 <style>
-	body{text-align:left;outline:none;}
-	form{margin: 0px 80px;}
+	body{text-align:left;outline:none;background-color:#2b2b2b;}
+	form{margin: 0px 80px;background-color:white;padding:10px 20px;}
 	#course_id,#price,#name {width:100%;height:25px;margin-bottom: 20px;}
 	#type, #selectTxt{height:25px;}
 	#selectTxt{background-color:transparent;color:black;border:1px solid black;padding-left:10px;}
@@ -82,7 +82,7 @@
 		margin-top: 20px;
 		margin-bottom: 25px;
 		**/
-		margin: 20px 100px;
+		margin: 20px 80px;
 		outline: 0;
 	}
 	.Btn:hover {background-color:lightgray;}
@@ -126,7 +126,7 @@
 											</script>
 											<input type = "text" disabled="disabled" id = "selectTxt" name = "course_type">
 										<h3>커리큘럼 정보</h3> <!-- course_detail -->
-											<textarea rows="6px" cols="60px;" placeholder="신청할 커리큘럼에 대한 설명 기입" style = "resize: none;" id = "detail" name = "course_detail"></textarea>
+											<textarea rows="6px" cols="59px;" placeholder="신청할 커리큘럼에 대한 설명 기입" style = "resize: none;" id = "detail" name = "course_detail"></textarea>
 										<h3>커리큘럼 가격</h3>
 											<input type = "text" id = "price" name = "course_price">
                                			<h3>트레이너 명</h3>

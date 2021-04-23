@@ -143,6 +143,7 @@
 	.delBtn{width:100%; color:#c4c4c4;border:1px solid #c4c4c4; background-color:transparent;margin-bottom: 10px;text-align:center;}
 	#insertCourse{border:1px solid white;margin:30px 20px 0px 0px;padding:10px 5px;width:100%;font-weight: bold;font-size:14px;border-radius: 20px 20px;}
 	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
+	.opacityChg{opacity: 0.7;background-color:black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
@@ -497,7 +498,9 @@
                                 			<div class = "insertBtn">
                                 				<input type = "button" value = "클래스 등록" id = "insertCourse" onClick="addCoursePopUP()"/>
                                 				<script>
-                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=660, height=650, left=550, top=100");}
+                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=660, height=650, left=550, top=100,status=no,toolbar=no");
+                                					var body = document.getElementsByTagName('body');
+                                					body.class = "opacityChg";}
                                 				</script>
                                 			</div>
                      	</div>
