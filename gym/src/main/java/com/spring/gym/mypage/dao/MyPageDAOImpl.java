@@ -19,4 +19,11 @@ public class MyPageDAOImpl implements MyPageDAO{
 		return memvo;
 	}
 
+	@Override
+	public int modInfo(MemberVO member) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.update("mapper.member.modInfo", member);
+		return 0;
+	}
+
 }

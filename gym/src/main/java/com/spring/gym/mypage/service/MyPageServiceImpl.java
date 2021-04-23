@@ -18,4 +18,10 @@ public class MyPageServiceImpl implements MyPageService{
 		return dao.myInfoList(id);
 	}
 
+	@Override
+	public int modInfo(MemberVO member) {
+		// TODO Auto-generated method stub
+		return dao.modInfo(member);
+	}
+
 }

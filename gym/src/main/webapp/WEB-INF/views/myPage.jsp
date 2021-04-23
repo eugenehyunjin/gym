@@ -143,9 +143,13 @@
 	.delBtn{width:100%; color:#c4c4c4;border:1px solid #c4c4c4; background-color:transparent;margin-bottom: 10px;text-align:center;}
 	#insertCourse{border:1px solid white;margin:30px 20px 0px 0px;padding:10px 5px;width:100%;font-weight: bold;font-size:14px;border-radius: 20px 20px;}
 	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
+	.opacityChg{opacity: 0.7;background-color:black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -208,15 +212,18 @@
 		
 		
 	}
+<<<<<<< HEAD
 </script>
+=======
+	</script>
+<!-- myPage.do 경로로 접근하는 경우 방지 -->
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 </head>
 
 <body>
-<!-- myPage.do 경로로 접근하는 경우 방지 -->
-<c:if test="${empty id}">
-<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
+<c:if test="${empty id }">
+	<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
 </c:if>
-
 <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb-bg.jpg">
         <div class="container">
@@ -258,7 +265,7 @@
                                 	<p id="warnnigMsg"></p>
                                 	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="text" name="pw" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
+                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
                                 <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
                                 	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
                                 		<script>
@@ -288,7 +295,7 @@
 	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.pw}"/>-->
                                 <h3>이름</h3>
-                                	<input type="text" name="name" disabled="disabled" class = "ip" value = "${myInfo.name }"/>
+                                	<input type="text" name="name" disabled="disabled"  value = "${myInfo.name }"/>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.name}"/>-->
                                 <h3>생년월일</h3>
                                 		<div class="birth">
@@ -297,26 +304,38 @@
                                 			</div>
                                 			<div class = "birth_m_d">
 	                                		<div class="birth_mm">
-	                                			<select name="birth_m" onchange="dayByMonth()" disabled="disabled" >
+	                                			<select name="birth_m_select" onchange="dayByMonth()" disabled="disabled" >
 	                                				<option value=selected>&nbsp;&nbsp; 월</option>
 	                                				<c:forEach var="i" begin="1" end="12">
 		                                				<option class = "birth_m_Option">${i }월</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" name = "birth_m" class = "ip" value = '${myInfo.birth_m }'/>
 	                                		</div>
 	                                		<div class="birth_dd">
-	                                			<select name="birth_d" disabled="disabled">
+	                                			<select name="birth_d_select" disabled="disabled" onchange="newDayHidden()">
 	                                				<option value=selected>&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
 		                                				<option id = ${i } class = "birth_d_Option">${i }일</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" name = "birth_d" class = "ip" value = '${myInfo.birth_d }'/>
+	                                			<script>
+	                                			function newDayHidden(){
+		                                			var hiddenDay = document.getElementsByName('birth_d_select')[0].value;
+		                                			console.log(hiddenDay);
+		                                			document.getElementsByName('birth_d')[0].value = hiddenDay;
+		                                			console.log('console.log hiddenDay/birth_d : '+document.getElementsByName('birth_d')[0].value);
+		                                		}
+	                                			</script>
 	                                		</div>
 	                                		</div>
 	                                		<Script>
 	                                		function dayByMonth() {
-	                                			var newMonth = document.getElementsByName('birth_m')[0].value;
+	                                			var newMonth = document.getElementsByName('birth_m_select')[0].value;
 	                                			console.log(newMonth);
+	                                			document.getElementsByName('birth_m')[0].value = newMonth;
+	                                			console.log('console.log newMonth/birth_m : '+document.getElementsByName('birth_m')[0].value);
 	                                			
 	                                			var newMonthSplit = newMonth.split('월')[0];
 	                                			console.log(newMonthSplit);
@@ -347,16 +366,24 @@
 	                                			}
 	                                			
 	                                		}
-
+											
 	                                		</Script>
 	                                	</div>
                                 <h3>성별</h3>
-                                	<select name="gender" disabled="disabled" id = "genderSelect">
+                                	<select name="gender_select" disabled="disabled" id = "genderSelect" onChange="newGenderHidden()">
 											<option class = "genderOption" >선택 안함</option>
 											<option class = "genderOption">남성</option>
 											<option class = "genderOption">여성</option>
 											                               			
                                 	</select>
+                                	<input type = "hidden" class = "ip" name = "gender" value = '${myInfo.gender }'/>
+                                	<Script>
+                                		function newGenderHidden() {
+                                			var gender = document.getElementsByName('gender_select')[0].value
+                                			document.getElementsByName('gender')[0].value = gender;
+                                			console.log('console.log gender.value : '+document.getElementsByName('gender')[0].value);
+                                		}
+                                	</Script>
                                 <h3>휴대전화</h3>
                                 	<input type="text" name="tel" disabled="disabled" class = "ip" value = "${myInfo.tel }"/>
                                 <h3>이메일</h3>
@@ -383,10 +410,10 @@
                                				
                                				document.getElementsByTagName('p')[0].innerHTML = "*아이디는 수정이 불가능합니다";
                                				
-                               				document.getElementsByName('pw')[0].removeAttribute("disabled");
-                               				document.getElementsByName('pw')[0].removeAttribute("type");
-                               				document.getElementsByName('pw')[0].setAttribute('type', 'password');
-                               				document.getElementsByName('pw')[0].focus();
+                               				document.getElementsByName('pwd')[0].removeAttribute("disabled");
+                               				document.getElementsByName('pwd')[0].removeAttribute("type");
+                               				document.getElementsByName('pwd')[0].setAttribute('type', 'password');
+                               				document.getElementsByName('pwd')[0].focus();
                                				
                                				document.getElementsByName('pwChkTxt')[0].removeAttribute('type');
                                				document.getElementsByName('pwChk')[0].removeAttribute('type');
@@ -394,9 +421,9 @@
                                				
                                				document.getElementsByName('name')[0].removeAttribute("disabled");
                                				document.getElementsByName('birth_y')[0].removeAttribute("disabled");
-                               				document.getElementsByName('birth_m')[0].removeAttribute("disabled");
-                               				document.getElementsByName('birth_d')[0].removeAttribute("disabled");
-                               				document.getElementsByName('gender')[0].removeAttribute("disabled");
+                               				document.getElementsByName('birth_m_select')[0].removeAttribute("disabled");
+                               				document.getElementsByName('birth_d_select')[0].removeAttribute("disabled");
+                               				document.getElementsByName('gender_select')[0].removeAttribute("disabled");
                                				document.getElementsByName('tel')[0].removeAttribute("disabled");
                                				document.getElementsByName('email')[0].removeAttribute("disabled");
                                				
@@ -408,7 +435,7 @@
                                				
                                				
                                			}else{
-                               				location.replace('${contextPath}/myPage.do');
+                               				//location.replace('${contextPath}/myPage.do');
                                				alert('수정이 취소되었습니다');
                                			}
                                			
@@ -436,9 +463,8 @@
                                				}
                                			}
                                			frm.method = 'post';
-                               			frm.action = '${contextPath}/join.do';
+                               			frm.action = '${contextPath}/modSave.do?id=${myInfo.id}';
                                			frm.submit();
-                               			
                                		}
                                		
 
@@ -460,7 +486,7 @@
                      	<div id = "ifmaster" hidden = "true">
                      		<table class = "myPage-myClass-table" width="209px;" >
                                 				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
-                                					<td class = "myPage-myClass-td"><h4 style = "color:white;">${myInfo.name }</h4> <h5 style = "color:white;">강사<br>클래스 정보</h5></td>
+                                					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
                                 				</tr>
                                 				<tr class = "myPage-myClass-exist">
                                 					<td style = "width:209px;line-height: 240%;">
@@ -500,14 +526,16 @@
                                 			<div class = "insertBtn">
                                 				<input type = "button" value = "클래스 등록" id = "insertCourse" onClick="addCoursePopUP()"/>
                                 				<script>
-                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                				function addCoursePopUP(){window.open("${contextPath}/addCourse_popup.do?id=${id}&name=${myInfo.name}", "수강생 정보", "width=660, height=650, left=550, top=100,status=no,toolbar=no");
+                                					var body = document.getElementsByTagName('body');
+                                					body.class = "opacityChg";}
                                 				</script>
                                 			</div>
                      	</div>
                      	<div id = "ifuser" hidden="true">
                      		<table class = "myPage-myClass-table">
 	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
-	                                	<td class = "myPage-myClass-td"><h5 style = "color:white;">${myInfo.name }님의<br>예약 정보</h5></td>
+	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
 	                                </tr>
 	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">
@@ -521,7 +549,21 @@
 												<li>수업 시간 - 50분</li>
 											
 											</ul>
-											
+											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+                                							<script>
+                                								function delChk() {
+                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
+                                										var c_IdSplit = c_Id.split('- ')[1];
+                                										console.log(c_Id);
+                                										console.log(c_IdSplit);
+                                										
+                                										alert('클래스 취소가 완료되었습니다');
+                                									}else{
+                                										alert('클래스 취소가 취소되었습니다');
+                                									}
+                                								}
+                                							</script>
 										</td>
 									</tr>
 									<tr class = "myPage-myClass-exist" >
@@ -536,7 +578,21 @@
 												<li>수업 시간 - 30분</li>
 											
 											</ul>
-											
+											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+                                							<script>
+                                								function delChk() {
+                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
+                                										var c_IdSplit = c_Id.split('- ')[1];
+                                										console.log(c_Id);
+                                										console.log(c_IdSplit);
+                                										
+                                										alert('클래스 취소가 완료되었습니다');
+                                									}else{
+                                										alert('클래스 취소가 취소되었습니다');
+                                									}
+                                								}
+                                							</script>
 										</td>
 									</tr>
 											
