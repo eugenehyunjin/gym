@@ -256,7 +256,7 @@
                                 	<p id="warnnigMsg"></p>
                                 	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="text" name="pw" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
+                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
                                 <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
                                 	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
                                 		<script>
@@ -286,7 +286,7 @@
 	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.pw}"/>-->
                                 <h3>이름</h3>
-                                	<input type="text" name="name" disabled="disabled" class = "ip" value = "${myInfo.name }"/>
+                                	<input type="text" name="name" disabled="disabled"  value = "${myInfo.name }"/>
                                 	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.name}"/>-->
                                 <h3>생년월일</h3>
                                 		<div class="birth">
@@ -295,26 +295,38 @@
                                 			</div>
                                 			<div class = "birth_m_d">
 	                                		<div class="birth_mm">
-	                                			<select name="birth_m" onchange="dayByMonth()" disabled="disabled" >
+	                                			<select name="birth_m_select" onchange="dayByMonth()" disabled="disabled" >
 	                                				<option value=selected>&nbsp;&nbsp; 월</option>
 	                                				<c:forEach var="i" begin="1" end="12">
 		                                				<option class = "birth_m_Option">${i }월</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" name = "birth_m" class = "ip" value = '${myInfo.birth_m }'/>
 	                                		</div>
 	                                		<div class="birth_dd">
-	                                			<select name="birth_d" disabled="disabled">
+	                                			<select name="birth_d_select" disabled="disabled" onchange="newDayHidden()">
 	                                				<option value=selected>&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
 		                                				<option id = ${i } class = "birth_d_Option">${i }일</option>
 	                                				</c:forEach>
 	                                			</select>
+	                                			<input type = "hidden" name = "birth_d" class = "ip" value = '${myInfo.birth_d }'/>
+	                                			<script>
+	                                			function newDayHidden(){
+		                                			var hiddenDay = document.getElementsByName('birth_d_select')[0].value;
+		                                			console.log(hiddenDay);
+		                                			document.getElementsByName('birth_d')[0].value = hiddenDay;
+		                                			console.log('console.log hiddenDay/birth_d : '+document.getElementsByName('birth_d')[0].value);
+		                                		}
+	                                			</script>
 	                                		</div>
 	                                		</div>
 	                                		<Script>
 	                                		function dayByMonth() {
-	                                			var newMonth = document.getElementsByName('birth_m')[0].value;
+	                                			var newMonth = document.getElementsByName('birth_m_select')[0].value;
 	                                			console.log(newMonth);
+	                                			document.getElementsByName('birth_m')[0].value = newMonth;
+	                                			console.log('console.log newMonth/birth_m : '+document.getElementsByName('birth_m')[0].value);
 	                                			
 	                                			var newMonthSplit = newMonth.split('월')[0];
 	                                			console.log(newMonthSplit);
@@ -345,16 +357,24 @@
 	                                			}
 	                                			
 	                                		}
-
+											
 	                                		</Script>
 	                                	</div>
                                 <h3>성별</h3>
-                                	<select name="gender" disabled="disabled" id = "genderSelect">
+                                	<select name="gender_select" disabled="disabled" id = "genderSelect" onChange="newGenderHidden()">
 											<option class = "genderOption" >선택 안함</option>
 											<option class = "genderOption">남성</option>
 											<option class = "genderOption">여성</option>
 											                               			
                                 	</select>
+                                	<input type = "hidden" class = "ip" name = "gender" value = '${myInfo.gender }'/>
+                                	<Script>
+                                		function newGenderHidden() {
+                                			var gender = document.getElementsByName('gender_select')[0].value
+                                			document.getElementsByName('gender')[0].value = gender;
+                                			console.log('console.log gender.value : '+document.getElementsByName('gender')[0].value);
+                                		}
+                                	</Script>
                                 <h3>휴대전화</h3>
                                 	<input type="text" name="tel" disabled="disabled" class = "ip" value = "${myInfo.tel }"/>
                                 <h3>이메일</h3>
@@ -381,10 +401,10 @@
                                				
                                				document.getElementsByTagName('p')[0].innerHTML = "*아이디는 수정이 불가능합니다";
                                				
-                               				document.getElementsByName('pw')[0].removeAttribute("disabled");
-                               				document.getElementsByName('pw')[0].removeAttribute("type");
-                               				document.getElementsByName('pw')[0].setAttribute('type', 'password');
-                               				document.getElementsByName('pw')[0].focus();
+                               				document.getElementsByName('pwd')[0].removeAttribute("disabled");
+                               				document.getElementsByName('pwd')[0].removeAttribute("type");
+                               				document.getElementsByName('pwd')[0].setAttribute('type', 'password');
+                               				document.getElementsByName('pwd')[0].focus();
                                				
                                				document.getElementsByName('pwChkTxt')[0].removeAttribute('type');
                                				document.getElementsByName('pwChk')[0].removeAttribute('type');
@@ -392,9 +412,9 @@
                                				
                                				document.getElementsByName('name')[0].removeAttribute("disabled");
                                				document.getElementsByName('birth_y')[0].removeAttribute("disabled");
-                               				document.getElementsByName('birth_m')[0].removeAttribute("disabled");
-                               				document.getElementsByName('birth_d')[0].removeAttribute("disabled");
-                               				document.getElementsByName('gender')[0].removeAttribute("disabled");
+                               				document.getElementsByName('birth_m_select')[0].removeAttribute("disabled");
+                               				document.getElementsByName('birth_d_select')[0].removeAttribute("disabled");
+                               				document.getElementsByName('gender_select')[0].removeAttribute("disabled");
                                				document.getElementsByName('tel')[0].removeAttribute("disabled");
                                				document.getElementsByName('email')[0].removeAttribute("disabled");
                                				
@@ -406,7 +426,7 @@
                                				
                                				
                                			}else{
-                               				location.replace('${contextPath}/myPage.do');
+                               				//location.replace('${contextPath}/myPage.do');
                                				alert('수정이 취소되었습니다');
                                			}
                                			
@@ -434,9 +454,8 @@
                                				}
                                			}
                                			frm.method = 'post';
-                               			frm.action = '${contextPath}/join.do';
+                               			frm.action = '${contextPath}/modSave.do?id=${myInfo.id}';
                                			frm.submit();
-                               			
                                		}
                                		
 

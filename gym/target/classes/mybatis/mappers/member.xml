@@ -89,4 +89,14 @@
                 order by joindate desc
 	]]>
 	</select>
+	
+	<update id="modInfo" parameterType="memberVO">
+		<![CDATA[
+			update gym_member set
+				pwd = #{pwd}, name = #{name}, birth_y = #{birth_y},
+				birth_m = #{birth_m}, birth_d = #{birth_d},
+				gender = #{gender}, tel = #{tel}, email = #{email}
+				where id = #{id}
+		]]>
+	</update>
  </mapper>

@@ -101,9 +101,9 @@
 										<h3>커리큘럼 종목</h3> <!-- course_type -->
 											<select id = "type" onchange="selectChg()">
 												<option>종목</option>
+												<option>헬스</option>
 												<option>요가</option>
 												<option>필라테스</option>
-												<option>PT</option>
 												<option>직접 입력</option>
 											</select>
 											<script>

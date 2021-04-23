@@ -7,4 +7,6 @@ public interface MyPageDAO {
 
 	public MemberVO myInfoList(String id);
 
+	public int modInfo(MemberVO member);
+
 }
