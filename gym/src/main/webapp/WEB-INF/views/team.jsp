@@ -52,7 +52,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-                            	<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+                            	<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
      <!--                            <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-youtube-play"></i></a>
@@ -68,7 +68,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-								<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+								<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-								<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+								<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-								<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+								<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-								<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+								<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                             <h4>Athart Rachel</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-								<a href="${contextPath }/class.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
+								<a href="${contextPath }/book.do" class="primary-btn btn-normal appoinment-btn">예약하기</a>
                             </div>
                         </div>
                     </div>

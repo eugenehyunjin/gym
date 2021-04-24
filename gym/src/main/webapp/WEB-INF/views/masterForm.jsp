@@ -152,6 +152,7 @@
 									<form name="frm" class="frm">
 										<h3>강사 아이디</h3>
                                 			<input type="text" name="id" class = "ip1" value = "master" id = "userId" placeholder="반드시 'master'가 포함되어야 합니다" onkeyup="masterIdChk()"/>
+<<<<<<< HEAD
                                 			<script>
                                 				function masterIdChk(){
                                 					var idChk = document.getElementsByName('id')[0].value;
@@ -189,6 +190,9 @@
                                 					
                                 				}
                                 			</script>
+=======
+                                			
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                 			<p id = "idIpChk"></p>
                                 			<div>
                                 				<input type = "button" onclick = "availableChk()" value = "ID 중복체크" id = "ChkId" >
@@ -197,10 +201,18 @@
                                 				</span>
                                 			</div>
                                 			
+<<<<<<< HEAD
 										<h3>강사 비밀번호</h3>
                                 			<input type="password" name="pwd" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
 										<h3>강사 비밀번호 재확인</h3>
+=======
+										<h3>강사 비밀번호 *</h3>
+                                			<input type="password" name="pwd" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
+										<h3>강사 비밀번호 재확인 *</h3>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                 			<input type="password" name="pw2" id = "pwChk2" class = "ip1" value = "" onkeyup="pwdChk()"/>
+                                		<h3>강사 이름 *</h3>
+                                		<input type="text" name="name" id = "name" class = "ip1" value = "" />
                                 			
                                 			<script>
 	                                				function pwdChk(){
@@ -216,10 +228,12 @@
 	                                						if(pw1 != pw2) {
 		                                						result.innerHTML = "*불일치";
 		                                						result.setAttribute('class', 'notsame');
+		                                						
 		                                						console.log('불일치');
 		                                					}else{
 		                                						result.innerHTML = "*일치";
 		                                						result.setAttribute('class', 'same');
+
 		                                						console.log('일치');
 		                                					}
 	                                						
@@ -253,7 +267,7 @@
 	                                			<input type = "hidden" name = "birth_d" class = "ip1" value = "">
 	                                		</div>
 	                                		</div>
-	                                		<Script>
+	                                		<script>
 	                                		function dayByMonth() {
 	                                			var newMonth = document.getElementsByName('birth_m_select')[0].value;
 	                                			console.log(newMonth);
@@ -301,7 +315,7 @@
 	        	                       			console.log('birth_d : '+document.getElementsByName('birth_d').value);
 	                                		}
 
-	                                		</Script>
+	                                		</script>
 	                                	</div>
 											<h3>강사 성별</h3>
 	                                			<select class="gender" name="gender_select" style="width:100%" onchange="genderHidden()" >
@@ -310,6 +324,7 @@
 	                                				<option>여성</option>
 	                                				<option>선택 안함</option>
 	                                			</select>
+<<<<<<< HEAD
 	                                			<input type = "hidden" name = "gender" class = "ip1"/>
 	                                			<script type="text/javascript">
 	                                				function genderHidden(){
@@ -320,9 +335,23 @@
 	                                			</script>
 										</div>
                                 			<h3>강사 휴대전화</h3>
+=======
+										
+                                			<h3>강사 휴대전화 *</h3>
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                 				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1" id = "telId"/>
                                 			<h3>강사 이메일 *</h3>
                                 				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1" id = "emailId"/>
+                                			<h3>강사 사진 *</h3><p>*강사 사진은 png 파일로 강사 이름과 같은 파일명으로 업로드 해주세요.</p>
+                                				<input type="button"  value="파일추가" onClick="fn_addFile()"/><br>
+												<div id="d_file"></div>
+                                				<script>
+													var cnt=1;
+													function fn_addFile(){
+														$("#d_file").append("<br>"+"<input  type='file' name='file"+cnt+"' />");
+														cnt++;
+													}
+												</script>
                                		
                                				<div class="btn">
                                					<input style="background: #f36100;" type="button" class="primary-btn" value="강사등록" onclick="checkNull()">
@@ -330,6 +359,7 @@
                                					function checkNull(){
                                						
                                						var frm = document.frm;
+<<<<<<< HEAD
 													
                                						if(document.getElementById('alertAvailable').innerHTML = "사용 불가능"){
                        									alert('사용 불가능한 아이디입니다');
@@ -388,6 +418,35 @@
                                							frm.submit();
                                						}else{
                                							alert('강사 등록을 취소하였습니다');
+=======
+
+                               						for(var i = 0;document.getElementsByClassName('ip1').length;i++) {
+                               							
+                               							var inputChk = document.getElementsByClassName('ip1')[i];
+                               							
+                               							if(inputChk.value == null || inputChk.value == ''){
+                               								console.log(inputChk + ' null');
+                               								alert('입력을 완료해주십시오');
+                               								inputChk.focus();
+                               								break;
+                               							}else{
+                               								var test = document.getElementById('warnPw').value;
+                               								console.log(test);
+                               								if(document.getElementById('warnPw').innerHTML == '*일치'){
+                               											frm.method = 'post';
+                                       									frm.action = '${contextPath}/addMaster.do';
+                                       									frm.enctype= 'multipart/form-data';
+                                       									frm.submit();	
+                               								}else{
+                               									alert('비밀번호가 일치하지 않습니다');
+                               									document.getElementById('pwChk1').value = "";
+                               									document.getElementById('pwChk2').value = "";
+                               									document.getElementById('pwChk1').focus();
+                               									break;
+                               								}
+                               								
+                               							}
+>>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
                                						}
                                						
                                					}
@@ -396,14 +455,14 @@
                                					</script>
                                					<input style="background: #f36100;" type="button" class="primary-btn" value="취소" onclick="fncancle()">
                                				</div>
-									</form>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 </body>

@@ -53,6 +53,7 @@
   			select * from gym_member where id = #{id}
   		]]>
   	</select>
+
   	<select id="listCount" resultType="int">
 	<![CDATA[
 		select count(id) from gym_member
@@ -88,7 +89,10 @@
                 where rnum between #{rowStart} and #{rowEnd}
                 order by joindate desc
 	]]>
+
 	</select>
+
+
 	
 	<update id="modInfo" parameterType="memberVO">
 		<![CDATA[
@@ -99,4 +103,5 @@
 				where id = #{id}
 		]]>
 	</update>
+
  </mapper>

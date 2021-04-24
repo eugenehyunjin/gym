@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <a href="https://www.xexymix.com/"><div class="so-banner set-bg" data-setbg="resources/img/bodyjexi.jpg">
-                            <h5>xexymix 보러가기</h5>
+                            <h5>AD</h5>
                         </div></a>
                     </div>
                 </div>

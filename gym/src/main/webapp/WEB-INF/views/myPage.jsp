@@ -4,7 +4,7 @@
 <%
   request.setCharacterEncoding("UTF-8");
 %>
-	<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,6 +146,7 @@
 	.opacityChg{opacity: 0.7;background-color:black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -208,11 +209,15 @@
 		
 		
 	}
-	</script>
+
+</script>
+
 <!-- myPage.do 경로로 접근하는 경우 방지 -->
+
 </head>
+
 <body>
-<c:if test="${empty id }">
+<c:if test="${empty id}">
 	<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
 </c:if>
 <!-- Breadcrumb Section Begin -->
@@ -223,9 +228,9 @@
                     <div class="breadcrumb-text">
                         <h2>MY PAGE</h2>
                         <div class="bt-option">
-                            <a href="${contextPath }/main.do" class = "fontA">Home</a>
+                            <a href="${contextPath}/main.do" class = "fontA">Home</a>
                             <a href="#" class = "fontA">Pages</a>
-                            <a hidden="hidden" href = "${contextPath }/myPage.do" id = "mod1" class = "fontA">MY PAGE</a>
+                            <a hidden="hidden" href = "${contextPath}/myPage.do" id = "mod1" class = "fontA">MY PAGE</a>
                             <span id="mod2">MY PAGE</span>
                         </div>
                     </div>
@@ -252,13 +257,12 @@
                                 <div class="myPage-myInfo">
                                     <form name="frm">
                                        <h3>아이디</h3>	<!-- session id로 받아옴 -->
-                                	<input type="text" name="id" disabled="disabled" class = "ip" value = "${id }"/>
+                                	<input type="text" name="id" disabled="disabled" class = "ip" value = "${id}"/>
                                 	<p id="warnnigMsg"></p>
-                                	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
+                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd}" id = "pwChk1" onkeyup="pwdChk()"/>
                                 <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
-                                	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
+                                	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd}" id = "pwChk2" onkeyup="pwdChk()"/>
                                 		<script>
 	                                				function pwdChk(){
 	                                					console.log('function');
@@ -283,34 +287,32 @@
 	                                					}
 	                                				}
 	                                			</script>
-	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;;"></p>
-                                	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.pw}"/>-->
+	                                			<p id = "warnPw" style = "font-size:14.5px;font-style:italic;font-weight: bold;"></p>
                                 <h3>이름</h3>
-                                	<input type="text" name="name" disabled="disabled"  value = "${myInfo.name }"/>
-                                	<!--  <input type="password" name="pw" disabled="disabled" value = "${member.name}"/>-->
+                                	<input type="text" name="name" disabled="disabled"  value = "${myInfo.name}"/>
                                 <h3>생년월일</h3>
                                 		<div class="birth">
                                 			<div class="birth_yy">
-                                			<input type="text" placeholder="년" name="birth_y" disabled="disabled" class = "ip" value = "${myInfo.birth_y }"/>
+                                			<input type="text" placeholder="년" name="birth_y" disabled="disabled" class = "ip" value = "${myInfo.birth_y}"/>
                                 			</div>
                                 			<div class = "birth_m_d">
 	                                		<div class="birth_mm">
 	                                			<select name="birth_m_select" onchange="dayByMonth()" disabled="disabled" >
 	                                				<option value=selected>&nbsp;&nbsp; 월</option>
 	                                				<c:forEach var="i" begin="1" end="12">
-		                                				<option class = "birth_m_Option">${i }월</option>
+		                                				<option class = "birth_m_Option">${i}월</option>
 	                                				</c:forEach>
 	                                			</select>
-	                                			<input type = "hidden" name = "birth_m" class = "ip" value = '${myInfo.birth_m }'/>
+	                                			<input type = "hidden" name = "birth_m" class = "ip" value = '${myInfo.birth_m}'/>
 	                                		</div>
 	                                		<div class="birth_dd">
 	                                			<select name="birth_d_select" disabled="disabled" onchange="newDayHidden()">
 	                                				<option value=selected>&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
-		                                				<option id = ${i } class = "birth_d_Option">${i }일</option>
+		                                				<option id = ${i} class = "birth_d_Option">${i}일</option>
 	                                				</c:forEach>
 	                                			</select>
-	                                			<input type = "hidden" name = "birth_d" class = "ip" value = '${myInfo.birth_d }'/>
+	                                			<input type = "hidden" name = "birth_d" class = "ip" value = '${myInfo.birth_d}'/>
 	                                			<script>
 	                                			function newDayHidden(){
 		                                			var hiddenDay = document.getElementsByName('birth_d_select')[0].value;
@@ -367,7 +369,7 @@
 											<option class = "genderOption">여성</option>
 											                               			
                                 	</select>
-                                	<input type = "hidden" class = "ip" name = "gender" value = '${myInfo.gender }'/>
+                                	<input type = "hidden" class = "ip" name = "gender" value = '${myInfo.gender}'/>
                                 	<Script>
                                 		function newGenderHidden() {
                                 			var gender = document.getElementsByName('gender_select')[0].value
@@ -376,12 +378,11 @@
                                 		}
                                 	</Script>
                                 <h3>휴대전화</h3>
-                                	<input type="text" name="tel" disabled="disabled" class = "ip" value = "${myInfo.tel }"/>
+                                	<input type="text" name="tel" disabled="disabled" class = "ip" value = "${myInfo.tel}"/>
                                 <h3>이메일</h3>
-                                	<input type="text" name="email" disabled="disabled" class = "ip" value = "${myInfo.email }"/>
+                                	<input type="text" name="email" disabled="disabled" class = "ip" value = "${myInfo.email}"/>
                                	<div>
                                		<input type="button" class="primary-btn" value="수정" onclick="modid()" id = "modBtn">
-                               		 <!-- <input type="button" class="primary-btn" value="취소" onclick="${contextPath }/main.do"> -->
                                		 <Script>
                                		function modid(){
                                			
@@ -466,8 +467,8 @@
                                 </td>
                                 <td valign="top" class = "myPage-myClass">
                      <c:choose>
-                     	<c:when test="${id == 'admin' }">
-                     				<a href = "${contextPath }/adminPage1.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
+                     	<c:when test="${id == 'admin'}">
+                     				<a href = "${contextPath}/adminPage1.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
                      					<div style = "border:3px solid #c4c4c4;margin:30px;padding:15px;font-weight: bold;" id = "hoverBox">
                      					회원 관리<br>페이지 >
                      					</div>
@@ -477,7 +478,7 @@
                      	<div id = "ifmaster" hidden = "true">
                      		<table class = "myPage-myClass-table" width="209px;" >
                                 				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
-                                					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
+                                					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
                                 				</tr>
                                 				<tr class = "myPage-myClass-exist">
                                 					<td style = "width:209px;line-height: 240%;">
@@ -526,7 +527,7 @@
                      	<div id = "ifuser" hidden="true">
                      		<table class = "myPage-myClass-table">
 	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
-	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name }</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
+	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
 	                                </tr>
 	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">

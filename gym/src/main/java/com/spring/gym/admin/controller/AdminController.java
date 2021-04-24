@@ -10,5 +10,7 @@ import com.spring.gym.board.vo.Criteria;
 
 public interface AdminController {
 	public ModelAndView selectAllMember(Criteria cri,HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView selectAllMaster(Criteria cri,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView memberDel(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView masterDel(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

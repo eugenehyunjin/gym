@@ -4,6 +4,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.gym.master.vo.MasterVO;
+import com.spring.gym.member.vo.MemberVO;
+
 @Repository("masterDAO")
 public class MasterDAOImpl implements MasterDAO{
 	@Autowired
@@ -13,6 +16,13 @@ public class MasterDAOImpl implements MasterDAO{
 	public int idCheck(String userId) {
 		// TODO Auto-generated method stub
 		int result = sqlSession.selectOne("mapper.member.checkid", userId); 
+		return result;
+	}
+
+	@Override
+	public int insertMaster(MemberVO masterVO) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.insert("mapper.master.insertMaster", masterVO);
 		return result;
 	}
 

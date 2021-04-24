@@ -1,5 +1,8 @@
 package com.spring.gym.admin.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,6 +59,56 @@ public class AdminControllerImpl implements AdminController{
 		int result = adminSV.memberDel(id);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/adminPage1.do");
+		return mav;
+	}
+	private static final String CURR_IMAGE_REPO_PATH = "C:\\Users\\eugen\\java\\image";
+
+	@RequestMapping("/download")
+	public void download(@RequestParam("imageFileName") String imageFileName,
+			                 HttpServletResponse response)throws Exception {
+		OutputStream out = response.getOutputStream();
+		String downFile = CURR_IMAGE_REPO_PATH + "\\" + imageFileName;
+		File file = new File(downFile);
+
+		response.setHeader("Cache-Control", "no-cache");
+		response.addHeader("Content-disposition", "attachment; fileName=" + imageFileName);
+		FileInputStream in = new FileInputStream(file);
+		byte[] buffer = new byte[1024 * 8];
+		while (true) {
+			int count = in.read(buffer); // 버퍼에 읽어들인 문자개수
+			if (count == -1) // 버퍼의 마지막에 도달했는지 체크
+				break;
+			out.write(buffer, 0, count);
+		}
+		in.close();
+		out.close();
+	}
+
+	@Override
+	@RequestMapping(value = "/adminPage2.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView selectAllMaster(Criteria cri, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		String viewName = (String) request.getAttribute("viewName");
+		System.out.println(viewName);
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("masterList", adminSV.listMaster(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(adminSV.listCount());
+		mav.addObject("pageMaker",pageMaker);
+		return mav;
+	}
+
+	@Override
+	@RequestMapping(value = "/masterDel.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView masterDel(String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		int result = adminSV.masterDel(id);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/adminPage2.do");
 		return mav;
 	}
 	

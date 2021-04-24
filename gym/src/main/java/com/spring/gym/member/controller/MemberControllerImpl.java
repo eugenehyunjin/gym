@@ -54,6 +54,7 @@ public class MemberControllerImpl implements MemberController {
 			message+="</script>";
 			HttpSession session = request.getSession();
 			session.setAttribute("id", memberVO.getId());
+			session.setAttribute("member", "true");
 			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
 		}
 		return resEnt;
