@@ -150,7 +150,7 @@
 									<h2 style="color: #f36100;">MASTER FORM</h2>
 									
 									<form name="frm" class="frm">
-										<h3>강사 아이디 *</h3>
+										<h3>강사 아이디</h3>
                                 			<input type="text" name="id" class = "ip1" value = "master" id = "userId" placeholder="반드시 'master'가 포함되어야 합니다" onkeyup="masterIdChk()"/>
                                 			<script>
                                 				function masterIdChk(){
@@ -166,23 +166,26 @@
                                 				
                                 				function availableChk() {
                                 					var userId = document.getElementById('userId').value;
-                                					$.ajax({
-                                						url : "/idCheck.do",
-                                						type : "get",
-                                						//datatype = "json",
-                                						data : {"userId": userId},
-                                						success : function(data) {
-                                							if(data == 1){
-                                								document.getElementById('alertAvailable').innerHTML = "사용 불가능";
-                                								document.getElementById('alertAvailable').removeAttribute('class');
-                                								document.getElementById('alertAvailable').setAttribute('class', 'trunRed');
-                                							}else if(data == 0){
-                                								document.getElementById('alertAvailable').innerHTML = "사용 가능";
-                                								document.getElementById('alertAvailable').removeAttribute('class');
-                                								document.getElementById('alertAvailable').setAttribute('class', 'trunGreen');
-                                							}
-                                						}
-                                					})
+                                					if(document.getElementById('idIpChk').innerHTML != "ID에 'master'를 포함하십시오"){
+                                						$.ajax({
+                                    						url : "${contextPath}/idCheck.do",
+                                    						type : "get",
+                                    						data : {"userId": userId},
+                                    						success : function(data) {
+                                    							if(data == 1){
+                                    								document.getElementById('alertAvailable').innerHTML = "사용 불가능";
+                                    								document.getElementById('alertAvailable').removeAttribute('class');
+                                    								document.getElementById('alertAvailable').setAttribute('class', 'trunRed');
+                                    								alert('사용 불가능');
+                                    							}else if(data == 0){
+                                    								document.getElementById('alertAvailable').innerHTML = "사용 가능";
+                                    								document.getElementById('alertAvailable').removeAttribute('class');
+                                    								document.getElementById('alertAvailable').setAttribute('class', 'trunGreen');
+                                    								alert('사용 가능');
+                                    							}
+                                    						}
+                                    					})
+                                					}
                                 					
                                 				}
                                 			</script>
@@ -194,9 +197,9 @@
                                 				</span>
                                 			</div>
                                 			
-										<h3>강사 비밀번호 *</h3>
-                                			<input type="password" name="pw1" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
-										<h3>강사 비밀번호 재확인 *</h3>
+										<h3>강사 비밀번호</h3>
+                                			<input type="password" name="pwd" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
+										<h3>강사 비밀번호 재확인</h3>
                                 			<input type="password" name="pw2" id = "pwChk2" class = "ip1" value = "" onkeyup="pwdChk()"/>
                                 			
                                 			<script>
@@ -207,7 +210,7 @@
 	                                					
 	                                					var result = document.getElementById('warnPw');
 	                                					
-	                                					if(pw1 == '' && pw2 == ''){
+	                                					if(pw1 == "" && pw2 == ""){
 	                                						result.innerHTML = "";
 	                                					}else{
 	                                						if(pw1 != pw2) {
@@ -231,29 +234,31 @@
                                 			</div>
                                 			<div class = "birth_m_d">
 	                                		<div class="birth_mm">
-	                                			<select name="birth_m" onchange="dayByMonth()" class = "selectChk" >
+	                                			<select name="birth_m_select" onchange="dayByMonth()" class = "selectChk" >
 	                                				<option value=selected >&nbsp;&nbsp; 월</option>
 	                                				<c:forEach var="i" begin="1" end="12">
 		                                				<option>${i }월</option>
 	                                				</c:forEach>
 	                                			</select>
-	                                			<input type = "hidden" id = "Hidddenbirth_m">
+	                                			<input type = "hidden" name = "birth_m" class = "ip1" value = "">
 	                                		</div>
 	                                		
 	                                		<div class="birth_dd">
-	                                			<select name="birth_d" class = "selectChk" onchange="newDay()" >
+	                                			<select name="birth_d_select" class = "selectChk" onchange="newDay()" >
 	                                				<option value=selected >&nbsp;&nbsp; 일</option>
 	                                				<c:forEach var="i" begin="1" end="31">
 		                                				<option id = ${i }>${i }일</option>
 	                                				</c:forEach>
 	                                			</select>
-	                                			<input type = "hidden" id = "Hidddenbirth_d">
+	                                			<input type = "hidden" name = "birth_d" class = "ip1" value = "">
 	                                		</div>
 	                                		</div>
 	                                		<Script>
 	                                		function dayByMonth() {
-	                                			var newMonth = document.getElementsByName('birth_m')[0].value;
+	                                			var newMonth = document.getElementsByName('birth_m_select')[0].value;
 	                                			console.log(newMonth);
+	                                			document.getElementsByName('birth_m')[0].value = newMonth;
+	                                			console.log('birth_m : '+document.getElementsByName('birth_m')[0].value);
 	                                			
 	                                			var newMonthSplit = newMonth.split('월')[0];
 	                                			console.log(newMonthSplit);
@@ -282,37 +287,39 @@
 	                                				document.getElementById('31').removeAttribute("disabled");
 	                                				
 	                                			}
+	                                			/*
 	                                			if(newMonthSplit != ''){
-	                                				document.getElementById('Hiddenbirth_m').value = newMonthSplit;	
+	                                				document.getElementById('birth_m').value = newMonthSplit;	
 	                                			}
-	                                			
+	                                			**/
 	                                		}
 	                                		
 	                                		function newDay() {
-	                                			var newDay = document.getElementsByName('birth_d')[0].value;
+	                                			var newDay = document.getElementsByName('birth_d_select')[0].value;
 	                                			console.log(newDay);
-	                                			
-	                                			var newDaySplit = newDay.split('일')[0];
-	                                			console.log(newMonthSplit);
-	                                			
-	                                			if(newDaySplit != ''){
-	                                				document.getElementById('Hiddenbirth_d').value = newDaySplit;
-	                                			}else{
-	                                			}
-	                                			  console.log(document.getElementById('Hiddenbirth_d').value;);
+	                                			document.getElementsByName('birth_d').value = newDay;
+	        	                       			console.log('birth_d : '+document.getElementsByName('birth_d').value);
 	                                		}
 
 	                                		</Script>
 	                                	</div>
 											<h3>강사 성별</h3>
-	                                			<select class="gender" name="gender" style="width:100%" >
+	                                			<select class="gender" name="gender_select" style="width:100%" onchange="genderHidden()" >
 	                                				<option>&nbsp;&nbsp; 성별</option>
-	                                				<option>남자</option>
-	                                				<option>여자</option>
+	                                				<option>남성</option>
+	                                				<option>여성</option>
 	                                				<option>선택 안함</option>
 	                                			</select>
+	                                			<input type = "hidden" name = "gender" class = "ip1"/>
+	                                			<script type="text/javascript">
+	                                				function genderHidden(){
+	                                					var select = document.getElementsByName('gender_select')[0].value;
+	                                					document.getElementsByName('gender')[0].value = select;
+	                                					console.log('gender : '+document.getElementsByName('gender')[0].value);
+	                                				}
+	                                			</script>
 										</div>
-                                			<h3>강사 휴대전화 *</h3>
+                                			<h3>강사 휴대전화</h3>
                                 				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1" id = "telId"/>
                                 			<h3>강사 이메일 *</h3>
                                 				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1" id = "emailId"/>
@@ -323,30 +330,64 @@
                                					function checkNull(){
                                						
                                						var frm = document.frm;
-
-                               						for(var i = 0;document.getElementsByClassName('ip1').length;i++) {
-                               							
-                               							var inputChk = document.getElementsByClassName('ip1')[i];
-                               							
-                               							if(inputChk.value == null || inputChk.value == ''){
-                               								console.log(inputChk + ' null');
-                               								alert('입력을 완료해주십시오');
-                               								inputChk.focus();
-                               								break;
-                               							}else{
-                               								if(document.getElementById('warnPw').value == '*일치'){
-                               											frm.method = 'post';
-                                       									frm.action = '${contextPath}/join.do';
-                                       									frm.submit();	
-                               								}else{
-                               									alert('비밀번호가 일치하지 않습니다');
-                               									document.getElementById('pwChk1').value = "";
-                               									document.getElementById('pwChk2').value = "";
-                               									document.getElementById('pwChk1').focus();
-                               									break;
-                               								}
-                               								
-                               							}
+													
+                               						if(document.getElementById('alertAvailable').innerHTML = "사용 불가능"){
+                       									alert('사용 불가능한 아이디입니다');
+                       									return;
+                       									break;
+                               						}else if(document.getElementById('warnPw').innerHTML == '*불일치'){
+                       									alert('비밀번호가 일치하지 않습니다');
+                       									document.getElementById('pwChk1').value = "";
+                       									document.getElementById('pwChk2').value = "";
+                       									document.getElementById('pwChk1').focus();
+                       									return;
+                       									break;
+                               						}else{
+                               							for(var i = 0;i<9;i++) {
+                                   							
+                                   							var inputChk = document.getElementsByClassName('ip1')[i].value;
+                                   							console.log('input '+i +' : '+ inputChk);
+                                   							
+                                   							if(inputChk == null || inputChk== ''){
+                                   								//console.log(inputChk + ' null');
+                                   								
+                                   								console.log('inputChk.length : '+ document.getElementsByClassName('ip1').length);
+                                   								
+                                   								
+                                   								console.log('nullChk birth_d : '+ document.getElementsByName('birth_d').value);
+                                   								
+                                   								if(i == 4){
+                                   									alert('생년월일 입력을 완료해주십시오');
+                                   									return;
+                                   									break;
+                                   								}else if(i == 5){
+                                   									var birth_D = document.getElementsByName('birth_d').value;
+                                   									if(birth_D == null || birth_D == ''){
+                                   										alert('생년월일 입력을 완료해주십시오');
+                                   										return;
+                                       									break;
+                                   									}
+                                   									
+                                   								}else if(i == 6){
+                                   										alert('성별 입력을 완료해주십시오');
+                                   										return;
+                                       									break;
+                                   								}else{
+                                   									alert('입력을 완료하십시오');
+                                   									document.getElementsByClassName('ip1')[i].focus();
+                                   									return;
+                                   									break;
+                                   								}
+                                   							}
+                                   						}
+                               						}
+                               						
+                               						if(confirm('강사를 등록하시겠습니까?')){
+                               							frm.method = 'post';
+                               							frm.action = '${contextPath}/masterJoin.do';
+                               							frm.submit();
+                               						}else{
+                               							alert('강사 등록을 취소하였습니다');
                                						}
                                						
                                					}

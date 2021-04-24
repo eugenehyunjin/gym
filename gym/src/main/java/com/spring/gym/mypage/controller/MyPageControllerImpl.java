@@ -7,9 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,22 +55,14 @@ public class MyPageControllerImpl implements MyPageController{
 	}
 	
 	@RequestMapping(value = "/modSave.do", method = RequestMethod.POST)
-	public ResponseEntity modSave(@ModelAttribute("myInfo") MemberVO member, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView modSave(@ModelAttribute("myInfo") MemberVO member, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=utf-8");
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("text/html;charset=utf-8");
 		int result = mpSrv.modInfo(member);
 		HttpSession session = request.getSession();
-		ResponseEntity resEnt = null;
-		String message;
-		HttpHeaders responseheader = new HttpHeaders();
-			responseheader.add("Content-Type","text/html; charset=utf-8");
-			message="<script>";
-			message+="alert('수정이 완료되었습니다');";
-			message+="location.href='"+request.getContextPath()+"/myPage.do';";
-			message+="</script>";
-			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
-		return resEnt;
+		Object id = session.getAttribute("id");
+		ModelAndView mav = new ModelAndView("redirect:/myPage.do");
+		return mav;
 	}
 }

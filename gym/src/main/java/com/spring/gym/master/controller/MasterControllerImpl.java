@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.gym.master.service.MasterService;
@@ -19,7 +20,7 @@ public class MasterControllerImpl implements MasterController{
 	
 	@Override
 	@RequestMapping(value = "/idCheck.do", method = RequestMethod.GET)
-	public int masterIdChk(String userId, HttpServletRequest request, HttpServletResponse response)
+	public int masterIdChk(@RequestParam("id")String userId, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
 		int result = masterSrv.idCheck(userId);
