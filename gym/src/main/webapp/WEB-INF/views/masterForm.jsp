@@ -152,40 +152,7 @@
 									<form name="frm" class="frm">
 										<h3>강사 아이디 *</h3>
                                 			<input type="text" name="id" class = "ip1" value = "master" id = "userId" placeholder="반드시 'master'가 포함되어야 합니다" onkeyup="masterIdChk()"/>
-                                			<script>
-                                				function masterIdChk(){
-                                					var idChk = document.getElementsByName('id')[0].value;
-                                					
-                                					if(!idChk.includes('master')){
-                                						document.getElementById('idIpChk').innerHTML = "ID에 'master'를 포함하십시오";
-                                					}else {
-                                						document.getElementById('idIpChk').innerHTML = "";
-                                					}
-                                					
-                                				}
-                                				
-                                				function availableChk() {
-                                					var userId = document.getElementById('userId').value;
-                                					$.ajax({
-                                						url : "/idCheck.do",
-                                						type : "get",
-                                						//datatype = "json",
-                                						data : {"userId": userId},
-                                						success : function(data) {
-                                							if(data == 1){
-                                								document.getElementById('alertAvailable').innerHTML = "사용 불가능";
-                                								document.getElementById('alertAvailable').removeAttribute('class');
-                                								document.getElementById('alertAvailable').setAttribute('class', 'trunRed');
-                                							}else if(data == 0){
-                                								document.getElementById('alertAvailable').innerHTML = "사용 가능";
-                                								document.getElementById('alertAvailable').removeAttribute('class');
-                                								document.getElementById('alertAvailable').setAttribute('class', 'trunGreen');
-                                							}
-                                						}
-                                					})
-                                					
-                                				}
-                                			</script>
+                                			
                                 			<p id = "idIpChk"></p>
                                 			<div>
                                 				<input type = "button" onclick = "availableChk()" value = "ID 중복체크" id = "ChkId" >
@@ -195,9 +162,11 @@
                                 			</div>
                                 			
 										<h3>강사 비밀번호 *</h3>
-                                			<input type="password" name="pw1" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
+                                			<input type="password" name="pwd" id = "pwChk1" class = "ip1" value = "" onkeyup="pwdChk()"/>
 										<h3>강사 비밀번호 재확인 *</h3>
                                 			<input type="password" name="pw2" id = "pwChk2" class = "ip1" value = "" onkeyup="pwdChk()"/>
+                                		<h3>강사 이름 *</h3>
+                                		<input type="text" name="name" id = "name" class = "ip1" value = "" />
                                 			
                                 			<script>
 	                                				function pwdChk(){
@@ -213,10 +182,12 @@
 	                                						if(pw1 != pw2) {
 		                                						result.innerHTML = "*불일치";
 		                                						result.setAttribute('class', 'notsame');
+		                                						
 		                                						console.log('불일치');
 		                                					}else{
 		                                						result.innerHTML = "*일치";
 		                                						result.setAttribute('class', 'same');
+
 		                                						console.log('일치');
 		                                					}
 	                                						
@@ -250,7 +221,7 @@
 	                                			<input type = "hidden" id = "Hidddenbirth_d">
 	                                		</div>
 	                                		</div>
-	                                		<Script>
+	                                		<script>
 	                                		function dayByMonth() {
 	                                			var newMonth = document.getElementsByName('birth_m')[0].value;
 	                                			console.log(newMonth);
@@ -302,7 +273,7 @@
 	                                			  console.log(document.getElementById('Hiddenbirth_d').value;);
 	                                		}
 
-	                                		</Script>
+	                                		</script>
 	                                	</div>
 											<h3>강사 성별</h3>
 	                                			<select class="gender" name="gender" style="width:100%" >
@@ -311,11 +282,21 @@
 	                                				<option>여자</option>
 	                                				<option>선택 안함</option>
 	                                			</select>
-										</div>
+										
                                 			<h3>강사 휴대전화 *</h3>
                                 				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1" id = "telId"/>
                                 			<h3>강사 이메일 *</h3>
                                 				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1" id = "emailId"/>
+                                			<h3>강사 사진 *</h3><p>*강사 사진은 png 파일로 강사 이름과 같은 파일명으로 업로드 해주세요.</p>
+                                				<input type="button"  value="파일추가" onClick="fn_addFile()"/><br>
+												<div id="d_file"></div>
+                                				<script>
+													var cnt=1;
+													function fn_addFile(){
+														$("#d_file").append("<br>"+"<input  type='file' name='file"+cnt+"' />");
+														cnt++;
+													}
+												</script>
                                		
                                				<div class="btn">
                                					<input style="background: #f36100;" type="button" class="primary-btn" value="강사등록" onclick="checkNull()">
@@ -334,9 +315,12 @@
                                								inputChk.focus();
                                								break;
                                							}else{
-                               								if(document.getElementById('warnPw').value == '*일치'){
+                               								var test = document.getElementById('warnPw').value;
+                               								console.log(test);
+                               								if(document.getElementById('warnPw').innerHTML == '*일치'){
                                											frm.method = 'post';
-                                       									frm.action = '${contextPath}/join.do';
+                                       									frm.action = '${contextPath}/addMaster.do';
+                                       									frm.enctype= 'multipart/form-data';
                                        									frm.submit();	
                                								}else{
                                									alert('비밀번호가 일치하지 않습니다');
@@ -355,14 +339,14 @@
                                					</script>
                                					<input style="background: #f36100;" type="button" class="primary-btn" value="취소" onclick="fncancle()">
                                				</div>
-									</form>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 </body>

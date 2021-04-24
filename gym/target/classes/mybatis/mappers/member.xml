@@ -48,19 +48,12 @@
   	]]>
   	</delete>
   	
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
   	<select id="myInfoVO" parameterType="String" resultMap="memberResult">
   		<![CDATA[
   			select * from gym_member where id = #{id}
   		]]>
   	</select>
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
   	<select id="listCount" resultType="int">
 	<![CDATA[
 		select count(id) from gym_member
@@ -96,10 +89,10 @@
                 where rnum between #{rowStart} and #{rowEnd}
                 order by joindate desc
 	]]>
-<<<<<<< HEAD
+
 	</select>
-=======
-	</select>
+
+
 	
 	<update id="modInfo" parameterType="memberVO">
 		<![CDATA[
@@ -110,5 +103,5 @@
 				where id = #{id}
 		]]>
 	</update>
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
+
  </mapper>

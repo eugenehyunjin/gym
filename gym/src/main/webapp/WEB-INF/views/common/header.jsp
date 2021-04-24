@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
 <title>헤더</title>
  <style type="text/css">
- .login{ color: white;}
+ .login{ color: white; font-size:13pt;}
  .login:hover { color: orange;}
  .nav-menu ul li a{
  	font-family: "Gothic","고딕";

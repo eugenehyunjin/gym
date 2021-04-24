@@ -40,5 +40,16 @@ public class AdminDAOImpl implements AdminDAO{
 		return sqlSession.selectList("mapper.member.listPage", cri);
 	}
 
+	public List<MemberVO> listMaster(Criteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mapper.master.listPage", cri);
+	}
+
+	public int masterDel(String id) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.delete("mapper.master.deleteMaster", id);
+		return result;
+	}
+
 
 }

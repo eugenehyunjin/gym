@@ -111,7 +111,7 @@
 
 
 	a:link { font-size:13pt; font-family:"고딕";color:#000000; text-decoration:none; }
-	a:visited { font-size:13pt; font-family:"고딕";color:#000000; text-decoration:none; }
+	a:visited { font-size:13pt; font-family:"고딕"; text-decoration:none; }
 	.calendar_body a:active {
 		font-size:13pt; 
 		font-family:"고딕";

@@ -51,8 +51,8 @@
 			        <div role="navigation">
 			          <ul class="nav nav-tabs">
 						  <li role="presentation" class="active"><a href="${contextPath }/adminPage1.do"><span class="span">회원관리</span></a></li>
-						  <li role="presentation"><a href="${contextPath }/adminPage1.do"><span class="span">강사관리</span></a></li>
-						  <li role="presentation"><a href="${contextPath }/adminPage1.do"><span class="span">커리큘럼</span></a></li>
+						  <li role="presentation"><a href="${contextPath }/adminPage2.do"><span class="span">강사관리</span></a></li>
+						  <li role="presentation"><a href="${contextPath }/adminPage3.do"><span class="span">커리큘럼</span></a></li>
 					</ul>
 					</div>
 				</div>
@@ -150,10 +150,6 @@
 		
 		
 		<br>
-			<div class="col-lg-12" style="text-align: center;">
-
-			<a href="${contextPath}/masterForm.do" class="primary-btn">강사추가하기</a>
-		</div>
 		<br>
 		<br>
 		<br>

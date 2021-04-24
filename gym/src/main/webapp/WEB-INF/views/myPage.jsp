@@ -146,10 +146,7 @@
 	.opacityChg{opacity: 0.7;background-color:black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -212,12 +209,11 @@
 		
 		
 	}
-<<<<<<< HEAD
+
 </script>
-=======
-	</script>
+
 <!-- myPage.do 경로로 접근하는 경우 방지 -->
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
+
 </head>
 
 <body>
