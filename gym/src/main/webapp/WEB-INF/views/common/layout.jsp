@@ -11,7 +11,7 @@
         background-color: black;
         border: 0px solid #bcbcbc;
       }
-      #content {       
+      #body {       
         border: 0px solid #bcbcbc;
       }
       #footer {
@@ -54,7 +54,7 @@
 			<tiles:insertAttribute name="header"/>
 		</div>
 		<div id="clear"></div>
-		<div id="content">
+		<div id="body">
 			<tiles:insertAttribute name="body"/>
 		</div>
 		<div id="footer">

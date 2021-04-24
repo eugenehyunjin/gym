@@ -50,7 +50,7 @@ public class MasterControllerImpl implements MasterController{
 	}
 	
 	@RequestMapping(value="/addMaster.do",method = RequestMethod.POST)
-	public ModelAndView upload(@ModelAttribute MemberVO masterVO, MultipartHttpServletRequest multipartRequest,HttpServletResponse response)
+	public ModelAndView upload(@ModelAttribute MasterVO masterVO, MultipartHttpServletRequest multipartRequest,HttpServletResponse response)
 	  throws Exception{
 		multipartRequest.setCharacterEncoding("utf-8");
 		System.out.println(masterVO.getId());

@@ -5,7 +5,7 @@
 
  
 <mapper namespace="mapper.master">
-  	<resultMap type="memberVO" id="masterResult">
+  	<resultMap type="masterVO" id="masterResult">
   		<result property="id" column="id"/>
   		<result property="pwd" column="pwd"/>
   		<result property="name" column="name"/>

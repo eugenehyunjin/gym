@@ -217,7 +217,7 @@
 </head>
 
 <body>
-<c:if test="${empty id }">
+<c:if test="${empty id}">
 	<script>alert('로그아웃 상태입니다');location.href = "${contextPath}/main.do"</script>
 </c:if>
 <!-- Breadcrumb Section Begin -->
@@ -261,9 +261,9 @@
                                 	<p id="warnnigMsg"></p>
                                 	<!--  <input type="text" name="id" disabled="disabled" value = "${member.id}"/>-->
                                 <h3>비밀번호</h3>
-                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd }" id = "pwChk1" onkeyup="pwdChk()"/>
+                                	<input type="text" name="pwd" disabled="disabled" class = "ip" value = "${myInfo.pwd}" id = "pwChk1" onkeyup="pwdChk()"/>
                                 <h3><input type = "hidden" value = "비밀번호 확인" name = "pwChkTxt" id="delOutline"disabled="disabled"></h3>
-                                	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd }" id = "pwChk2" onkeyup="pwdChk()"/>
+                                	<input type="hidden" name="pwChk" class = "ip" value = "${myInfo.pwd}" id = "pwChk2" onkeyup="pwdChk()"/>
                                 		<script>
 	                                				function pwdChk(){
 	                                					console.log('function');

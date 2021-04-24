@@ -33,3 +33,20 @@ CREATE TABLE gym_member(
 insert into gym_member values('admin','1234','이현진','1988','6월','20일','남성','01050001193','eugene@gmail.com',sysdate);
 
 commit;
+-------  강사테이블 -------
+CREATE TABLE gym_master (
+    id varchar2(20) not null primary key,
+    pwd varchar2(30) not null,
+    name varchar2(10) not null,
+    birth_y varchar2(20),
+    birth_m varchar2(20),
+    birth_d varchar2(20),
+    gender varchar2(10) not null,
+    tel varchar2(20) not null,
+    email varchar2(50) not null,
+    joinDate date default sysdate
+);
+
+insert into gym_master values('master','1234','이현진','1988','6월','20일','남성','01050001193','eugene@gmail.com',sysdate);
+
+commit;

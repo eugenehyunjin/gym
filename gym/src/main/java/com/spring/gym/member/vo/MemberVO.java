@@ -14,6 +14,7 @@ public class MemberVO {
 	private String tel;
 	private String email;
 	private String joindate;
+	
 	public String getId() {
 		return id;
 	}

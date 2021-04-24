@@ -7,7 +7,7 @@ public interface MasterService {
 
 	public int idCheck(String userId);
 
-	public int insertMaster(MemberVO masterVO);
+	public int insertMaster(MasterVO masterVO);
 
 
 }

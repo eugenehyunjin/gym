@@ -20,7 +20,7 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public int insertMaster(MemberVO masterVO) {
+	public int insertMaster(MasterVO masterVO) {
 		// TODO Auto-generated method stub
 		int result = dao.insertMaster(masterVO);
 		return result;

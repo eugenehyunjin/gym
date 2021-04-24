@@ -20,7 +20,7 @@ public class MasterDAOImpl implements MasterDAO{
 	}
 
 	@Override
-	public int insertMaster(MemberVO masterVO) {
+	public int insertMaster(MasterVO masterVO) {
 		// TODO Auto-generated method stub
 		int result = sqlSession.insert("mapper.master.insertMaster", masterVO);
 		return result;
