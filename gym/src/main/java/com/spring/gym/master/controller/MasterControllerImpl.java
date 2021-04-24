@@ -36,7 +36,7 @@ public class MasterControllerImpl implements MasterController{
 	
 	@Override
 	@RequestMapping(value = "/idCheck.do", method = RequestMethod.GET)
-	public int masterIdChk(String userId, HttpServletRequest request, HttpServletResponse response)
+	public int masterIdChk(@RequestParam("id")String userId, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
 		int result = masterSrv.idCheck(userId);
