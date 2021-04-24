@@ -9,5 +9,7 @@ public interface MasterDAO {
 
 	public int insertMaster(MasterVO masterVO);
 
+	public int checklogin(MasterVO masterVO);
+
 
 }

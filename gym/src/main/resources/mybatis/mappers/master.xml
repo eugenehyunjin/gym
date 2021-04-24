@@ -61,4 +61,10 @@
   		delete from gym_master where id=#{id}
   	]]>
   	</delete>
+  	
+  	<select id="checklogin" resultType="int" parameterType="masterVO">
+  	<![CDATA[
+  		select count(*) from gym_master where id=#{id} and pwd=#{pwd}
+  	]]>
+  	</select>
   	</mapper>

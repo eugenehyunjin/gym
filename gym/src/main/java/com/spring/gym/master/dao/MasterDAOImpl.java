@@ -26,4 +26,10 @@ public class MasterDAOImpl implements MasterDAO{
 		return result;
 	}
 
+	public int checklogin(MasterVO masterVO) {
+		// TODO Auto-generated method stub
+		int result = sqlSession.selectOne("mapper.master.checklogin", masterVO);
+		return result;
+	}
+
 }

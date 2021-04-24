@@ -54,6 +54,7 @@ public class MemberControllerImpl implements MemberController {
 			message+="</script>";
 			HttpSession session = request.getSession();
 			session.setAttribute("id", memberVO.getId());
+			session.setAttribute("loginType", "normal");
 			resEnt = new ResponseEntity(message, responseheader, HttpStatus.CREATED);
 		}
 		return resEnt;
@@ -64,6 +65,7 @@ public class MemberControllerImpl implements MemberController {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.removeAttribute("id");
+		session.removeAttribute("loginType");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/main.do");
 		return mav;

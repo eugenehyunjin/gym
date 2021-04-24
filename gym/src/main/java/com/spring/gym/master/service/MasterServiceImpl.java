@@ -26,4 +26,10 @@ public class MasterServiceImpl implements MasterService{
 		return result;
 	}
 
+	public int checklogin(MasterVO masterVO) {
+		// TODO Auto-generated method stub
+		int result = dao.checklogin(masterVO);
+		return result;
+	}
+
 }

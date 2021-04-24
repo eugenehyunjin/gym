@@ -9,5 +9,8 @@ public interface MasterService {
 
 	public int insertMaster(MasterVO masterVO);
 
+	public int checklogin(MasterVO masterVO);
+
+
 
 }

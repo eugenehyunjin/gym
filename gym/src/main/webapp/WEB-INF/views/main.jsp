@@ -12,10 +12,40 @@
 <meta charset="UTF-8">
 <title>메인페이지</title>
 <style type="text/css">
-.ment{
-	font-size: 25px; 
-	color: white;
-}
+	.ment{
+		font-size: 25px;
+		color: white;
+	}
+	.leave-comment {
+		height: 500px;
+		display:  inline-block;
+	}
+	.frm {
+		padding-top: 50px;
+	}
+	.radioBtn {
+		font-size: 15px;
+		float: left;
+		color: white;
+		width: 150px;
+		heigth: 50px;
+		margin: 10px;
+	}
+	.radioBtn input{
+		width: 20px;
+		margin-right: 20px;
+		padding-bottom: 20px;
+		background-color: #f36100;
+	}
+	.radioBtn label{
+		position: absolute;
+		width: 150px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+	
+	
+	
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
@@ -23,8 +53,9 @@
 	function checkid(){
 		let id = document.getElementsByName("id")[0].value;
 		let pwd = document.getElementsByName("pwd")[0].value;
+		let normal = document.getElementById("normal").checked;
+		console.log(normal);
 		var frm = document.frm;
-		
 		
 		if(id==null || id == ''){
 			alert('아이디를 입력해주세요');
@@ -32,9 +63,13 @@
 		}else if(pwd==null || pwd == ''){
 			alert('비밀번호를 입력해주세요');
 			document.getElementsByName('pwd')[0].focus();
-		}else{
+		}else if(normal==true){
 			frm.method = 'get';
 			frm.action = '${contextPath}/checklogin.do';
+			frm.submit();
+		}else if(normal==false){
+			frm.method = 'get';
+			frm.action = '${contextPath}/masterlogin.do';
 			frm.submit();
 		}
 	}
@@ -42,6 +77,19 @@
 	function memberForm(){
 		location.href='${contextPath}/memberForm.do';	
 	}
+	
+	$(function(){
+		$('.checkMemMa').click(function(event){
+			var m = this.getAttribute("id");
+			console.log(m);
+			if(m == "일반"){
+				document.getElementById('id').value = "";
+			} else if (m == "강사") {
+				document.getElementById('id').value = "master";
+			}			
+		});
+	});
+	
 </script>
 </head>
 <body>
@@ -108,9 +156,16 @@
                           		<c:otherwise>
 	                          		<div class="leave-comment">
 	                                    <h5>LOGIN</h5>
-	                                    <form name="frm">
-	                                        <input type="text" placeholder="ID" name="id" >
-	                                        <input type="password" placeholder="PASSWORD" name="pwd" >
+	                                    <div class="radioBtn">
+	                                    		<label><input type="radio" class="checkMemMa" name="memma" checked="checked" id="normal">일반회원</label>
+	                                    	</div>
+	                                    	<div class="radioBtn">
+	                                    		<label><input type="radio" class="checkMemMa" name="memma" id="master">강사</label>
+	                                    		<!-- 미리 회원체크되게, 강사 체크하면 master가 뜨게. -->
+	                                    	</div>
+	                                    <form name="frm" class="frm">
+	                                        <input type="text" placeholder="ID" name="id" id="id">
+	                                        <input type="password" placeholder="PASSWORD" name="pwd" id="pwd">
 	                                        <!-- <button type="submit" onclick="checkid()">Submit</button> -->
 	                                        <button type="button" onclick="checkid()">로그인</button>
 	                                        <p></p>

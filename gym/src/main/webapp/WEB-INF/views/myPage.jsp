@@ -152,7 +152,7 @@
 	window.onload = function() {
 		
 		//사용자
-		const masterChk = '${id}';
+		const masterChk = '${loginType}';
 		
 		if('${id}' == 'admin') {
 			console.log('admin');
