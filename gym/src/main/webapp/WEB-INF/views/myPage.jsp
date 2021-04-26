@@ -162,8 +162,6 @@
 			document.getElementsByTagName('h5')[1].innerHTML = "ADMIN CONTROL";
 		}else if (masterChk.includes('master')){
 			console.log('master');
-				//var masterId = document.getElementsByClassName('myPage-myClass-table')[0];
-				//masterId.removeAttribute('hidden');
 				var ifmaster = document.getElementById('ifmaster');
 				console.log(ifmaster.hidden);
 				document.getElementById('ifmaster').removeAttribute('hidden');
@@ -181,7 +179,6 @@
 		var myGender = '${myInfo.gender}';
 		if(myGender == '남성'){
 			document.getElementsByClassName('genderOption')[1].setAttribute('selected','selected');
-			//document.getElementsByClassName('genderOption')[1].selected = "true";
 		}else if(myGender == '여성'){
 			document.getElementsByClassName('genderOption')[2].setAttribute('selected','selected');
 		}else{}

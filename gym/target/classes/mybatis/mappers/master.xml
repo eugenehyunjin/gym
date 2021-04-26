@@ -67,4 +67,9 @@
   		select count(*) from gym_master where id=#{id} and pwd=#{pwd}
   	]]>
   	</select>
+  	<select id="myInfoVO" parameterType="String" resultMap="masterResult">
+  		<![CDATA[
+  			select * from gym_master where id = #{id}
+  		]]>
+  	</select>
   	</mapper>

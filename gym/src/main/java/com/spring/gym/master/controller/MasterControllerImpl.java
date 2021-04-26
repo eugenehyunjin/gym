@@ -35,7 +35,7 @@ import com.spring.gym.master.vo.MasterVO;
 
 @Controller("masterController")
 public class MasterControllerImpl implements MasterController{
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\Users\\eugen\\java\\image";
+	private static final String CURR_IMAGE_REPO_PATH = "";
 	@Autowired
 	MasterService masterSrv;
 	

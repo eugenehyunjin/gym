@@ -61,7 +61,7 @@ public class AdminControllerImpl implements AdminController{
 		mav.setViewName("redirect:/adminPage1.do");
 		return mav;
 	}
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\Users\\eugen\\java\\image";
+	private static final String CURR_IMAGE_REPO_PATH = "";
 
 	@RequestMapping("/download")
 	public void download(@RequestParam("imageFileName") String imageFileName,

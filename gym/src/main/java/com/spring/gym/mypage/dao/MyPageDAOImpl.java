@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.gym.master.vo.MasterVO;
 import com.spring.gym.member.vo.MemberVO;
 import com.sun.tools.javac.util.List;
 
@@ -24,6 +25,13 @@ public class MyPageDAOImpl implements MyPageDAO{
 		// TODO Auto-generated method stub
 		int result = sqlSession.update("mapper.member.modInfo", member);
 		return 0;
+	}
+
+	@Override
+	public MasterVO masterInfoList(String id) {
+		// TODO Auto-generated method stub
+		MasterVO mastervo = sqlSession.selectOne("mapper.master.myInfoVO", id); 
+		return mastervo;
 	}
 
 }

@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.main.MainController;
 import com.spring.gym.master.service.MasterServiceImpl;
+import com.spring.gym.master.vo.MasterVO;
 import com.spring.gym.member.vo.MemberVO;
 import com.spring.gym.mypage.service.MyPageService;
 
@@ -59,13 +60,26 @@ public class MyPageControllerImpl implements MyPageController{
 				message += "</script>";
 				out.println(message);
 			}else {
-				MemberVO myInfo = mpSrv.myInfoList(id);
-				List<CourseVO> courselist = masterSrv.listCourse(id);
-				mav = new ModelAndView(viewName);
-				mav.addObject("myInfo", myInfo);
-				mav.addObject("courselist", courselist);
-				System.out.println(courselist);
-				return mav;
+				Object loginType = session.getAttribute("loginType");
+				System.out.println(loginType);
+				if(loginType == "master") {
+					MasterVO myInfo = mpSrv.masterInfoList(id);
+					List<CourseVO> courselist = masterSrv.listCourse(id);
+					mav = new ModelAndView(viewName);
+					mav.addObject("myInfo", myInfo);
+					mav.addObject("courselist", courselist);
+					System.out.println(courselist);
+					return mav;
+				}else {
+					MemberVO myInfo = mpSrv.myInfoList(id);
+					List<CourseVO> courselist = masterSrv.listCourse(id);
+					mav = new ModelAndView(viewName);
+					mav.addObject("myInfo", myInfo);
+					mav.addObject("courselist", courselist);
+					System.out.println(courselist);
+					return mav;
+				}
+				
 			}
 			return mav;
 	}
