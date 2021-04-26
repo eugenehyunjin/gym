@@ -1,5 +1,8 @@
 package com.spring.gym.mypage.controller;
 
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,15 +17,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.main.MainController;
+import com.spring.gym.master.service.MasterServiceImpl;
 import com.spring.gym.member.vo.MemberVO;
 import com.spring.gym.mypage.service.MyPageService;
-import com.sun.tools.javac.util.List;
+
 
 @Controller("mypageController")
 public class MyPageControllerImpl implements MyPageController{
 	@Autowired
 	private MyPageService mpSrv;
+	@Autowired
+	private MasterServiceImpl masterSrv;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
@@ -41,10 +48,26 @@ public class MyPageControllerImpl implements MyPageController{
 		String viewName = (String) request.getAttribute("viewName");
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		MemberVO myInfo = mpSrv.myInfoList(id);
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("myInfo", myInfo);
-	    return mav;
+		ModelAndView mav = new ModelAndView();
+			if(id==null) {
+				String message;
+				PrintWriter out = response.getWriter();
+				response.setContentType("text/html; charset=euc-kr");
+				message = "<script>";
+				message += "alert('로그인을 다시 해주세요.');";
+				message += "location.href='" + request.getContextPath() + "/main.do';";
+				message += "</script>";
+				out.println(message);
+			}else {
+				MemberVO myInfo = mpSrv.myInfoList(id);
+				List<CourseVO> courselist = masterSrv.listCourse(id);
+				mav = new ModelAndView(viewName);
+				mav.addObject("myInfo", myInfo);
+				mav.addObject("courselist", courselist);
+				System.out.println(courselist);
+				return mav;
+			}
+			return mav;
 	}
 	
 	@RequestMapping(value = "/addCourse_popup.do", method = RequestMethod.GET)

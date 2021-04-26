@@ -23,6 +23,7 @@
 		var price = document.getElementById('price').value;
 		var ipChk = document.getElementsByTagName('input');
 		
+		
 		for(var i=0;i<ipChk.length;i++) {
 			if(ipChk[i].value == ''){
 				if(i == 1) {
@@ -53,14 +54,17 @@
 			console.log(priceSplit);
 		}
 		
-		//frm.action('${contextPath}/courseJoin.do');
 		if(confirm('커리큘럼 신청을 진행하시겠습니까?')){
-			alert('커리큘럼 신청이 완료되었습니다');	
+			var frm = document.frm;
+			frm.method='get';
+			frm.action='${contextPath}/courseJoin.do';
+			frm.submit();
 		}else{
-			alert('커리큘럼 신청이 취소되었습니다')
+			alert('커리큘럼 신청이 취소되었습니다.');
+			window.close();
 		}
 		
-		window.close();
+		
 	} 
 </script>
 <style>
@@ -96,7 +100,7 @@
 <h2 style = "line-height: 120%;text-align:center;margin-top: 50px;">커리큘럼 신청</h2>
 <div style = "height:1px;border:2px solid gray;"></div>
 										<h3>커리큘럼 아이디</h3> <!-- 임의로 지정 ? course_id-->
-                                			<input type="text" class = "ip1" id = "course_id" name="course_id" />
+                                			<input type="text" class = "ip1" id = "course_id" name="courseid" />
                                 			
 										<h3>커리큘럼 종목</h3> <!-- course_type -->
 											<select id = "type" onchange="selectChg()">
@@ -114,24 +118,23 @@
 													var selectTxt = document.getElementById('selectTxt');
 													console.log(selectTxt);
 													
-													selectTxt.setAttribute('disabled', 'true');
+							
 													selectTxt.value = type;
 													
 													if(type == '직접 입력'){
-														selectTxt.removeAttribute('disabled');
 														selectTxt.value = "";
 														selectTxt.focus();
 													}
 												}
 											</script>
-											<input type = "text" disabled="disabled" id = "selectTxt" name = "course_type">
+											<input type = "text"id = "selectTxt" name = "type">
 										<h3>커리큘럼 정보</h3> <!-- course_detail -->
-											<textarea rows="6px" cols="59px;" placeholder="신청할 커리큘럼에 대한 설명 기입" style = "resize: none;" id = "detail" name = "course_detail"></textarea>
+											<textarea rows="6px" cols="59px;" placeholder="신청할 커리큘럼에 대한 설명 기입" style = "resize: none;" id = "detail" name = "content"></textarea>
 										<h3>커리큘럼 가격</h3>
-											<input type = "text" id = "price" name = "course_price">
+											<input type = "text" id = "price" name = "price">
                                			<h3>트레이너 명</h3>
                                			<input type = "text" id = "name" value = "${param.name }" disabled="disabled" style = "color:black;"/>
-                               			<input type = "hidden" id = "id" value = "${param.id }" name = "master_id"/>
+                               			<input type = "hidden" id = "id" value = "${param.id }" name = "id"/>
                                			
                         				<input type="button" class="Btn" value="신청" onclick="courseAdd()">
 									</form>

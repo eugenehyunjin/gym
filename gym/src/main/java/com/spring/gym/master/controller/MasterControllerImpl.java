@@ -27,9 +27,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.master.service.MasterService;
 import com.spring.gym.master.vo.MasterVO;
-import com.spring.gym.member.vo.MemberVO;
+
 
 
 @Controller("masterController")
@@ -128,5 +129,7 @@ public class MasterControllerImpl implements MasterController{
 		}
 		return resEnt;
 	}
+	
+	
 
 }

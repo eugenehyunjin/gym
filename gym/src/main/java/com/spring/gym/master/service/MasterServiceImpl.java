@@ -1,11 +1,14 @@
 package com.spring.gym.master.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.master.dao.MasterDAO;
 import com.spring.gym.master.vo.MasterVO;
-import com.spring.gym.member.vo.MemberVO;
+
 
 @Service("masterService")
 public class MasterServiceImpl implements MasterService{
@@ -30,6 +33,13 @@ public class MasterServiceImpl implements MasterService{
 		// TODO Auto-generated method stub
 		int result = dao.checklogin(masterVO);
 		return result;
+	}
+
+	@Override
+	public List<CourseVO> listCourse(String id) {
+		// TODO Auto-generated method stub
+		List<CourseVO> list = dao.listCourse(id);
+		return list;
 	}
 
 }

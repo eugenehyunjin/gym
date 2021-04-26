@@ -324,7 +324,6 @@
 	                                				<option>여성</option>
 	                                				<option>선택 안함</option>
 	                                			</select>
-<<<<<<< HEAD
 	                                			<input type = "hidden" name = "gender" class = "ip1"/>
 	                                			<script type="text/javascript">
 	                                				function genderHidden(){
@@ -335,10 +334,10 @@
 	                                			</script>
 										</div>
                                 			<h3>강사 휴대전화</h3>
-=======
+
 										
                                 			<h3>강사 휴대전화 *</h3>
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
+
                                 				<input type="text" name="tel" placeholder=" (-)빼고 입력하세요" class = "ip1" id = "telId"/>
                                 			<h3>강사 이메일 *</h3>
                                 				<input type="text" name="email" placeholder=" @이메일 입력" class = "ip1" id = "emailId"/>
@@ -359,7 +358,7 @@
                                					function checkNull(){
                                						
                                						var frm = document.frm;
-<<<<<<< HEAD
+
 													
                                						if(document.getElementById('alertAvailable').innerHTML = "사용 불가능"){
                        									alert('사용 불가능한 아이디입니다');
@@ -418,7 +417,7 @@
                                							frm.submit();
                                						}else{
                                							alert('강사 등록을 취소하였습니다');
-=======
+
 
                                						for(var i = 0;document.getElementsByClassName('ip1').length;i++) {
                                							
@@ -446,7 +445,7 @@
                                								}
                                								
                                							}
->>>>>>> branch 'master' of https://github.com/eugenehyunjin/gym.git
+
                                						}
                                						
                                					}

@@ -1,11 +1,14 @@
 package com.spring.gym.master.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.master.vo.MasterVO;
-import com.spring.gym.member.vo.MemberVO;
+
 
 @Repository("masterDAO")
 public class MasterDAOImpl implements MasterDAO{
@@ -30,6 +33,13 @@ public class MasterDAOImpl implements MasterDAO{
 		// TODO Auto-generated method stub
 		int result = sqlSession.selectOne("mapper.master.checklogin", masterVO);
 		return result;
+	}
+
+
+	public List<CourseVO> listCourse(String id) {
+		// TODO Auto-generated method stub
+		List<CourseVO> list = sqlSession.selectList("mapper.course.listCourse", id);
+		return list;
 	}
 
 }

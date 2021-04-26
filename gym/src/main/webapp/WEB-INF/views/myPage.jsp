@@ -168,7 +168,7 @@
 				console.log(ifmaster.hidden);
 				document.getElementById('ifmaster').removeAttribute('hidden');
 				console.log(ifmaster.hidden);
-		}else {
+		}else if (masterChk.includes('normal')){
 			console.log('user');
 			var ifuser = document.getElementById('ifuser');
 			console.log(ifuser.hidden);
@@ -470,12 +470,53 @@
                      	<c:when test="${id == 'admin'}">
                      				<a href = "${contextPath}/adminPage1.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
                      					<div style = "border:3px solid #c4c4c4;margin:30px;padding:15px;font-weight: bold;" id = "hoverBox">
-                     					회원 관리<br>페이지 >
+                     					회원관리<br>페이지 >
+                     					</div>
+                     				</a>
+                     				<a href = "${contextPath}/adminPage2.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
+                     					<div style = "border:3px solid #c4c4c4;margin:30px;padding:15px;font-weight: bold;" id = "hoverBox">
+                     					강사관리<br>페이지 >
+                     					</div>
+                     				</a>
+                     				<a href = "${contextPath}/adminPage3.do" style = "color:white;text-decoration: none;font-size:20px;" id = "hoverAtag">
+                     					<div style = "border:3px solid #c4c4c4;margin:30px;padding:15px;font-weight: bold;" id = "hoverBox">
+                     					커리큘럼<br>페이지 >
                      					</div>
                      				</a>
                      	</c:when>
                      </c:choose>
                      	<div id = "ifmaster" hidden = "true">
+                     	
+           					<c:choose>
+           					<c:when test="${courselist == null }">
+           					<table class = "myPage-myClass-table" width="209px;" >
+                                				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
+                                					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
+                                				</tr>
+                                				<tr class = "myPage-myClass-exist">
+                                					<td style = "width:209px;line-height: 240%;">
+                                						<ul>
+                                							<h5 style="text-align:center;padding-bottom: 10px;">
+                                								<a href = "#" class = "tagForBook" title = "커리큘럼 정보">커리큘럼명</a>
+                                							</h5>
+                                							<li class = "course">커리큘럼 ID - </li>
+                                							<li class = "course">커리큘럼 종목 - </li>
+                                							<li class = "course">커리큘럼 설명 - <p style = "font-size:11px;">커리큘럼 설명 테스트 글입니다.</p></li>
+                                							<li class = "course">커리큘럼 가격 -</li>
+                                						</ul>
+                                					
+                                						<h7><input type = "button" value = "수강생 정보" onclick="PopUp()" style = "margin:auto;text-align:center; color:black; border: 1px solid black;font-weight: bold;width:100%;margin-bottom: 10px;" id = "colorChange"></h7>
+                                						<script>
+                                							function PopUp(){window.open("${contextPath}/stuInfo_popup.do?name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                						</script>
+                                						<input type = "button" value = "클래스 삭제" onClick="delChk()" class = "delBtn"/>
+                                							
+                                					</td>
+                                				</tr>
+                                			</table>
+           					</c:when>
+           					<c:when test="${courselist!= null }">
+                     		<c:forEach var="list" items="${courselist }">
                      		<table class = "myPage-myClass-table" width="209px;" >
                                 				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
                                 					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
@@ -486,34 +527,39 @@
                                 							<h5 style="text-align:center;padding-bottom: 10px;">
                                 								<a href = "#" class = "tagForBook" title = "커리큘럼 정보">커리큘럼명</a>
                                 							</h5>
-                                							<li class = "course">커리큘럼 ID - ID 테스트 글</li>
-                                							<li class = "course">커리큘럼 종목 - 종목 테스트 글</li>
-                                							<li class = "course">커리큘럼 설명 - <p style = "font-size:11px;">커리큘럼 설명 테스트 글입니다.</p></li>
-                                							<li class = "course">커리큘럼 가격 - 가격 테스트 글</li>
+                                							<li class = "course">커리큘럼 ID - ${list.courseid }</li>
+                                							<li class = "course">커리큘럼 종목 - ${list.type }</li>
+                                							<li class = "course">커리큘럼 설명 - ${list.content }</li>
+                                							<li class = "course">커리큘럼 가격 - ${list.price }</li>
                                 						</ul>
                                 					
                                 						<h7><input type = "button" value = "수강생 정보" onclick="PopUp()" style = "margin:auto;text-align:center; color:black; border: 1px solid black;font-weight: bold;width:100%;margin-bottom: 10px;" id = "colorChange"></h7>
                                 						<script>
                                 							function PopUp(){window.open("${contextPath}/stuInfo_popup.do?name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
                                 						</script>
-                                						<input type = "button" value = "클래스 삭제" onClick="delChk()" class = "delBtn"/>
-                                							<script>
-                                								function delChk() {
+                                						<input type = "button" value = "클래스 삭제" onClick="delCourse()" class = "delBtn"/>
+                            
+                                					</td>
+                                				</tr>
+                                			</table>
+                                			<br>
+                                </c:forEach>
+                       		    </c:when>
+                                </c:choose>		
+         
+                                			<script>
+                                								function delCourse(){
                                 									if(confirm('클래스를 삭제하시겠습니까?')){
                                 										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
                                 										var c_IdSplit = c_Id.split('- ')[1];
                                 										console.log(c_Id);
                                 										console.log(c_IdSplit);
-                                										
-                                										alert('클래스 삭제가 완료되었습니다');
+                                										location.href="${contextPath }/delcourse.do?courseid="+c_IdSplit;                    									                      
                                 									}else{
                                 										alert('클래스 삭제가 취소되었습니다');
                                 									}
                                 								}
-                                							</script>
-                                					</td>
-                                				</tr>
-                                			</table>
+                                			</script>
                                 			
                                 			<div class = "insertBtn">
                                 				<input type = "button" value = "클래스 등록" id = "insertCourse" onClick="addCoursePopUP()"/>

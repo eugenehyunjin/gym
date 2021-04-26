@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapper.course">
+	<resultMap type="courseVO" id="courseResult">
+		<result property="courseid" column="courseid" />
+		<result property="type" column="type" />
+		<result property="content" column="content" />
+		<result property="price" column="price" />
+		<result property="id" column="id" />	
+	</resultMap>
+	
+	
+	<insert id="insertCourse" parameterType="courseVO">
+	<![CDATA[
+		insert into gym_course values(#{courseid},#{type},#{content},#{price},#{id})
+	]]>
+	</insert>
+	
+	
+	<select id="listCourse" resultMap="courseResult" parameterType="String">
+  	<![CDATA[
+  		select * from gym_course where id=#{id} 
+  	]]>
+  	</select>
+	
+	<delete id="delCourse" parameterType="String" >
+	<![CDATA[
+  		delete from gym_course where courseid=#{id}
+  	]]>
+	</delete>
+	
+	</mapper>

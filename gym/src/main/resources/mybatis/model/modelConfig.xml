@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.spring.gym.board.vo.BoardVO" alias="boardVO"/>
 		<typeAlias type="com.spring.gym.book.vo.BookVO" alias="bookVO"/>
 		<typeAlias type="com.spring.gym.master.vo.MasterVO" alias="masterVO"/>
+		<typeAlias type="com.spring.gym.course.vo.CourseVO" alias="courseVO"/>
 
 	</typeAliases>
 </configuration>
