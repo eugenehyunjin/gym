@@ -26,6 +26,12 @@
   		select * from gym_course where id=#{id} 
   	]]>
   	</select>
+  	
+  	<select id="listAllCourse" resultMap="courseResult">
+  	<![CDATA[
+  		select * from gym_course
+  	]]>
+  	</select>
 	
 	<delete id="delCourse" parameterType="String" >
 	<![CDATA[

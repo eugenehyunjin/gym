@@ -499,10 +499,8 @@
                                 							<h5 style="text-align:center;padding-bottom: 10px;">
                                 								<a href = "#" class = "tagForBook" title = "커리큘럼 정보">커리큘럼명</a>
                                 							</h5>
-                                							<li class = "course">커리큘럼 ID - </li>
-                                							<li class = "course">커리큘럼 종목 - </li>
-                                							<li class = "course">커리큘럼 설명 - <p style = "font-size:11px;">커리큘럼 설명 테스트 글입니다.</p></li>
-                                							<li class = "course">커리큘럼 가격 -</li>
+                                							<li class = "course">등록된 커리큘럼이 없습니다. </li>
+                                							
                                 						</ul>
                                 					
                                 						<h7><input type = "button" value = "수강생 정보" onclick="PopUp()" style = "margin:auto;text-align:center; color:black; border: 1px solid black;font-weight: bold;width:100%;margin-bottom: 10px;" id = "colorChange"></h7>
@@ -587,18 +585,18 @@
 												<li>수업 시간 - 50분</li>
 											
 											</ul>
-											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+											<input type = "button" value = "예약 취소" onClick="delChk()" class = "delBtn"/>
                                 							<script>
                                 								function delChk() {
-                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                									if(confirm('예약을 취소하시겠습니까?')){
                                 										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
                                 										var c_IdSplit = c_Id.split('- ')[1];
                                 										console.log(c_Id);
                                 										console.log(c_IdSplit);
                                 										
-                                										alert('클래스 취소가 완료되었습니다');
+                                										alert('예약 취소가 완료되었습니다');
                                 									}else{
-                                										alert('클래스 취소가 취소되었습니다');
+                                										alert('예약 취소가 취소되었습니다');
                                 									}
                                 								}
                                 							</script>
@@ -616,18 +614,18 @@
 												<li>수업 시간 - 30분</li>
 											
 											</ul>
-											<input type = "button" value = "클래스 취소" onClick="delChk()" class = "delBtn"/>
+											<input type = "button" value = "예약 취소" onClick="delChk()" class = "delBtn"/>
                                 							<script>
                                 								function delChk() {
-                                									if(confirm('클래스를 취소하시겠습니까?')){
+                                									if(confirm('예약을 취소하시겠습니까?')){
                                 										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
                                 										var c_IdSplit = c_Id.split('- ')[1];
                                 										console.log(c_Id);
                                 										console.log(c_IdSplit);
                                 										
-                                										alert('클래스 취소가 완료되었습니다');
+                                										alert('예약 취소가 완료되었습니다');
                                 									}else{
-                                										alert('클래스 취소가 취소되었습니다');
+                                										alert('예약 취소가 취소되었습니다');
                                 									}
                                 								}
                                 							</script>

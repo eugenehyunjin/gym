@@ -16,6 +16,8 @@ public interface MasterDAO {
 
 	public List<CourseVO> listCourse(String id);
 
+	public List<CourseVO> listAllCourse();
+
 
 
 }

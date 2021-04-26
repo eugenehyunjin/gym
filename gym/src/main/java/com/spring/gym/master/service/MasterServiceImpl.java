@@ -42,4 +42,10 @@ public class MasterServiceImpl implements MasterService{
 		return list;
 	}
 
+	public List<CourseVO> listAllCourse() {
+		// TODO Auto-generated method stub
+		List<CourseVO> list = dao.listAllCourse();
+		return list;
+	}
+
 }

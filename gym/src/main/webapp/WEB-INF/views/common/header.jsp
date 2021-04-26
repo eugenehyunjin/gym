@@ -82,7 +82,7 @@
                     <nav class="nav-menu">
                         <ul>
                             <li><a href="${contextPath }/main.do">홈</a></li>
-                            <li><a href="${contextPath }/about.do">클래스</a>
+                            <li><a href="${contextPath }/about.do">소개</a>
                               <ul class="dropdown">
                                     <li><a href="${contextPath }/body.do">보디빌딩</a></li>
                                     <li><a href="${contextPath }/yoga.do">요가</a></li>
@@ -90,6 +90,7 @@
                                     <li><a href="${contextPath }/pt.do">퍼스널 트레이닝</a></li>
                                 </ul>
                                 </li>
+                            <li><a href="${contextPath }/class.do">예약페이지</a></li>
                             <li><a href="${contextPath }/book.do">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
                             <li><a href="${contextPath }/blog.do">공지사항</a></li>

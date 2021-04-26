@@ -498,11 +498,26 @@
 
     <!-- Class Timetable Section Begin -->
     <section class="class-timetable-section class-details-timetable spad">
+    <div class="radioBtn">
+      <label><input type="radio" class="course_id" name="course_id" id="헬스">헬스</label>
+   </div>
+   <div class="radioBtn">
+      <label><input type="radio" class="course_id" name="course_id" id="필라테스">필라테스</label>
+   </div>
+   <script>
+      $(".course_id").click(function(event){
+         var course_id = document.getElementsByClassName('course_id');
+         console.log(this.id);
+         $(".bookcalender").show();
+      });
+   </script>
+    	<div class="bookcalender" style="display: none">
 		<div class="timetable_title">
 			<span>Classes timetable</span>
 		</div>
 		
 		<div id ="popup_mask" class="popup_mask"></div>
+		
 
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
@@ -532,7 +547,7 @@
 			</div>
 			<div class="today_button_div">
 				<span><a href="${contextPath }/team.do">강사목록보기</a></span>
-				<span><a href="${contextPath }/book.do">예약목록보기</a></span>
+				<span><a href="${contextPath }/viewBook.do">예약목록보기</a></span>
 				<span><a class="today_button" href="${contextPath }/book.do">이번달</a></span>
 			</div>
 			<div class="today_button_div">
@@ -620,7 +635,7 @@
 				<button type="button" id="popCloseBtn">취소</button>
 		</div>
 	</form>        
-
+</div>
 </section>
     <!-- Class Timetable Section End -->
 

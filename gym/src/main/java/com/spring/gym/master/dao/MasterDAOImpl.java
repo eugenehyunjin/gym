@@ -42,4 +42,11 @@ public class MasterDAOImpl implements MasterDAO{
 		return list;
 	}
 
+	public List<CourseVO> listAllCourse() {
+		// TODO Auto-generated method stub
+		List<CourseVO> list = sqlSession.selectList("mapper.course.listAllCourse");
+		System.out.println(list);
+		return list;
+	}
+
 }
