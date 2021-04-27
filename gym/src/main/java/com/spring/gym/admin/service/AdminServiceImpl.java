@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.gym.admin.dao.AdminDAO;
 import com.spring.gym.board.vo.Criteria;
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.member.vo.MemberVO;
 
 @Service("adminService")
@@ -50,6 +51,19 @@ public class AdminServiceImpl implements AdminService{
 		int result = adminDAO.masterDel(id);
 		return result;
 	}
+
+	@Override
+	public List<CourseVO> listCourse(Criteria cri) {
+		// TODO Auto-generated method stub
+		return adminDAO.listCourse(cri);
+	}
+
+	public int courseListCount() {
+		// TODO Auto-generated method stub
+		return adminDAO.courseListCount();
+	}
+
+	
 
 
 }

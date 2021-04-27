@@ -112,5 +112,20 @@ public class AdminControllerImpl implements AdminController{
 		return mav;
 	}
 	
+	@RequestMapping(value = "/adminPage3.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView selectAllcourse(Criteria cri, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		String viewName = (String) request.getAttribute("viewName");
+		System.out.println(viewName);
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("courseList", adminSV.listCourse(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(adminSV.courseListCount());
+		mav.addObject("pageMaker",pageMaker);
+		return mav;
+	}
 	
 }

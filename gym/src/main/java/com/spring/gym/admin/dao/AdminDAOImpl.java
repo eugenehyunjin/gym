@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.gym.board.vo.BoardVO;
 import com.spring.gym.board.vo.Criteria;
+import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.member.vo.MemberVO;
 
 @Repository("adminDAO")
@@ -48,6 +49,18 @@ public class AdminDAOImpl implements AdminDAO{
 	public int masterDel(String id) {
 		// TODO Auto-generated method stub
 		int result = sqlSession.delete("mapper.master.deleteMaster", id);
+		return result;
+	}
+
+	public List<CourseVO> listCourse(Criteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mapper.course.listPage", cri);
+	}
+
+	public int courseListCount() {
+		// TODO Auto-generated method stub
+		int result =  sqlSession.selectOne("mapper.course.listCount");
+		System.out.println(result);
 		return result;
 	}
 

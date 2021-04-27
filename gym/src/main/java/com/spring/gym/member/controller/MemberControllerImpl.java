@@ -67,6 +67,7 @@ public class MemberControllerImpl implements MemberController {
 		session.removeAttribute("id");
 		session.removeAttribute("loginType");
 		session.removeAttribute("courselist");
+		session.removeAttribute("listbook");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/main.do");
 		return mav;

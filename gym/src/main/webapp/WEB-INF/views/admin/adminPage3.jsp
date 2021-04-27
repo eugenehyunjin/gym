@@ -45,43 +45,29 @@
 					<thead>
 						<tr>
 							<th style="width: 10%;">아이디</th>
-							<th style="width: 10%;">비밀번호</th>
-							<th style="width: 10%;">이름</th>
-							<th style="width: 5%;">생일(년)</th>
-							<th style="width: 5%;">생일(월)</th>
-							<th style="width: 5%;">생일(일)</th>
-							<th style="width: 5%;">성별</th>
-							<th style="width: 10%;">전화번호</th>
-							<th style="width: 10%;">이메일</th>
-							<th style="width: 10%;">가입일</th>
+							<th style="width: 5%;">타입</th>
+							<th style="width: 20%;">내용</th>
+							<th style="width: 5%;">가격</th>
+							<th style="width: 10%;">강사아이디</th>
 							<th style="width: 5%;">삭제</th>
 						<tr>
 					</thead>
-					
 					<tbody style="padding: 10%;">
 					<c:choose>
-  						<c:when test="${memberList ==null }" >
+  						<c:when test="${empty courseList }" >
 						<tr >
-							<td><span></span></td>
-							<td><span>등록된 회원이 없습니다.</span></td>
-							<td><span><span></td>
-							<td><span></span></td>
+							<td colspan="6"><span style="font-size: 15px;">등록된 클래스가 없습니다.</span></td>
 						</tr>
 					 </c:when>
-					  <c:when test="${memberList !=null }" >
-					  <c:forEach  var="memberList" items="${memberList }" >
+					  <c:when test="${courseList !=null }" >
+					  <c:forEach  var="list" items="${courseList }" >
 						<tr style="border-bottom:1px solid white; border-collapse: collapse;">
-							<td><span>${memberList.id}</span></td>
-							<td><span>${memberList.pwd} </span></td>
-							<td><span>${memberList.name}</span></td>
-							<td><span>${memberList.birth_y} </span></td>	
-							<td><span>${memberList.birth_m}</span></td>
-							<td><span>${memberList.birth_d} </span></td>	
-							<td><span>${memberList.gender}</span></td>
-							<td><span>${memberList.tel} </span></td>	
-							<td><span>${memberList.email}</span></td>
-							<td><span>${memberList.joindate}</span></td>
-							<td><a href="#"><span>삭제</span></a></td>
+							<td><span>${list.courseid}</span></td>
+							<td><span>${list.type} </span></td>
+							<td><span>${list.content}</span></td>
+							<td><span>${list.price} </span></td>	
+							<td><span>${list.id}</span></td>
+							<td><a href="${contextPath }/delcourse.do?courseid=${list.courseid}"><span>삭제</span></a></td>
 						</tr>
 				   </c:forEach>
      				</c:when>

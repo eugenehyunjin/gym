@@ -17,5 +17,10 @@
       <put-attribute name="title" value="class"></put-attribute>
       <put-attribute name="body" value="/WEB-INF/views/admin/adminPage2.jsp"></put-attribute>
    </definition>
+   
+   <definition name="/adminPage3" extends="baseLayout">
+      <put-attribute name="title" value="class"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/views/admin/adminPage3.jsp"></put-attribute>
+   </definition>
 	
 	</tiles-definitions>

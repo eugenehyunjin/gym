@@ -39,4 +39,31 @@
   	]]>
 	</delete>
 	
+	<select id="listPage" resultType="courseVO" parameterType="com.spring.gym.board.vo.Criteria">
+		 <![CDATA[
+	SELECT courseid,
+	        type,
+	        content,
+	        price,
+	        id
+	from ( 
+	        	select courseid,
+		        type,
+		        content,
+		        price,
+		        id,
+                row_number() over(order by id desc) as rnum
+                from gym_course
+                )mp
+                where rnum between #{rowStart} and #{rowEnd}
+	]]>
+
+	</select>
+	
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(courseid) from gym_course
+	]]>
+	</select>
+	
 	</mapper>
