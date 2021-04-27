@@ -22,6 +22,12 @@
 	<definition name="/pt" extends="baseLayout">
 		<put-attribute name="title" value="퍼스널 트레이닝"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/course/pt.jsp"></put-attribute>
+		
+	</definition>
+	
+		<definition name="/video" extends="baseLayout">
+		<put-attribute name="title" value="화상수업"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/video.jsp"></put-attribute>
 	</definition>
 	
 	
