@@ -50,4 +50,10 @@ public class AboutController {
 		ModelAndView mav = new ModelAndView(viewName);
 	    return mav;
 	}
+	@RequestMapping(value = "/video.do", method = RequestMethod.GET)
+	public ModelAndView video(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+	    return mav;
+	}
 }

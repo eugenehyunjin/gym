@@ -97,7 +97,7 @@ public class MyPageControllerImpl implements MyPageController{
 	public ModelAndView modSave(@ModelAttribute("myInfo") MemberVO member, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
 		int result = mpSrv.modInfo(member);
 		HttpSession session = request.getSession();
 		Object id = session.getAttribute("id");
