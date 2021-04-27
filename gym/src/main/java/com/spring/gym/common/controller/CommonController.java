@@ -1,5 +1,6 @@
 package com.spring.gym.common.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Locale;
 
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.gym.course.vo.CourseVO;
@@ -56,4 +58,18 @@ public class CommonController {
 		ModelAndView mav = new ModelAndView(viewName);
 	    return mav;
 	   }
+	
+	@RequestMapping(value = "/needLogin.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public void needLogin(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String message;
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=euc-kr");
+		ModelAndView mav = new ModelAndView("");
+			message = "<script>";
+			message += "alert('로그인이 필요합니다.');";
+			message += "location.href='" + request.getContextPath() + "/main.do';";
+			message += "</script>";
+			out.println(message);
+	}
 }

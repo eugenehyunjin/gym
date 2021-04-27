@@ -141,7 +141,7 @@
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
+                        <a href="${contextPath }/class.do" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
+                        <a href="${contextPath }/class.do" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                             <li>Month to mouth</li>
                             <li>No time restriction</li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">지금 예약</a>
+                        <a href="${contextPath }/class.do" class="primary-btn pricing-btn">지금 예약</a>
                         <a href="#" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                     </div>
                 </div>

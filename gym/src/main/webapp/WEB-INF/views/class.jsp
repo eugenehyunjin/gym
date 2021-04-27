@@ -19,9 +19,50 @@
 $(function($){
      
     $(".datepicker").datepicker({
+    	dateFormat: 'yy-mm-dd' 
     });
     
 });
+
+function frm1(){
+	var frm = document.frm1;
+	var course_id = frm.course_id.value;
+	var date = frm.book_date.value;
+	
+	if(date == ''){
+		alert('시작날짜를 선택해 주세요.');
+	}else{
+		frm.method='post';
+		frm.action='${contextPath }/booking.do';
+		frm.submit();
+	}
+}
+function frm2(){
+	var frm = document.frm2;
+	var course_id = frm.course_id.value;
+	var date = frm.book_date.value;
+		
+	if(date == ''){
+		alert('시작날짜를 선택해 주세요.');
+	}else{
+		frm.method='post';
+		frm.action='${contextPath }/booking.do';
+		frm.submit();
+	}
+}
+function frm3(){
+	var frm = document.frm3;
+	var course_id = frm.course_id.value;
+	var date = frm.book_date.value;
+			
+	if(date == ''){
+		alert('시작날짜를 선택해 주세요.');
+	}else{
+		frm.method='post';
+		frm.action='${contextPath }/booking.do';
+		frm.submit();
+	}
+}
 </script>
 </head>
 
@@ -46,12 +87,21 @@ $(function($){
                         </div>
                         <div class="ci-text">
                             <span>Health</span>
+                            <form name="frm1">
                             <h5>1개월 이용권</h5>
+                            <input type="hidden" name="course_id" value="1개월 이용권">
+                            <input type="hidden" name="member_id" value="${id }">
                             <p>1개월 동안 모든 시설을 이용 하실 수 있습니다.<br>
-                           		금액 : 33,000원
+                           		금액 : 39,000원
                            		</p>
-                            <input style="background-color: lightgray;"color="black" type="text" class="datepicker" placeholder="시작 날짜를 선택하세요." />
-                            <a href="#" style="font-size: 10px">예약</a>
+                            <input style="background-color: lightgray;" type="text" name="book_date" class="datepicker" placeholder="시작 날짜를 선택하세요." />
+                            <c:if test="${id == null }">
+                        	<a href="${contextPath }/needLogin.do" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	<c:if test="${id != null }">
+                        	<a href="javascript:frm1()" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	</form>
                         </div>
                     </div>
                 </div>
@@ -62,12 +112,21 @@ $(function($){
                         </div>
                         <div class="ci-text">
                          <span>Health</span>
+                          <form name="frm2">
                            <h5>6개월 이용권</h5>
+                           <input type="hidden" name="course_id" value="6개월 이용권">
+                           <input type="hidden" name="member_id" value="${id }">
                               <p>6개월 동안 모든 시설을 이용 하실 수 있습니다.<br>
-                           		금액 : 66,000원
+                           		금액 : 59,000원
                            		</p>
-                            <input style="background-color: lightgray;"color="black" type="text" class="datepicker" placeholder="시작 날짜를 선택하세요." />
-                        	<a href="#" style="font-size: 10px">예약</a>
+                            <input style="background-color: lightgray;" type="text" name="book_date" class="datepicker" placeholder="시작 날짜를 선택하세요." />
+                        	<c:if test="${id == null }">
+                        	<a href="${contextPath }/needLogin.do" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	<c:if test="${id != null }">
+                        	<a href="javascript:frm2()" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	</form>
                         </div>
                     </div>
                 </div>
@@ -78,12 +137,21 @@ $(function($){
                         </div>
                         <div class="ci-text">
                          <span>Health</span>
+                         <form name="frm3">
                            <h5>12개월 이용권</h5>
+                            <input type="hidden" name="course_id" value="12개월 이용권">
+                            <input type="hidden" name="member_id" value="${id }">
                               <p>12개월 동안 모든 시설을 이용 하실 수 있습니다.<br>
                            		금액 : 99,000원
                            		</p>
-                            <input style="background-color: lightgray;"color="black" type="text" class="datepicker" placeholder="시작 날짜를 선택하세요." />
-                       		<a href="#" style="font-size: 10px">예약</a>
+                            <input style="background-color: lightgray;" type="text" name="book_date" class="datepicker" placeholder="시작 날짜를 선택하세요." />
+                       		<c:if test="${id == null }">
+                        	<a href="${contextPath }/needLogin.do" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	<c:if test="${id != null }">
+                        	<a href="javascript:frm3()" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	</form>
                         </div>
                     </div>
                 </div>
@@ -102,7 +170,12 @@ $(function($){
                             <p>내용 : ${courselist.content }<br>
                             금액 : ${courselist.price} 원</p>
                             <input style="background-color: lightgray;"color="black" type="text" class="datepicker" placeholder="시작 날짜를 선택하세요." />
-                       		<a href="#" style="font-size: 10px">예약</a>
+                       		<c:if test="${id == null }">
+                        	<a href="${contextPath }/needLogin.do" style="font-size: 10px">예약</a>
+                        	</c:if>
+                        	<c:if test="${id != null }">
+                        	<a href="${contextPath }/book.do" style="font-size: 10px">예약</a>
+                        	</c:if>
                         </div>
                     </div>
                 </div>
@@ -113,7 +186,35 @@ $(function($){
         </div>
     </section>
     <!-- ChoseUs Section End -->
-
+<!-- Get In Touch Section Begin -->
+    <div class="gettouch-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-map-marker"></i>
+                        <p>경기도 구리시 인창동 670-1 태영빌딩<br/> 4층 409호</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-mobile"></i>
+                        <ul>
+                            <li>125-711-811</li>
+                            <li>125-668-886</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text email">
+                        <i class="fa fa-envelope"></i>
+                        <p>Support.gymcenter@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Get In Touch Section End -->
     
 
 </body>

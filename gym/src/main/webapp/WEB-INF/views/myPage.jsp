@@ -485,7 +485,7 @@
                      	<div id = "ifmaster" hidden = "true">
                      	
            					<c:choose>
-           					<c:when test="${courselist == null }">
+           					<c:when test="${empty courselist}">
            					<table class = "myPage-myClass-table" width="209px;" >
                                 				<tr style = "background-color:#f36100;border:3px solid #cf651f;">
                                 					<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span><span style = "font-size:14px; color:white;"> 강사<br>클래스 정보</span></td>
@@ -565,7 +565,12 @@
                                 				</script>
                                 			</div>
                      	</div>
+                     	
+                     	
                      	<div id = "ifuser" hidden="true">
+                     	
+                     	<c:choose>
+                     	<c:when test="${empty booklist}">
                      		<table class = "myPage-myClass-table">
 	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
 	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
@@ -573,54 +578,34 @@
 	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">
 											<ul>
-											<h5 style = "text-align:center;padding-bottom: 10px;">
-												<a href = "#" class = "tagForBook" title = "커리큘럼 정보">점핑다이어트</a>
-											</h5>
-												<li>예약 날짜 - 2021/04/16</li>
-												<li>강사명 - <a href = "#" class = "tagForMaster" title="강사 정보">홍길동</a></li>
-												<li>수업 날짜 - 2021/04/23</li>
-												<li>수업 시간 - 50분</li>
-											
+											<h5 style = "text-align:center;padding-bottom: 10px;">예약이 없습니다.</h5>
+												<li align="center"><a href="${contextPath }/class.do">예약하러 가기</a></li>								
 											</ul>
-											<input type = "button" value = "예약 취소" onClick="delChk()" class = "delBtn"/>
-                                							<script>
-                                								function delChk() {
-                                									if(confirm('예약을 취소하시겠습니까?')){
-                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
-                                										var c_IdSplit = c_Id.split('- ')[1];
-                                										console.log(c_Id);
-                                										console.log(c_IdSplit);
-                                										
-                                										alert('예약 취소가 완료되었습니다');
-                                									}else{
-                                										alert('예약 취소가 취소되었습니다');
-                                									}
-                                								}
-                                							</script>
 										</td>
 									</tr>
-									<tr class = "myPage-myClass-exist" >
+	                                </table>
+	                                <br>
+							</c:when>
+                     		<c:when test="${booklist != null }">
+                     			<c:forEach var="list" items="${booklist }">
+                     		<table class = "myPage-myClass-table">
+	                                <tr style = "background-color:#f36100;border: 3px solid #cf651f;">
+	                                	<td class = "myPage-myClass-td"><span style = "font-size:18px; color:white;">${myInfo.name}</span> <span style = "font-size:14px; color:white;"> 님의<br>예약 정보</span></td>
+	                                </tr>
+	                                <tr class = "myPage-myClass-exist" >
 										<td style="width:209px;line-height: 240%;">
 											<ul>
-											<h5 style = "text-align:center;padding-bottom: 10px;">
-												<a href = "#" class = "tagForBook" title = "커리큘럼 정보">스피닝</a>
-											</h5>
-												<li>예약 날짜 - 2021/04/11</li>
-												<li>강사명 - <a href = "#" class = "tagForMaster" title = "강사 정보">김유신</a></li>
-												<li>수업 날짜 - 2021/04/20</li>
-												<li>수업 시간 - 30분</li>
-											
+											<h5 style = "text-align:center;padding-bottom: 10px;" class="course_id">${list.course_id }</h5>
+												<li>예약 날짜 - ${list.bookdate }</li>
+												<li>강사명 - <a href = "#" class = "tagForMaster" title="강사 정보">${list.master_id }</a></li>
+												<li>시작 날짜 - ${list.book_date }</li>										
 											</ul>
 											<input type = "button" value = "예약 취소" onClick="delChk()" class = "delBtn"/>
                                 							<script>
                                 								function delChk() {
                                 									if(confirm('예약을 취소하시겠습니까?')){
-                                										var c_Id = document.getElementsByClassName('course')[0].innerHTML;
-                                										var c_IdSplit = c_Id.split('- ')[1];
-                                										console.log(c_Id);
-                                										console.log(c_IdSplit);
-                                										
-                                										alert('예약 취소가 완료되었습니다');
+                                										var c_Id = document.getElementsByClassName('course_id')[0].innerHTML;  						
+                                										location.href="${contextPath }/delbook.do?course_id=${list.course_id}&member_id=${myInfo.id}";
                                 									}else{
                                 										alert('예약 취소가 취소되었습니다');
                                 									}
@@ -628,9 +613,11 @@
                                 							</script>
 										</td>
 									</tr>
-											
-	
 	                                </table>
+	                                <br>
+	                            </c:forEach>
+							</c:when>
+						</c:choose>
     
                      	</div>           
 	                                                            
@@ -642,14 +629,6 @@
                             </div>
                             </div>
                             </section>
-                            
-                            
-                            
-                            
-                            
-    
-    
-
 
 </body>
 

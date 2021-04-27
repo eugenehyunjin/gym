@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.gym.book.service.BookService;
+import com.spring.gym.book.vo.BookVO;
 import com.spring.gym.course.vo.CourseVO;
 import com.spring.gym.main.MainController;
 import com.spring.gym.master.service.MasterServiceImpl;
@@ -31,6 +33,8 @@ public class MyPageControllerImpl implements MyPageController{
 	private MyPageService mpSrv;
 	@Autowired
 	private MasterServiceImpl masterSrv;
+	@Autowired
+	private BookService bookSrv;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
@@ -72,14 +76,12 @@ public class MyPageControllerImpl implements MyPageController{
 					return mav;
 				}else {
 					MemberVO myInfo = mpSrv.myInfoList(id);
-					List<CourseVO> courselist = masterSrv.listCourse(id);
+					List<BookVO> booklist = bookSrv.listbook(id);
 					mav = new ModelAndView(viewName);
 					mav.addObject("myInfo", myInfo);
-					mav.addObject("courselist", courselist);
-					System.out.println(courselist);
+					mav.addObject("booklist", booklist);
 					return mav;
 				}
-				
 			}
 			return mav;
 	}
