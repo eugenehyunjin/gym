@@ -30,8 +30,6 @@ public class BookDAOImpl implements BookDAO{
 	@Override
 	public void delbook(BookVO bookvo) {
 		// TODO Auto-generated method stub
-		System.out.println(bookvo.getCourse_id());
-		System.out.println(bookvo.getMaster_id());
 		sqlSession.delete("mapper.book.delBook", bookvo);
 	}
 
