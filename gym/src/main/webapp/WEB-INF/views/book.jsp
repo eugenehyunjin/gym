@@ -57,6 +57,10 @@ $(function(){
 </script>
 
 <style>
+input::placeholder {
+  color: white;
+  font-style: italic;
+}
 	.class-details-section .container .row {
 		width: 1000px;
 	}
@@ -338,13 +342,13 @@ $(function(){
 	    <div class="calendar">
 			<label><input type="radio" class="course_id" name="course_id"  value="헬스">헬스</label>
 			<label><input type="radio" class="course_id" name="course_id"  value="필라테스">필라테스</label>
-			 <input type="hidden" name="member_id" value="${id }">
+			 <input type="hidden" name="member_id" id="member_id" value="${id }">
 			<h6>* 커리큘럼을 선택하세요. 수업은 50분 진행됩니다.</h6>
 		</div>
 		<div class="calendar">
-			<input type="text" name="book_date" value="" class="datepicker" id="datepicker" placeholder="날짜를 선택하세요." style="display:none">
-			<input type="text" name="book_time" class="timepicker" placeholder="시간을 선택하세요." style="display:none">
-			<input type="button" class="bookBtn" value="예약" style="width:80px; background-color:none; margin-left: 20px; font-family:고딕; font-size: 20px;" onclick="bookCheck()">
+			<input type="text" name="book_date" value="" class="datepicker" id="datepicker" placeholder="날짜를 선택하세요." style="display:none;background-color:#f36100;">
+			<input type="text" name="book_time" class="timepicker" placeholder="시간을 선택하세요." style="display:none; background-color:#f36100;">
+			<input type="button" class="bookBtn" value="예약" style="width:80px; background-color:#f36100; margin-left: 20px; font-family:고딕; font-size: 20px;" onclick="bookCheck()">
 		</div>
 	</div>
 	
@@ -367,16 +371,21 @@ $(function(){
 	      var time = document.getElementsByName('.timepicker');
 	      time = time.value;
 	      console.log(time);
-		
-	      
+	     
+	      var id = '<%=(String)session.getAttribute("id")%>';
+	    
 	      if(!radio[0].checked && !radio[1].checked){
 	         alert('커리큘럼을 선택하세요.');
-	      } else if(date == ""){
+	      }else if(date == ""){
 	         alert('날짜를 선택하세요.');
 	         console.log(date);
-	      } else if(time == ""){
+	      }else if(time == ""){
 	         alert('시간을 선택하세요.');
+	      }else if(id == "null"){
+	    	  console.log(id);
+	    	  alert('로그인이 필요한 서비스입니다.')
 	      } else {
+	      
 	    	 var frm = document.frm;
 	         frm.method = 'post';
 	         frm.action = '${contextPath}/booking.do';
