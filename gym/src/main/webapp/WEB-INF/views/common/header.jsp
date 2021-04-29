@@ -90,7 +90,7 @@
                                     <li><a href="${contextPath }/pt.do">퍼스널 트레이닝</a></li>
                                 </ul>
                                 </li>
-                            <li><a href="${contextPath }/class.do">예약페이지</a></li>
+                            <li><a href="${contextPath }/class.do">커리큘럼</a></li>
                             <li><a href="${contextPath }/book.do">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
                             <li><a href="${contextPath }/blog.do">공지사항</a></li>

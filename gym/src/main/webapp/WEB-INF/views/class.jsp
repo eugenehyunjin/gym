@@ -19,6 +19,8 @@
 $(function($){
      
     $(".datepicker").datepicker({
+    	maxDate: '+1m +1w',
+   		minDate: '-0d',
     	dateFormat: 'yy-mm-dd' 
     });
     

@@ -144,6 +144,7 @@
 	#insertCourse{border:1px solid white;margin:30px 20px 0px 0px;padding:10px 5px;width:100%;font-weight: bold;font-size:14px;border-radius: 20px 20px;}
 	#insertCourse:hover {background-color:white;color:black;border:1px solid black;}
 	.opacityChg{opacity: 0.7;background-color:black;}
+	.delBtn:hover{color:black;}
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 

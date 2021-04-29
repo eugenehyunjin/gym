@@ -6,17 +6,56 @@
 %>
 	<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
 <meta charset="UTF-8">
 <title><tiles:insertAttribute name="title"/></title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script>
+$(function(){
+    var $j = jQuery.noConflict();
+    $(".datepicker").datepicker({
+    	dateFormat: 'yy/mm/dd',
+    	monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    	dayNames:['일','월','화','수','목','금','토'],
+    	dayNamesShort:['일','월','화','수','목','금','토'],
+    	dayNamesMin:['일','월','화','수','목','금','토'],
+    	showMonthAfterYear: true,
+    	yearSuffix: '년',
+   		prevText: '이전 달',
+   		nextText: '다음 달',
+    	maxDate: '+1m +1w',
+   		minDate: '-0d',
+   		showButtonPanel: true,
+   		closeText: '닫기',
+   		onSelect: function(clickDate){
+       		alert(clickDate + "선택");
+       		console.log(clickDate);
+       		$(".timepicker").show();
+   		}
+    });
+    $('.timepicker').timepicker({
+	    timeFormat: 'HH:mm',
+	    interval: 60,
+	    startTime: '8:00',
+	    minTime: '8:00',
+	    maxTime: '22:00',
+	    dynamic: false,
+	    dropdown: true,
+	    scrollbar: true,
+	    
+	});
+    
+});
+</script>
+
 <style>
 	.class-details-section .container .row {
 		width: 1000px;
@@ -58,368 +97,163 @@
 		margin-top: 50px;
 		margin-right: 50px;
 	}
+
+	/**/
+	.container h3 {
+		font-family: '고딕';
+		font-weight: bold;
+		color: white;
+		margin-bottom: 30px;
+	}
+	label {
+		width: 150px;
+		margin-right: 30px;
+		color: white;
+	}
+	.course_id {
+		width: 30px;
+	}
 	
-	<!-- 타임테이블 시작 -->
-	.timetable_title {
+	/* datepicker */ 
+	#datepicker {
+		background-color: none;
+		color: white;
 		height: 30px;
+		font-size: 18px;
+		border: 2px solid white;
+		text-align: center;
+		width: 300px;
+		margin-right: 20px;
+	}
+	
+	.ui-datepicker-trigger {
+		height: 20px;
+	}
+	.ui-datepicker {
+		width: 400px;
+		background-color: black;
+	} 
+	.calendar {  
+		width: 1000px;  
+		background-color: none;  
+		border-radius: 4px;  
+		overflow: hidden;
+		margin: 10px;
+		font-size: 20px;
+		display: inline-block;
+	}
+	.calendar h6 {
+		color: white;
+		display: inline-block;
+		margin-left: 50px;
+	}
+	.ui-datepicker-header {  
+		height: 70px;  
+		background: black;
+		color: white;  
+		border-radius: 0px;  
+		padding-bottom: 10px;
+		font-size: 30px;
+		font-family: '고딕';
+	} 
+	.ui-datepicker-header a {
+		background-color: black;
+		border: thin;
 		
 	}
-	.timetable_title span {
-		color: white;
-		font-size: 30px;
+	a.ui-datepicker-prev.ui-corner-all,
+	a.ui-datepicker-next.ui-corner-all {
+		width: 30px;
+		height: 30px;
+		background-color: black;
+		margin: 15px;
+	}
+	
+	.ui-datepicker-prev,  
+	.ui-datepicker-next {  
+		width: 3px;  
+		height: 3px;  
+		line-height: 5px;
+		border-radius: 100%;
+		cursor: pointer;
+	}  
+	.ui-datepicker-prev {  
+		float: left;
+		margin: 3px;  
+	}  
+	
+	.ui-datepicker-next {  
+		float: right;  
+		margin: 3px;  
+	}  
+	
+	.ui-datepicker-prev:after,  
+	.ui-datepicker-next:after {  
+		position: absolute;  
+		display: block;  
+		width: 3px;  
+		height: 3px;  
+	}  
+	
+	.ui-datepicker-title {  
+		text-align: center;  
+	}  
+	.ui-datepicker-calendar {  
+		width: 100%;
+		text-align: center;
+		background-color: black;
+	}
+	.ui-datepicker-calendar thead tr th span {  
+		display: block;  
+		width: 40px;  
+		color: white;  
+		margin-bottom: 5px;  
+		font-size: 18px;  
+	}
+	.ui-datepicker-calendar a.ui-state-default{
+		color: #f36100;
 		font-weight: bold;
 		font-family: '고딕';
-		margin-left: 200px;
+	}
+	.ui-state-default {  
+		display: block;  
+		text-decoration: none;  
+		line-height: 35px;  
+		font-size: 15px;
 	}
 	
-	.today_button_div {
-		text-align: right;
-		margin-bottom: 5px;
+	.ui-state-default:hover {  
+		background: black;
+		border-color: #f36100;
+		color: white !important;
 	}
 	
-	.month span{
-		 color: white;
-		 font-size: 20px;
-	}
-	
-	.today_button_div span {
-		line-height: 30px;
-		margin-left: 20px;
-	}
-	
-	.today_button_div a {
-		color: white;
-	}
-	
-	.today_button_div a:hover {
-		color: #f36100;
-		font-weight: 100px;
-	}
-	
-	input {
-		border: none;
-		color: #363636;
-		width: 100px;
-	}
-	input:hover {
-		color: white;
-	}
-	table tr {
-		font-family: "고딕"; 
-		color:white;
-	}
-
-
-	a:link { font-size:13pt; font-family:"고딕";color:#000000; text-decoration:none; }
-	a:visited { font-size:13pt; font-family:"고딕"; text-decoration:none; }
-	.calendar_body a:active {
-		font-size:13pt; 
-		font-family:"고딕";
-		color:red; 
-		text-decoration:none; 
-	}
-	.calendar_body a:hover { 
-		font-size:13pt; 
-		color: #f36100;
-		text-decoration:none;
-	}
-	
-	.day{
-		width:100px; 
-		height:30px;
-		font-weight: bold;
-		font-size:15px;
-		font-weight:bold;
-		text-align: center;
-		background-color: #f36100;
-	}
-	.sat{
-		color:blue;
-	}
-	.sun{
-		color:red;
-	}
-	.calendar_body .sun_day .sun button:hover{
-		color:#f36100;
-	}
-	.today_button_div a {
-		float: right;
-		text-align: center;
-		padding:3px 10px 3px 10px;
-		margin-bottom: 15px;
-		color: white;
-		border: 2px solid #f36100;
-		background-color: none;
-		margin-left: 10px;
-	}
-	.today_button_div a:hover {
-		color: white;
-		background-color: #f36100;
-	}
-	
-	.calendar{
-		width:80%;
-		margin:auto;
-	}
-	.navigation{
-		margin-bottom:30px;
-		text-align: center;
-		font-size: 25px;
-		vertical-align: middle;
+	/* timpicker */
+	.timepicker {
 		background-color: none;
 		color: white;
+		height: 30px;
+		width: 300px;
+		font-size: 18px;
+		border: 2px solid white;
+		text-align: center;
+		font-family: '고딕';
 	}
-	.navigation a{
-		color: white;
+	ul.ui-timepicker-viewport {
+		background-color: black;
 	}
-	.calendar_body{
-		width:100%;
-		background-color: none;
-		border:1px solid white;
-		margin-bottom: 50px;
-		border-collapse: collapse;
-	}
-	.calendar_body .today{
-		border:1px solid white;
-		height:120px;
-		background-color: #505050;
-		text-align: right;
-		vertical-align: top;
-	}
-	
-	.calendar_body .today button {
-		border: none;
-		background-color: #505050;
-		color: white;
-		margin: 5px;
-		font-size: 20px;
-		font-family:"고딕";
-		font-weight: bold;
-	}
-	.calendar_body .today button:hover, .calendar_body .sat_day .sat button:hover, .calendar_body .date button:hover {
+	a.ui-corner-all {
 		color: #f36100;
-	}
-	.calendar_body .today button, .calendar_body .normal_day button {
-		color: white;
-	}
-	.calendar_body .date{
-		border: none;
-		font-weight: bold;
-		font-size: 20px;
-		padding: 5px;
-		text-align: right;
-	}
-	.calendar_body .date button {
-		border: none;
-		color: white;
-		background-color:#282828;
-		padding: 5px;
-		font-size: 20px;
-		font-family:"고딕";
-		font-weight: bold;
-	}
-	.calendar_body .sat_day {
-		border:1px solid white;
-		height:120px;
-		background-color:#282828;
-		text-align:right;
-		vertical-align: top;
-	}
-	.calendar_body .sat_day button {
-		border: none;
-		color: blue;
-		background-color:#282828;
-		padding: 5px;
-		margin: 5px;
-		font-size: 20px;
-		font-family:"고딕";
-		font-weight: bold;
-		text-align: right;
-	}
-	.calendar_body .sun_day{
-		border:1px solid white;
-		height:120px;
-		background-color:#282828;
-		text-align: right;
-		vertical-align: top;
-	}
-	.calendar_body .sun_day .sun button {
-		border: none;
-		color: red;
-		background-color:#282828;
-		margin: 5px;
-		font-weight: bold;
-		font-size: 20px;
-		font-family:"고딕";
-		padding: 5px;
-		
-	}
-	.calendar_body .normal_day{
-		border:1px solid white;
-		height:120px;
-		background-color:#282828;
-		vertical-align: top;
-		text-align: right;
-	}
-	.before_after_month{
-		margin: 10px;
-		font-weight: bold;
-	}
-	.before_after_year{
-		font-weight: bold;
-	}
-	.this_month{
-		margin: 10px;
-	}
-	
-	
-    /* 팝업 배경 css */
-    #popup_mask {
-		position: fixed;
-		width: 100%;
-		height: 1000px;
-		top: 0px;
-		left: 0px;
-		display: none; 
-		background-color: #000;
-		opacity: 0.8;
-    }
-    /* 팝업창 css */
-	#popupDiv {  
-	    top : 0px;
-	    position: absolute;
-	    background: black;
-	    width: 400px;
-	    height: 700px;
-	    display: none;
-	    padding: 20px 20px;
-    }
-    
-    .popupDiv h3{
-    	border-bottom: 1px solid #363636;
-    	padding-bottom: 10px;
-    	margin-bottom: 20px;
-    }
-    .popupDiv span {
-    	color: white;
-    	margin-bottom: 50px;
-    	margin-right: 50px;
-    	margin-left: 15px;
-    	font-size: 18px;
-    }
-    .popupDiv input {
-		border: none;
-		color: white;
-		width: 70px;
-		margin-bottom: 10px;
-		margin-left: 5px;
-		background-color: #f36100;
+		font-family: '고딕';
 		font-size: 18px;
 	}
-	.popupDiv .btn_book {
-		width: 90px;
-	}
-
-	.popupDiv input:hover {
-		color: red;
-	}
-	.popupDiv button {
-		border: 1px solid white;
-		background-color: black;
-		padding: 10px 30px;
-		margin-top: 30px;
-		margin-left: 50px;
-		color: white;
-		font-size: 20px;
-	}
-	
+	a.ui-corner-all:hover {
+		color: #f36100;
+	}		
+    
 </style>
 
 
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-	
-	$(function(){
-		$('.btn_book').click(function(event){	
-			var i = $('.btn_book').index(this);
-			var lessonTime = this.getAttribute("id");
-			if(this.value == "예약"){
-				if(confirm(lessonTime + " 타임으로 예약하시겠습니까?")){
-					this.value = "예약불가";
-					this.setAttribute("style", "color:red;");
-					var btn_del = document.getElementsByClassName("btn_del");
-					btn_del[i].removeAttribute("disabled");
-				} 
-			} else {
-				alert('예약이 불가합니다. 다른 시간을 선택하세요');
-			}
-		});
-		$('.btn_del').click(function(event){	
-			var i = $('.btn_del').index(this);
-			var lessonTime = this.getAttribute("id");
-			if(confirm(lessonTime + " 타임 예약을 취소하시겠습니까?")){
-				var btn_book = document.getElementsByClassName("btn_book");
-				btn_book[i].removeAttribute("disabled");			
-				btn_book[i].setAttribute("value", "예약");
-				btn_book[i].setAttribute("style", "color: white, this:hover{color: red};");
-				this.setAttribute("disabled", "disabled");
-				//전달할 값 입력해야함.
-			}
-		});
-	});
-
-		// 오늘 이전 날짜는 못들어가게 했는데 관리자랑 강사는 들어가서 스케쥴 볼수있게 해야함. 
-		$(document).ready(function(){
-			$(".popOpenBtn").click(function(event){
-				var popTitle = document.getElementById('popTitle');
-				popTitle.innerHTML = this.id + ' 예약 스케쥴';
-				var today = new Date();
-	 			var year = today.getFullYear();
-	 			var month = today.getMonth()+1;
-	 			var date = today.getDate();
-	 			
-	 			if(month < 10){
-	 				month = "0"+month;
-	 			}
-	 			var today = year+""+month+""+date;
-	 			console.log(today);
-	 			console.log(this.id);
-	 			if(this.id >= today){
-					$("#popupDiv").css({
-						"top": (($(window).height()-$("#popupDiv").outerHeight())/2+$(window).scrollTop())+"px",
-						"left": (($(window).width()-$("#popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
-					}); 
-		            
-					$("#popup_mask").css("display","block");
-					$("#popupDiv").css("display","block");
-		            
-					$("body").css("overflow","hidden");
-	 			} else{
-	 				alert('예약가능한 날짜가 아닙니다.');
-	 				
-	 			}
-			});
-	        
-			// 예약한 시간 넘겨줘야함. 
-			$("#bookCommitBtn").click(function(event){
-				alert('예약이 완료되었습니다. 결제완료 시 예약이 확정됩니다.');
-				$("#popup_mask").css("display","none");
-				$("#popupDiv").css("display","none");
-				$("body").css("overflow","auto");
-			});
-			
-			$("#popCloseBtn").click(function(event){
-				if(confirm('예약을 취소하시겠습니까?')){
-					$("#popup_mask").css("display","none");
-					$("#popupDiv").css("display","none");
-					$("body").css("overflow","auto");
-					location.href="${contextPath}/book.do";
-				}
-			});
-		});
-
-</script>
 </head>
 
 <body>
@@ -498,144 +332,66 @@
 
     <!-- Class Timetable Section Begin -->
     <section class="class-timetable-section class-details-timetable spad">
-    <div class="radioBtn">
-      <label><input type="radio" class="course_id" name="course_id" id="헬스">헬스</label>
-   </div>
-   <div class="radioBtn">
-      <label><input type="radio" class="course_id" name="course_id" id="필라테스">필라테스</label>
-   </div>
-   <script>
-      $(".course_id").click(function(event){
-         var course_id = document.getElementsByClassName('course_id');
-         console.log(this.id);
-         $(".bookcalender").show();
-      });
-   </script>
-    	<div class="bookcalender" style="display: none">
-		<div class="timetable_title">
-			<span>Classes timetable</span>
+    <form method="get" action="#" name="frm">
+    <div class="container">
+    	<h3>BOOKING</h3>
+	    <div class="calendar">
+			<label><input type="radio" class="course_id" name="course_id"  value="헬스">헬스</label>
+			<label><input type="radio" class="course_id" name="course_id"  value="필라테스">필라테스</label>
+			 <input type="hidden" name="member_id" value="${id }">
+			<h6>* 커리큘럼을 선택하세요. 수업은 50분 진행됩니다.</h6>
 		</div>
-		
-		<div id ="popup_mask" class="popup_mask"></div>
-		
-
-		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
-
-		<div class="calendar" >
-			<!--날짜 네비게이션  -->	
-			<div class="navigation">
-				<a class="before_after_year" href="./book.do?book_year=${today_info.search_year-1}&book_month=${today_info.search_month}">
-					&lt;&lt;
-				<!-- 이전해 -->
-				</a> 
-				<a class="before_after_month" href="./book.do?book_year=${today_info.after_year}&book_month=${today_info.before_month+1}">
-					&lt;
-				<!-- 이전달 -->
-				</a> 
-				<span class="this_month">
-					&nbsp;${today_info.search_year}. 
-					<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
-				</span>
-				<a class="before_after_month" href="${contextPath}/book.do?book_year=${today_info.after_year}&book_month=${today_info.after_month+1}">
-				<!-- 다음달 -->
-					&gt;
-				</a> 
-				<a class="before_after_year" href="${contextPath}/book.do?book_year=${today_info.search_year+1}&book_month=${today_info.search_month}">
-					<!-- 다음해 -->
-					&gt;&gt;
-				</a>
-			</div>
-			<div class="today_button_div">
-				<span><a href="${contextPath }/team.do">강사목록보기</a></span>
-				<span><a href="${contextPath }/viewBook.do">예약목록보기</a></span>
-				<span><a class="today_button" href="${contextPath }/book.do">이번달</a></span>
-			</div>
-			<div class="today_button_div">
-				
-			</div>
-			<table class="calendar_body">
-				<thead>
-					<tr>
-						<td class="day sun">일</td>
-						<td class="day">월</td>
-						<td class="day">화</td>
-						<td class="day">수</td>
-						<td class="day">목</td>
-						<td class="day">금</td>
-						<td class="day sat">토</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<c:forEach var="dateList" items="${dateList}" varStatus="date_status"> 
-							<c:choose>
-								<c:when test="${dateList.book_value=='today'}">
-									<td class="today">
-									<c:if test="${(dateList.book_month+1) < 10}">
-										<button type="button" class="popOpenBtn" id="${dateList.book_year }0${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button>
-									<!-- <input type="hidden" class="titleM" id="${dateList_month+1 }"> -->
-									</c:if>	
-									<c:if test="${(dateList.book_month+1) >=10 }">
-										<button type="button" class="popOpenBtn" id="${dateList.book_year }${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button>
-									</c:if>
-									</td>
-								</c:when>
-								<c:when test="${date_status.index%7==6}">
-									<td class="sat_day">
-										<div class="sat">
-										<c:if test="${(dateList.book_month+1) < 10 }">
-											<button type="button" class="popOpenBtn" id="${dateList.book_year }0${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-										</c:if>
-										<c:if test="${(dateList.book_month+1) >= 10 }">
-											<button type="button" class="popOpenBtn" id="${dateList.book_year }${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-										</c:if>
-									</td>
-								</c:when>
-								<c:when test="${date_status.index%7==0}">
-					</tr>
-					<tr>	
-						<td class="sun_day">
-							<div class="sun">
-								<c:if test="${(dateList.book_month+1) < 10 }">
-									<button type="button" class="popOpenBtn" id="${dateList.book_year }0${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-								</c:if>
-								<c:if test="${(dateList.book_month+1) >= 10 }">
-									<button type="button" class="popOpenBtn" id="${dateList.book_year }${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-								</c:if>
-						</td>
-								</c:when>
-								<c:otherwise>
-						<td class="normal_day">
-							<div class="date">
-								<c:if test="${(dateList.book_month+1) < 10 }">
-									<button type="button" class="popOpenBtn" id="${dateList.book_year }0${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-								</c:if>
-								<c:if test="${(dateList.book_month+1) >= 10 }">
-									<button type="button" class="popOpenBtn" id="${dateList.book_year }${dateList.book_month+1 }${dateList.book_date }">${dateList.book_date}</button></div>
-								</c:if>
-							<input type="hidden" value="${contextPath}/book.do?book_year=${dateList.book_year}&book_month=${dateList.book_month}&book_date=${dateList.book_date}">
-						</td>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-				</tbody>
-			</table>
+		<div class="calendar">
+			<input type="text" name="book_date" value="" class="datepicker" id="datepicker" placeholder="날짜를 선택하세요." style="display:none">
+			<input type="text" name="book_time" class="timepicker" placeholder="시간을 선택하세요." style="display:none">
+			<input type="button" class="bookBtn" value="예약" style="width:80px; background-color:none; margin-left: 20px; font-family:고딕; font-size: 20px;" onclick="bookCheck()">
 		</div>
+	</div>
+	
+	<script>
+	$(".course_id").click(function(event){
+        var course_id = document.getElementsByClassName('course_id');
+        console.log(this.id);
+        
+        $(".datepicker").show();
+     });
+	
+	
+	function bookCheck(){
+	      var radio = document.getElementsByName('course_id');
+	      
+	      var date = $.datepicker.formatDate("yymmdd", $('.datepicker').datepicker("getDate"));
+	      date = $('.datepicker').val();
+	      console.log(date);
+	      
+	      var time = document.getElementsByName('.timepicker');
+	      time = time.value;
+	      console.log(time);
 		
-		<!-- POPUP -->
-		<div id="popupDiv" class="popupDiv">
-				<h3 style="border-bottom-color: gray; color: white;" id="popTitle"></h3>
-				<span>09.00-09.50</span><input type="button" id="9시" class="btn_book" name="book" value="예약">
-								<input type="button" id="9시" class="btn_del" value="취소" disabled="disabled"><br>
-				<c:forEach var="i" begin="10" end="21" step="1">
-					<span>${i }.00-${i }.50</span><input type="button" id="${i }시" class="btn_book" name="book" value="예약">
-							<input type="button" id="${i }시" class="btn_del" value="취소" disabled="disabled"><br>
-				</c:forEach>
-				<button type="button" id="bookCommitBtn">확인</button>
-				<button type="button" id="popCloseBtn">취소</button>
-		</div>
-	</form>        
-</div>
+	      
+	      if(!radio[0].checked && !radio[1].checked){
+	         alert('커리큘럼을 선택하세요.');
+	      } else if(date == ""){
+	         alert('날짜를 선택하세요.');
+	         console.log(date);
+	      } else if(time == ""){
+	         alert('시간을 선택하세요.');
+	      } else {
+	    	 var frm = document.frm;
+	         frm.method = 'post';
+	         frm.action = '${contextPath}/booking.do';
+	         frm.submit();
+	      }
+	      
+		
+	}
+	
+	</script>
+   
+	<div class="bookcalender">
+		
+	</div>
+	</form>
 </section>
     <!-- Class Timetable Section End -->
 
