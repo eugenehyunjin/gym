@@ -70,16 +70,15 @@ public class MyPageControllerImpl implements MyPageController{
 					MasterVO myInfo = mpSrv.masterInfoList(id);
 					List<CourseVO> courselist = masterSrv.listCourse(id);
 					mav = new ModelAndView(viewName);
-					mav.addObject("myInfo", myInfo);
-					mav.addObject("courselist", courselist);
-					System.out.println(courselist);
+					session.setAttribute("myInfo", myInfo);
+					session.setAttribute("courselist", courselist);
 					return mav;
 				}else {
 					MemberVO myInfo = mpSrv.myInfoList(id);
 					List<BookVO> booklist = bookSrv.listbook(id);
 					mav = new ModelAndView(viewName);
-					mav.addObject("myInfo", myInfo);
-					mav.addObject("booklist", booklist);
+					session.setAttribute("myInfo", myInfo);
+					session.setAttribute("booklist", booklist);
 					return mav;
 				}
 			}

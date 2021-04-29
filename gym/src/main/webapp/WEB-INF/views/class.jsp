@@ -171,7 +171,6 @@ function frm3(){
                            <h5>강사 : ${courselist.id }</h5>
                             <p>내용 : ${courselist.content }<br>
                             금액 : ${courselist.price} 원</p>
-                            <input style="background-color: lightgray;"color="black" type="text" class="datepicker" placeholder="시작 날짜를 선택하세요." />
                        		<c:if test="${id == null }">
                         	<a href="${contextPath }/needLogin.do" style="font-size: 10px">예약</a>
                         	</c:if>

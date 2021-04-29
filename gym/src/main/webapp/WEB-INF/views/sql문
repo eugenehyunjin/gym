@@ -68,3 +68,19 @@ insert into gym_course values('test','요가','테스트입니다.','50000','mas
 
 commit;
 
+
+-------  예약 테이블 -------
+
+create table gym_book (
+    course_id varchar2(50) not null,
+    book_date varchar2(40) not null,
+    book_time varchar2(40),
+    member_id varchar2(30) not null,
+    master_id varchar2(30),
+    bookdate date default sysdate
+);
+
+insert into gym_book values('6개월 이용권','2021/04/27','','user','',sysdate);
+
+commit;
+

@@ -110,14 +110,13 @@
 												<option>필라테스</option>
 												<option>직접 입력</option>
 											</select>
-											<input type = "text" id = "selectTxt" name = "type" disabled="disabled">
+											<input type = "text" id = "selectTxt" name="type">
 											<script>
 												function selectChg() {
 													document.getElementsByTagName('option')[0].disabled = "true";
 													var type = document.getElementById('type').value;
 													console.log(type);
 													var selectTxt = document.getElementById('selectTxt');
-													selectTxt.disabled = "true;"
 													console.log(selectTxt);
 							
 													selectTxt.value = type;
