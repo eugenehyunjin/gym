@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     isELIgnored="false"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +16,7 @@
 	tr{border-bottom: 1px solid black;}
 	tr:hover{background-color:lightgray;}
 	td{line-height: 200%;}
+	.empty:hover{background-color:transparent;}
 </style>
 <script>
 	window.onload = function(){
@@ -35,43 +39,25 @@
 				<td width="30%;">전화번호</td>
 				<td width="30%;">이메일</td>
 			</tr>
-			<!-- 
-				<tr>
-					<td style = "text-align:center;color:black;height: 200px;" colspan="6"><h5>예약한 회원이 없습니다</h5></td>
-				</tr>
-				-->
-				<tr class = "memberCount">
-				<td>홍길동</td>
-				<td>남성</td>
-				<td>2021/04/26</td>
-				<td>20:00</td>
-				<td>01012345678</td>
-				<td>hong@test.gmail</td>
-			</tr>
-			<tr class = "memberCount">
-				<td>김유신</td>
-				<td>남성</td>
-				<td>2021/04/23</td>
-				<td>08:00</td>
-				<td>01012345678</td>
-				<td>kim@test.gmail</td>
-			</tr>
-			<tr class = "memberCount">
-				<td>김유신</td>
-				<td>남성</td>
-				<td>2021/04/23</td>
-				<td>08:00</td>
-				<td>01012345678</td>
-				<td>kim@test.gmail</td>
-			</tr>
-			<tr class = "memberCount">
-				<td>김유신</td>
-				<td>남성</td>
-				<td>2021/04/23</td>
-				<td>08:00</td>
-				<td>01012345678</td>
-				<td>kim@test.gmail</td>
-			</tr>
+			<c:choose>
+			 <c:when test="${empty stuList}">
+			 			<tr class = "empty">
+							<td style = "text-align:center;color:black;height: 200px;" colspan="6"><h5>예약한 회원이 없습니다</h5></td>
+						</tr>
+			 </c:when>
+			 <c:when test="${stuList != null}">
+			  <c:forEach var = "list" items = "${stuList}">
+						<tr class = "memberCount">
+							<td>${list.name}</td>
+							<td>${list.gender}</td>
+							<td>${list.book_date}</td>
+							<td>${list.book_time}</td>
+							<td>${list.tel}</td>
+							<td>${list.email}</td>
+						</tr>  
+			  </c:forEach>
+			 </c:when>
+			</c:choose>			
 		</table>
 </body>
 </html>

@@ -42,4 +42,16 @@
   		delete from gym_book where course_id=#{course_id} and book_date=#{book_date} and book_time=#{book_time} and member_id=#{member_id} and master_id=#{master_id};
   	]]>
   	</delete>
+  	
+  	<select id="stuList" resultMap="bookResult" parameterType="String">
+  		<![CDATA[
+  			SELECT name, gender, book_date, book_time, tel, email
+			FROM gym_member mem, gym_book book
+			WHERE mem.id IN (
+			    			SELECT book.member_id
+    						FROM gym_book
+    						WHERE book.course_id = #{course_id}
+						)order by book.book_date ASC
+  		]]>
+  	</select>
 </mapper>

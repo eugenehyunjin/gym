@@ -31,6 +31,14 @@ public class BookServiceImpl implements BookService{
 		// TODO Auto-generated method stub
 		dao.delbook(bookvo);
 	}
+	
+	
+	public List<BookVO> stuList(String course_id) {
+		// TODO Auto-generated method stub
+		List<BookVO> list = dao.stuList(course_id);
+		return list;
+	}
+
 
 
 }

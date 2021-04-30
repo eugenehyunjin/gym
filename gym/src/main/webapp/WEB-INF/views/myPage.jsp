@@ -536,7 +536,7 @@
                                                
                                                   <h7><input type = "button" value = "수강생 정보" onclick="PopUp()" style = "margin:auto;text-align:center; color:black; border: 1px solid black;font-weight: bold;width:100%;margin-bottom: 10px;" id = "colorChange"></h7>
                                                   <script>
-                                                     function PopUp(){window.open("${contextPath}/stuInfo_popup.do?name=${myInfo.name}", "수강생 정보", "width=720, height=420, left=500, top=200");}
+                                                     function PopUp(){window.open("${contextPath}/stuInfo_popup.do?course_id=${list.courseid}", "수강생 정보", "width=720, height=420, left=500, top=200");}
                                                   </script>
                                                   <input type = "button" value = "클래스 삭제" onClick="delCourse()" class = "delBtn"/>
                             

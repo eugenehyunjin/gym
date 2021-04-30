@@ -32,5 +32,12 @@ public class BookDAOImpl implements BookDAO{
 		// TODO Auto-generated method stub
 		sqlSession.delete("mapper.book.delBook", bookvo);
 	}
+	
+
+	public List<BookVO> stuList(String course_id) {
+		// TODO Auto-generated method stub
+		List<BookVO> list = sqlSession.selectList("mapper.book.stuList", course_id);
+		return list;
+	}
 
 }

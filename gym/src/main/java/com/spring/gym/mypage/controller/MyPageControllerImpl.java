@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,9 +40,11 @@ public class MyPageControllerImpl implements MyPageController{
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@RequestMapping(value = "/stuInfo_popup.do", method = RequestMethod.GET)
-	public ModelAndView stuInfo_popup(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView stuInfo_popup(@RequestParam("course_id")String course_id, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
+		List<BookVO> stuList = bookSrv.stuList(course_id);
 		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("stuList", stuList);
 	    return mav;
 	}
 	

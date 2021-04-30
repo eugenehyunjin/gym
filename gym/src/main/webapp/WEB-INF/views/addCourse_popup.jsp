@@ -25,7 +25,10 @@
 		
 		
 		for(var i=0;i<ipChk.length;i++) {
+			console.log('input'+i+' : '+ipChk[i].value);
 			if(ipChk[i].value == ''){
+				
+				console.log('input.length : '+ ipChk.length);
 				if(i == 1) {
 					alert('종목은 필수입니다');
 					$('html,body').scrollTop(0);
@@ -71,8 +74,8 @@
 	body{text-align:left;outline:none;background-color:#2b2b2b;}
 	form{margin: 0px 80px;background-color:white;padding:10px 20px;}
 	#course_id,#price,#name {width:100%;height:25px;margin-bottom: 20px;}
-	#type, #selectTxt{height:25px;}
-	#selectTxt{background-color:transparent;color:black;border:1px solid black;padding-left:10px;}
+	#type, #selectView{height:25px;}
+	#selectView{background-color:transparent;color:black;border:1px solid black;padding-left:10px;}
 	.Btn{
 		width:60%;
 		background-color:transparent;
@@ -103,29 +106,35 @@
                                 			<input type="text" class = "ip1" id = "course_id" name="courseid" />
                                 			
 										<h3>커리큘럼 종목</h3> <!-- course_type -->
-											<select id = "type" onchange="selectChg()">
+											<select id = "type_select" onchange="selectChg()">
 												<option>종목</option>
 												<option>헬스</option>
 												<option>요가</option>
 												<option>필라테스</option>
 												<option>직접 입력</option>
 											</select>
-											<input type = "text" id = "selectTxt" name="type">
+											<input type = "text" id = "selectView" disabled="disabled">
+											<input type = "hidden" value = "" name = "type"/>
 											<script>
 												function selectChg() {
 													document.getElementsByTagName('option')[0].disabled = "true";
-													var type = document.getElementById('type').value;
-													console.log(type);
-													var selectTxt = document.getElementById('selectTxt');
-													console.log(selectTxt);
-							
-													selectTxt.value = type;
+													var type_select = document.getElementById('type_select').value;
 													
-													if(type == '직접 입력'){
-														selectTxt.value = "";
-														selectTxt.removeAttribute('disabled');
-														selectTxt.focus();
+													console.log(type_select);
+													var selectView = document.getElementById('selectView');
+													selectView.disabled = "true;"
+													console.log(selectView);
+							
+													selectView.value = type_select;
+													
+													if(type_select == '직접 입력'){
+														selectView.value = "";
+														selectView.removeAttribute('disabled');
+														selectView.focus();
 													}
+													
+													document.getElementsByName('type')[0].value = selectView.value;
+													console.log('type value : '+document.getElementsByName('type')[0].value);
 												}
 											</script>
 										<h3>커리큘럼 정보</h3> <!-- course_detail -->

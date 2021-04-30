@@ -340,8 +340,8 @@ input::placeholder {
     <div class="container">
     	<h3>BOOKING</h3>
 	    <div class="calendar">
-			<label><input type="radio" class="course_id" name="course_id"  value="헬스">헬스</label>
-			<label><input type="radio" class="course_id" name="course_id"  value="필라테스">필라테스</label>
+			<label><input type="radio" class="course_id" name="course_id"  value="test1">test1</label>
+			<label><input type="radio" class="course_id" name="course_id"  value="test2">test2</label>
 			 <input type="hidden" name="member_id" id="member_id" value="${id }">
 			<h6>* 커리큘럼을 선택하세요. 수업은 50분 진행됩니다.</h6>
 		</div>
