@@ -39,5 +39,10 @@ public class BookDAOImpl implements BookDAO{
 		List<BookVO> list = sqlSession.selectList("mapper.book.stuList", course_id);
 		return list;
 	}
-
+	
+	@Override
+	public void deleteBook(int book_id) {
+		sqlSession.delete("mapper.book.deleteBook", book_id);
+		
+	}
 }

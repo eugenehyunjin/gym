@@ -14,6 +14,8 @@ public interface BookDAO {
 
 	public List<BookVO> stuList(String course_id);
 
+	public void deleteBook(int book_id);
+
 
 
 }

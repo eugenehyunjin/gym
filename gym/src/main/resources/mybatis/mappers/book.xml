@@ -12,6 +12,10 @@
 		<result property="member_id" column="member_id" />
 		<result property="master_id" column="master_id" />
 		<result property="bookdate" column="bookdate" />
+		<result property="name" column="name" />
+		<result property="tel" column="tel" />
+		<result property="gender" column="gender" />
+		<result property="email" column="email" />
 	</resultMap>
 	
 	<select id="listBook" resultMap="bookResult">
@@ -22,7 +26,7 @@
 	
 	<insert id="insertBook" parameterType="bookVO">
   	<![CDATA[
-  		insert into gym_book values(#{course_id},#{book_date},#{book_time},#{member_id},#{master_id},sysdate)
+  		insert into gym_book values(gym_book_id.nextval,#{course_id},#{book_date},#{book_time},#{member_id},#{master_id},sysdate)
   	]]>
   	</insert>
   	
@@ -37,10 +41,11 @@
 		]]>
 	</select>
   	
-  	<delete id="deleteBook" parameterType="String">
-  	<![CDATA[
-  		delete from gym_book where course_id=#{course_id} and book_date=#{book_date} and book_time=#{book_time} and member_id=#{member_id} and master_id=#{master_id};
-  	]]>
+  	<delete id="deleteBook" parameterType="int">
+  		<![CDATA[
+  			delete from gym_book where book_id=#{book_id}
+  		]]>
+  		 
   	</delete>
   	
   	<select id="stuList" resultMap="bookResult" parameterType="String">

@@ -49,18 +49,15 @@ $(function(){
 	    maxTime: '22:00',
 	    dynamic: false,
 	    dropdown: true,
-	    scrollbar: true,
-	    
+	    scrollbar: true
 	});
+    
+    //$('.timepicker').timepicker('setTime', new Date(new Date().getTime()));
     
 });
 </script>
 
 <style>
-input::placeholder {
-  color: white;
-  font-style: italic;
-}
 	.class-details-section .container .row {
 		width: 1000px;
 	}
@@ -295,18 +292,21 @@ input::placeholder {
                         <div class="cd-trainer">
                             <div class="row">
                                 <div class="col-md-6">
-                                	<% String bgimg = request.getParameter("bgimg"); %>
-                                    <div class="cd-trainer-pic"><%=bgimg %>
+                                    <div class="cd-trainer-pic">
                                         <img src="resources/img/classes/class-details/trainer-profile.jpg" alt="">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="cd-trainer-text">
-                                        <div class="trainer-title">
-                                            <h4>Athart Rachel</h4>
+                                
+                               <c:choose>
+                               <c:when test="${courselist != null }">
+                               	<c:forEach var="courselist" items="${courselist }">
+                               		<div class="col-md-6">
+                           				<div class="cd-trainer-text">
+                               			<div class="trainer-title">
+                               				<h4>${courselist.id }</h4>
                                             <span>Gym Trainer</span>
                                         </div>
-                                        <div class="trainer-social">
+                               			<div class="trainer-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
                                             <a href="#"><i class="fa fa-twitter"></i></a>
                                             <a href="#"><i class="fa fa-youtube-play"></i></a>
@@ -314,13 +314,19 @@ input::placeholder {
                                             <a href="#"><i class="fa  fa-envelope-o"></i></a>
                                         </div>
                                         <ul class="trainer-info">
-                                            <li><span>Course</span>필라테스</li>
-                                            <li><span>Detail</span>항상 건강이 우선이죠!<br>저와 함께 신나게 운동해요!</li>
+                                            <li><span>Course</span>${courselist.type }</li>
+                                            <li><span>Detail</span>${courselist.content }</li>
                                             <li><span>Note</span>필라테스링 / 짐볼</li>
-                                            <li><span>Price</span>50,000</li>
+                                            <li><span>Price</span>${courselist.price }원</li>
                                         </ul>
                                     </div>
                                 </div>
+                               	</c:forEach>
+                               </c:when>
+                               </c:choose>
+                                        
+                                            
+                                        
                             </div>
                         </div>
                     </div>
@@ -336,63 +342,66 @@ input::placeholder {
 
     <!-- Class Timetable Section Begin -->
     <section class="class-timetable-section class-details-timetable spad">
-    <form method="get" action="#" name="frm">
+    <form method="get" name="frm">
     <div class="container">
     	<h3>BOOKING</h3>
-	    <div class="calendar">
-			<label><input type="radio" class="course_id" name="course_id"  value="test1">test1</label>
-			<label><input type="radio" class="course_id" name="course_id"  value="test2">test2</label>
-			 <input type="hidden" name="member_id" id="member_id" value="${id }">
-			<h6>* 커리큘럼을 선택하세요. 수업은 50분 진행됩니다.</h6>
-		</div>
-		<div class="calendar">
-			<input type="text" name="book_date" value="" class="datepicker" id="datepicker" placeholder="날짜를 선택하세요." style="display:none;background-color:#f36100;">
-			<input type="text" name="book_time" class="timepicker" placeholder="시간을 선택하세요." style="display:none; background-color:#f36100;">
-			<input type="button" class="bookBtn" value="예약" style="width:80px; background-color:#f36100; margin-left: 20px; font-family:고딕; font-size: 20px;" onclick="bookCheck()">
-		</div>
+    	<c:forEach var="courselist" items="${courselist }">
+	    	<div class="calendar">
+				<label><input type="radio" class="course_id" name="course_id" value="${courselist.type }">${courselist.type }</label>
+				<input type="hidden" name="member_id" value="${id }">
+				<input type="hidden" name="master_id" value="${courselist.id }">
+				<h6>* 커리큘럼을 선택하세요. 수업은 50분 진행됩니다.</h6>
+			</div>
+			<div class="calendar">
+				<input type="text" name="book_date" class="datepicker" id="datepicker" placeholder="날짜를 선택하세요." style="display:none">
+				<input type="text" name="book_time" class="timepicker" placeholder="시간을 선택하세요." style="display:none">
+				<input type="button" class="bookBtn" value="예약" style="width:80px; background-color:none; margin-left: 20px; font-family:고딕; font-size: 20px;" onclick="bookCheck()">
+			</div>
+    	</c:forEach>
+	    
 	</div>
 	
 	<script>
 	$(".course_id").click(function(event){
-        var course_id = document.getElementsByClassName('course_id');
-        console.log(this.id);
+        if(${id == null}){
+        	alert('로그인하셔야 예약 가능합니다.');
+        } else {
+			var course_id = document.getElementsByClassName('course_id');
+			console.log(this.id);
         
-        $(".datepicker").show();
+        	$(".datepicker").show();
+        }
      });
 	
 	
 	function bookCheck(){
-	      var radio = document.getElementsByName('course_id');
-	      
-	      var date = $.datepicker.formatDate("yymmdd", $('.datepicker').datepicker("getDate"));
-	      date = $('.datepicker').val();
-	      console.log(date);
-	      
-	      var time = document.getElementsByName('.timepicker');
-	      time = time.value;
-	      console.log(time);
-	     
-	      var id = '<%=(String)session.getAttribute("id")%>';
-	    
-	      if(!radio[0].checked && !radio[1].checked){
-	         alert('커리큘럼을 선택하세요.');
-	      }else if(date == ""){
-	         alert('날짜를 선택하세요.');
-	         console.log(date);
-	      }else if(time == ""){
-	         alert('시간을 선택하세요.');
-	      }else if(id == "null"){
-	    	  console.log(id);
-	    	  alert('로그인이 필요한 서비스입니다.')
-	      } else {
-	      
-	    	 var frm = document.frm;
-	         frm.method = 'post';
-	         frm.action = '${contextPath}/booking.do';
-	         frm.submit();
-	      }
-	      
-		
+		if(${id == null}){
+        	alert('로그인하셔야 예약 가능합니다.');
+        } else {
+			var radio = document.getElementsByName('course_id');
+			
+			var date = $.datepicker.formatDate("yymmdd", $('.datepicker').datepicker("getDate"));
+			date = $('.datepicker').val();
+			console.log(date);
+			
+			var time = document.getElementsByName('.timepicker');
+			time = time.value;
+			console.log(time);
+			
+			if(!radio[0].checked && !radio[1].checked){
+				alert('커리큘럼을 선택하세요.');
+			} else if(date == ""){
+				alert('날짜를 선택하세요.');
+				console.log(date);
+			} else if(time == ""){
+				alert('시간을 선택하세요.');
+			} else {
+				var frm = document.frm;
+				frm.method = 'post';
+				frm.action = '${contextPath}/booking.do';
+				frm.submit();
+			}
+        }
 	}
 	
 	</script>

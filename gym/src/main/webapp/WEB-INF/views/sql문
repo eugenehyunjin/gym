@@ -71,7 +71,10 @@ commit;
 
 -------  예약 테이블 -------
 
+create sequence gym_book_id INCREMENT by 1 start with 1;
+
 create table gym_book (
+    book_id int primary key,
     course_id varchar2(50) not null,
     book_date varchar2(40) not null,
     book_time varchar2(40),
@@ -80,7 +83,12 @@ create table gym_book (
     bookdate date default sysdate
 );
 
-insert into gym_book values('6개월 이용권','2021/04/27','','user','',sysdate);
-
+insert into gym_book values(gym_book_id.nextval,'6개월 이용권','2021/04/27','','user','',sysdate);
+insert into gym_book values(gym_book_id.nextval,'헬스','2021/04/30','8:00','member','master',sysdate);
+insert into gym_book values(gym_book_id.nextval,'필라테스','2021/04/30','8:00','member','master',sysdate);
+insert into gym_book values(gym_book_id.nextval,'헬스','2021/05/03','8:00','member','master',sysdate);
+insert into gym_book values(gym_book_id.nextval,'헬스','2021/04/28','8:00','member','master',sysdate);
+insert into gym_book values(gym_book_id.nextval,'헬스','2021/04/28','10:00','member','master',sysdate);
 commit;
+select * from gym_book;
 

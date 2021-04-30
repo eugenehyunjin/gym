@@ -38,6 +38,11 @@ public class BookServiceImpl implements BookService{
 		List<BookVO> list = dao.stuList(course_id);
 		return list;
 	}
+	
+	public void deleteBook(int book_id) {
+		dao.deleteBook(book_id);
+		
+	}
 
 
 
