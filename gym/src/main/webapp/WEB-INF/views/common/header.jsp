@@ -38,25 +38,21 @@
             <i class="fa fa-search"></i>
         </div>
         <nav class="canvas-menu mobile-menu">
-            <ul>
-                <li><a href="${contextPath }/main.do">Home</a></li>
-                <li><a href="./about-us.jsp">About Us</a></li>
-                <li><a href="./classes.jsp">Classes</a></li>
-                <li><a href="./services.jsp">Services</a></li>
-                <li><a href="${contextPath }/team.do">Our Team</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./about-us.jsp">About us</a></li>
-                        <li><a href="./class-timetable.jsp">Classes timetable</a></li>
-                        <li><a href="./bmi-calculator.jsp">Bmi calculate</a></li>
-                        <li><a href="./team.jsp">Our team</a></li>
-                        <li><a href="./gallery.jsp">Gallery</a></li>
-                        <li><a href="./blog.jsp">Our blog</a></li>
-                        <li><a href="./404.jsp">404</a></li>
-                    </ul>
-                </li>
-                <li><a href="${contextPath }/contact.do">Contact</a></li>
-            </ul>
+						<ul>
+                            <li><a href="${contextPath }/main.do">홈</a></li>
+                            <li><a href="${contextPath }/about.do">소개</a>
+                              <ul class="dropdown">
+                                    <li><a href="${contextPath }/body.do">보디빌딩</a></li>
+                                    <li><a href="${contextPath }/yoga.do">요가</a></li>
+                                    <li><a href="${contextPath }/pilates.do">필라테스</a></li>
+                                    <li><a href="${contextPath }/pt.do">퍼스널 트레이닝</a></li>
+                                </ul>
+                                </li>
+                            <li><a href="${contextPath }/class.do">커리큘럼</a></li>
+                            <li><a href="${contextPath }/team.do">팀</a></li>
+                            <li><a href="${contextPath }/blog.do">공지사항</a></li>
+							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
+                        </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="canvas-social">
@@ -91,7 +87,6 @@
                                 </ul>
                                 </li>
                             <li><a href="${contextPath }/class.do">커리큘럼</a></li>
-                            <li><a href="${contextPath }/book.do">예약페이지</a></li>
                             <li><a href="${contextPath }/team.do">팀</a></li>
                             <li><a href="${contextPath }/blog.do">공지사항</a></li>
 							<li><a href="${contextPath }/contact.do">찾아오시는길</a></li>
