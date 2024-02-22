@@ -1,21 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+코로나 시기에 대한민국의 헬스장 & 운동센터 & 개인 트레이너들이 온라인으로 수업을 진행하는데 도움을 주고자 개발한 웹 서비스입니다.
 
-## Getting Started
+## 개발상세
 
-First, run the development server:
+개발인원: 4명
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+개발기간: 2개월
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+bootstrap, Spring, java, mysql을 기반으로 개발되었습니다. 
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 주요기능
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- admin, instructor, student 총 3개의 role을 제공
+- admin은 강의 상세 페이지 설정 및 instructor 및 student 관리
+- instructor는 자신의 커리큘럼을 등록 및 영상 제공
+- zoom연동을 통한 실시간 강의 기능
+- student는 회원가입을 통해 원하는 강의 신청 및 결제 진행
+- instructor와 student를 연계하여 강의 진행하도록 기능 제공
